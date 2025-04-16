@@ -52,10 +52,10 @@ export default function Header() {
           <nav className="">
             <ul
               role="list"
-              className="flex items-center gap-4 md:gap-6 leading-5 text-white text-sm md:text-base tracking-tight font-normal"
+              className="flex items-center gap-4 md:gap-6 leading-5 text-white text-sm md:text-base  font-normal"
             >
               <li className="relative group">
-                <Link href="/thuis" className="flex items-center">
+                <Link href="/thuis" className="flex items-center font-bold">
                   Thuis
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
