@@ -34,8 +34,10 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed z-50 h-24 inset-0  flex items-center bg-transparent ${
-        isScrolled ? "backdrop-blur-md" : ""
+      className={`fixed z-50  inset-0  flex items-center transition-all duration-300  ${
+        isScrolled
+          ? "bg-white/80 backdrop-blur-md text-black h-20"
+          : "bg-transparent text-white h-24"
       }`}
     >
       <div className="container py-6 sm:px-6">
@@ -52,7 +54,7 @@ export default function Header() {
           <nav className="">
             <ul
               role="list"
-              className="flex items-center gap-4 md:gap-6 leading-5 text-white text-sm md:text-base  font-normal"
+              className="flex items-center gap-4 md:gap-6 leading-5  text-sm md:text-base  font-normal"
             >
               <li className="relative group">
                 <Link href="/thuis" className="flex items-center font-bold">
@@ -90,7 +92,7 @@ export default function Header() {
                 </div>
               </li>
               <li className="relative group">
-                <Link href="/zakelijk" className="flex items-center">
+                <Link href="/zakelijk" className="flex font-bold items-center">
                   Zakelijk
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
