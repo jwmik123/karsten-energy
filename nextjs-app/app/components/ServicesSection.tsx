@@ -1,4 +1,3 @@
-import { draftMode } from "next/headers";
 import { client } from "@/sanity/lib/client";
 import { allServicesQuery } from "@/sanity/lib/queries";
 import ServiceCarousel from "./ServiceCarousel";
@@ -43,7 +42,7 @@ const fallbackServices = [
 ];
 
 export default async function ServicesSection() {
-  let services = [];
+  let services: any[] = [];
 
   try {
     if (client) {
