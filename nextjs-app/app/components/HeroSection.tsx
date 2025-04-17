@@ -1,9 +1,9 @@
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/utils";
-import { PortableText } from "@portabletext/react";
-import Image from "next/image";
+import { PortableText, PortableTextBlock } from "@portabletext/react";
 import Link from "next/link";
 import { groq } from "next-sanity";
+import AnimatedHeroImage from "./AnimatedHeroImage";
 
 // Define the GROQ query to fetch all hero section data
 const HERO_SECTION_QUERY = groq`*[_type == "heroSection"] {
@@ -25,7 +25,7 @@ interface HeroSectionData {
   image: any; // Replace 'any' with a more specific type if available from sanity-typegen
   subtitle?: string;
   title: string;
-  text: any; // Replace 'any' with PortableTextBlock[] or similar
+  text: PortableTextBlock[]; // Replace 'any' with PortableTextBlock[] or similar
   button: {
     text: string;
     link?: string;
@@ -43,15 +43,14 @@ function HeroSectionItem({ data }: { data: HeroSectionData }) {
 
   // Create the image and content columns with the correct order
   const imageColumn = (
-    <div className="relative aspect-video md:aspect-square rounded-lg overflow-hidden shadow-lg">
+    <div className="relative aspect-video md:aspect-square rounded-lg overflow-hidden shadow-target">
       {imageUrl ? (
-        <Image
-          src={imageUrl}
-          alt={data.title || "Hero image"}
-          fill
-          className="object-cover"
-          priority // Prioritize loading the hero image
-        />
+        <div className="h-full w-full">
+          <AnimatedHeroImage
+            imageUrl={imageUrl}
+            altText={data.title || "Hero image"}
+          />
+        </div>
       ) : (
         <div className="bg-gray-200 h-full w-full flex items-center justify-center">
           <span className="text-gray-500">Image not found</span>
@@ -67,7 +66,7 @@ function HeroSectionItem({ data }: { data: HeroSectionData }) {
           {data.subtitle}
         </p>
       )}
-      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-tight">
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-tight tracking-tighter">
         {data.title}
       </h1>
       <div className="prose prose-lg text-gray-600 mb-6">

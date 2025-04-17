@@ -95,3 +95,28 @@ export const pagesSlugs = defineQuery(`
   *[_type == "page" && defined(slug.current)]
   {"slug": slug.current}
 `);
+
+export const allServicesQuery = defineQuery(`
+  *[_type == "service" && defined(slug.current)] | order(title asc) {
+    _id,
+    title,
+    description,
+    "slug": slug.current,
+    "image": image.asset->url
+  }
+`);
+
+export const serviceQuery = defineQuery(`
+  *[_type == "service" && slug.current == $slug][0] {
+    _id,
+    title,
+    description,
+    "slug": slug.current,
+    "image": image.asset->url
+  }
+`);
+
+export const servicesSlugs = defineQuery(`
+  *[_type == "service" && defined(slug.current)]
+  {"slug": slug.current}
+`);
