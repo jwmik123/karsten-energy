@@ -122,7 +122,7 @@ export default function ServiceCarousel({
   return (
     <div className="relative bg-blue-600 py-24 text-white">
       <div className="container mx-auto px-4">
-        <div className="flex flex-row items-center justify-between pb-12">
+        <div className="flex flex-col md:flex-row items-center justify-between md:pb-12">
           <h2 className="text-4xl font-light mb-8 max-w-lg tracking-tighter">
             De beste oplossingen voor maximale energiebesparing
           </h2>
@@ -178,15 +178,14 @@ export default function ServiceCarousel({
 
                   {/* White container for title and description */}
                   <div
-                    className="absolute bottom-4 mx-4 bg-white p-6 z-20 pointer-events-none flex flex-col rounded-xl"
+                    className="absolute bottom-4 mx-4 bg-white p-4 z-20 pointer-events-none flex flex-col rounded-xl"
                     style={{ transform: "translateY(100%)", opacity: 0 }}
                     ref={(el) => {
                       if (el) containerRefs.current.set(service._id, el);
                     }}
                   >
-                    {/* The title will be moved here on hover via GSAP */}
-                    {/* Description below where title will be placed */}
-                    <p className="text-black text-left font-light">
+                    {/* The title will be moved here on hover */}
+                    <p className="text-black text-left text-sm font-light">
                       {service.description}
                     </p>
                   </div>
@@ -220,8 +219,8 @@ export default function ServiceCarousel({
           </Swiper>
 
           {/* Custom navigation buttons */}
-          <div className="swiper-button-prev !text-black !-left-8 !w-16 !h-8 rounded-full bg-white !after:text-lg"></div>
-          <div className="swiper-button-next !text-black !right-4 !w-16 !h-8 rounded-full bg-white !after:text-lg"></div>
+          <div className="swiper-button-prev !text-black md:!-left-8 !w-16 !h-8 rounded-full bg-white !after:text-lg"></div>
+          <div className="swiper-button-next !text-black md:!right-4 !w-16 !h-8 rounded-full bg-white !after:text-lg"></div>
         </div>
       </div>
 
@@ -237,10 +236,6 @@ export default function ServiceCarousel({
         .swiper-button-prev:after,
         .swiper-button-next:after {
           font-size: 16px;
-        }
-        .swiper-button-prev,
-        .swiper-button-next {
-          transform: translateY(-50%);
         }
       `}</style>
     </div>

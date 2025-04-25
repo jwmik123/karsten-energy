@@ -2,6 +2,8 @@ import React from "react";
 
 import Cta from "@/app/components/Cta";
 import Info from "@/app/components/InfoSection";
+import Faq from "@/app/components/FaqSection";
+import TextImageSection from "@/app/components/TextImageSection";
 import { dataAttr } from "@/sanity/lib/utils";
 
 type BlocksType = {
@@ -23,6 +25,8 @@ type BlockProps = {
 const Blocks: BlocksType = {
   callToAction: Cta,
   infoSection: Info,
+  faqSection: Faq,
+  textImageSection: TextImageSection,
 };
 
 /**
@@ -60,6 +64,6 @@ export default function BlockRenderer({
         A &ldquo;{block._type}&rdquo; block hasn&apos;t been created
       </div>
     ),
-    { key: block._key },
+    { key: block._key }
   );
 }

@@ -36,7 +36,7 @@ export const useTextStaggerAnimation = (
   const {
     delay = 0,
     staggerAmount = 0.1,
-    fromY = 50,
+    fromY = 40,
     duration = 0.8,
     scrollTrigger = false,
     start = "top 80%",

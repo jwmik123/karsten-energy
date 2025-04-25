@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import Head from "next/head";
+import Image from "next/image";
+import { urlForImage, linkResolver } from "@/sanity/lib/utils";
+import ResolvedLink from "@/app/components/ResolvedLink";
+import { Check } from "lucide-react";
 
 import PageBuilderPage from "@/app/components/PageBuilder";
 import { sanityFetch } from "@/sanity/lib/live";
@@ -59,25 +63,72 @@ export default async function Page(props: Props) {
   }
 
   return (
-    <div className="my-12 lg:my-24">
-      <Head>
-        <title>{page.heading}</title>
-      </Head>
-      <div className="">
-        <div className="container">
-          <div className="pb-6 border-b border-gray-100">
-            <div className="max-w-3xl">
-              <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-7xl">
-                {page.heading}
-              </h2>
-              <p className="mt-4 text-base lg:text-lg leading-relaxed text-gray-600 uppercase font-light">
-                {page.subheading}
-              </p>
+    <div>
+      {page.headerImage && (
+        <div className="relative w-full h-[50vh] md:h-screen">
+          <Image
+            src={
+              urlForImage(page.headerImage)?.width(1920)?.height(1080)?.url() ||
+              ""
+            }
+            alt={page.heading || "Header image"}
+            fill
+            priority
+            className="object-cover"
+          />
+
+          <div className="absolute bottom-10 md:left-[9%] left-0 flex items-center w-full md:w-2/3">
+            <div className="text-left text-white p-4 rounded-lg">
+              {page.subheading && (
+                <h1 className="text-3xl md:text-[9vh] md:leading-[9vh] font-bold tracking-tight">
+                  {page.subheading}
+                </h1>
+              )}
+              {page.headerListItems && page.headerListItems.length > 0 && (
+                <div className="text-lg md:text-xl my-5 md:my-10 font-light">
+                  <ul className="space-y-2">
+                    {page.headerListItems.map((item: string, index: number) => (
+                      <li key={index} className="flex items-center">
+                        <Check className="h-5 w-5 mr-2 flex-shrink-0 text-blue-400" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {page.headerButton && page.headerButton.text && (
+                <div className="">
+                  <ResolvedLink
+                    link={page.headerButton.link}
+                    className="inline-block bg-blue-600 text-white py-3 px-6 rounded-lg font-medium text-lg hover:bg-blue-700 transition-colors"
+                  >
+                    {page.headerButton.text}
+                  </ResolvedLink>
+                </div>
+              )}
             </div>
           </div>
         </div>
+      )}
+      <div className="my-12 lg:my-24">
+        <Head>
+          <title>{page.heading}</title>
+        </Head>
+        {!page.headerImage && (
+          <div className="">
+            <div className="container">
+              <div className="pb-6 border-b border-gray-100">
+                <div className="max-w-3xl">
+                  <p className="mt-4 text-base lg:text-lg leading-relaxed text-gray-600 uppercase font-light">
+                    {page.subheading}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+        <PageBuilderPage page={page as GetPageQueryResult} />
       </div>
-      <PageBuilderPage page={page as GetPageQueryResult} />
     </div>
   );
 }

@@ -43,7 +43,7 @@ export default function LandingImage() {
             <div className="max-w-lg">
               <Link
                 href="/about"
-                className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-md transition duration-300"
+                className="inline-block bg-transparent border border-white hover:bg-white hover:text-black text-white font-semibold py-3 px-8 rounded-md transition duration-300"
               >
                 Ontdek de thuisbatterij
               </Link>

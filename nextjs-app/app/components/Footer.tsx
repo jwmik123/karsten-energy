@@ -4,8 +4,8 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-red-600 text-white font-light">
-      <div className="container mx-auto px-4 py-8">
+    <footer className="bg-red-500 text-white font-light">
+      <div className="container mx-auto px-4 pt-16 pb-6">
         <div className="flex flex-col md:flex-row justify-between gap-8">
           {/* Left Column with Logo */}
           <div className="md:col-span-1 flex flex-col items-center md:items-start">
@@ -165,7 +165,7 @@ export default function Footer() {
         {/* Certification Logos */}
 
         {/* Copyright Section */}
-        <div className="border-t border-red-500 pt-6 mt-6 flex flex-col md:flex-row items-center justify-between">
+        <div className="border-t border-red-500 border-t-red-400 pt-6 mt-6 text-xs flex flex-col md:flex-row items-center justify-between">
           <div>© {currentYear} Karsten Energy B.V.</div>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <a href="#" className="hover:underline">

@@ -35,6 +35,15 @@ export const getPageQuery = defineQuery(`
     slug,
     heading,
     subheading,
+    headerImage,
+    headerListItems,
+    headerButton{
+      text,
+      link{
+        ...,
+        ${linkReference}
+      }
+    },
     "pageBuilder": pageBuilder[]{
       ...,
       _type == "callToAction" => {
@@ -97,7 +106,7 @@ export const pagesSlugs = defineQuery(`
 `);
 
 export const allServicesQuery = defineQuery(`
-  *[_type == "service" && defined(slug.current)] | order(title asc) {
+  *[_type == "service" && defined(slug.current)] | order(_id desc) {
     _id,
     title,
     description,
