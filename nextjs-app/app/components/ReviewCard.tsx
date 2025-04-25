@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 interface ReviewCardProps {
   reviewerName: string;
@@ -55,11 +56,12 @@ export default function ReviewCard({
       style={{ width: `${width}px`, minHeight: "200px" }}
     >
       <div className="flex items-center mb-3">
-        <div className="h-10 w-10 rounded-full overflow-hidden mr-3">
-          <img
+        <div className="h-10 w-10 rounded-full overflow-hidden mr-3 relative">
+          <Image
             src={avatarSrc}
             alt={reviewerName}
-            className="h-full w-full object-cover"
+            className="object-cover"
+            fill
           />
         </div>
         <div>
@@ -76,10 +78,12 @@ export default function ReviewCard({
       </div>
 
       <div className="mt-3 flex items-center">
-        <img
+        <Image
           src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
           alt="Google"
-          className="h-5 mr-2"
+          className="h-5 mr-2 w-auto"
+          width={92}
+          height={30}
         />
         <span className="text-xs text-gray-500">Beoordeling op Google</span>
       </div>

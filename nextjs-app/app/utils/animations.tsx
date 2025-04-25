@@ -4,6 +4,7 @@ import React from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 // Register plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -179,19 +180,21 @@ export const RevealImage: React.FC<{
       >
         {/* Image that will be revealed */}
         <div className="relative w-full h-full">
-          <img
+          <Image
             src={src}
             alt={alt}
             className={`w-full h-full object-cover ${imgClassName}`}
+            fill
           />
         </div>
       </div>
       {/* Invisible image to maintain layout dimensions */}
       <div className="relative w-full h-full invisible" aria-hidden="true">
-        <img
+        <Image
           src={src}
           alt=""
           className={`w-full h-full object-cover ${imgClassName}`}
+          fill
         />
       </div>
     </div>

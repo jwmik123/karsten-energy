@@ -1,6 +1,7 @@
 "use client";
 
 import ReviewSlider from "./ReviewSlider";
+import Image from "next/image";
 
 // Mock review data
 const mockReviews = [
@@ -147,10 +148,12 @@ export default function ReviewsSection() {
           </h2>
 
           <div className="flex items-center justify-center mt-6">
-            <img
+            <Image
               src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
               alt="Google"
-              className="h-8 mr-3"
+              className="h-8 mr-3 w-auto"
+              width={92}
+              height={30}
             />
           </div>
         </div>

@@ -9,15 +9,19 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between gap-8">
           {/* Left Column with Logo */}
           <div className="md:col-span-1 flex flex-col items-center md:items-start">
-            <img
+            <Image
               src="/karstenenergy-logo.png"
               alt="Karsten Energy"
-              className="h-16 mb-6"
+              width={128}
+              height={64}
+              className="h-16 mb-6 w-auto"
             />
             {/* Team image */}
-            <img
+            <Image
               src="/team.jpg"
               alt="Karsten Energy Team"
+              width={320}
+              height={240}
               className="w-full max-w-xs rounded-md"
             />
           </div>
