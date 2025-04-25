@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { urlForImage, linkResolver } from "@/sanity/lib/utils";
+import { urlForImage } from "@/sanity/lib/utils";
 import ResolvedLink from "@/app/components/ResolvedLink";
 import { Check } from "lucide-react";
 
