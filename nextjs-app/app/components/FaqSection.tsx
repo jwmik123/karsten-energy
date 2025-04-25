@@ -5,10 +5,19 @@ import { gsap } from "gsap";
 import { type PortableTextBlock } from "next-sanity";
 
 import PortableText from "@/app/components/PortableText";
-import { FaqSection as FaqSectionType } from "@/sanity.types";
+
+// Define inline type instead of importing from sanity.types
+type FaqSectionSchema = {
+  _type: "faqSection";
+  title?: string;
+  faqItems?: Array<{
+    question: string;
+    answer: Array<PortableTextBlock>;
+  }>;
+};
 
 type FaqProps = {
-  block: FaqSectionType;
+  block: FaqSectionSchema;
   index: number;
 };
 
