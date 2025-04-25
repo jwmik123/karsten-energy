@@ -11,6 +11,20 @@ import { getPageQuery, pagesSlugs } from "@/sanity/lib/queries";
 import { GetPageQueryResult } from "@/sanity.types";
 import { PageOnboarding } from "@/app/components/Onboarding";
 
+// Define the expected structure for headerButton and headerListItems
+interface HeaderButton {
+  text: string;
+  link: {
+    linkType?: string;
+    href?: string;
+    page?: string | null;
+    post?: string | null;
+    openInNewTab?: boolean;
+  } | null;
+}
+
+type HeaderListItems = string[];
+
 type Props = {
   params: Promise<{ slug: string }>;
 };
@@ -62,6 +76,10 @@ export default async function Page(props: Props) {
     );
   }
 
+  // Type assertions for Sanity data
+  const headerButton = page.headerButton as HeaderButton | null;
+  const headerListItems = page.headerListItems as HeaderListItems | null;
+
   return (
     <div>
       {page.headerImage && (
@@ -84,10 +102,10 @@ export default async function Page(props: Props) {
                   {page.subheading}
                 </h1>
               )}
-              {page.headerListItems && page.headerListItems.length > 0 && (
+              {headerListItems && headerListItems.length > 0 && (
                 <div className="text-lg md:text-xl my-5 md:my-10 font-light">
                   <ul className="space-y-2">
-                    {page.headerListItems.map((item: string, index: number) => (
+                    {headerListItems.map((item: string, index: number) => (
                       <li key={index} className="flex items-center">
                         <Check className="h-5 w-5 mr-2 flex-shrink-0 text-blue-400" />
                         <span>{item}</span>
@@ -96,13 +114,13 @@ export default async function Page(props: Props) {
                   </ul>
                 </div>
               )}
-              {page.headerButton && page.headerButton.text && (
+              {headerButton && headerButton.text && (
                 <div className="">
                   <ResolvedLink
-                    link={page.headerButton.link}
+                    link={headerButton.link}
                     className="inline-block bg-blue-600 text-white py-3 px-6 rounded-lg font-medium text-lg hover:bg-blue-700 transition-colors"
                   >
-                    {page.headerButton.text}
+                    {headerButton.text}
                   </ResolvedLink>
                 </div>
               )}

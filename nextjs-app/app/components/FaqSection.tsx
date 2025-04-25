@@ -135,7 +135,7 @@ export default function FaqSection({ block }: FaqProps) {
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-2">
           {/* Left Column */}
           <div className="flex flex-col gap-2">
-            {leftColumn.map((item, origIndex) => {
+            {leftColumn.map((item: any, origIndex: number) => {
               const index = origIndex;
               return (
                 <FaqItem
@@ -151,7 +151,7 @@ export default function FaqSection({ block }: FaqProps) {
 
           {/* Right Column */}
           <div className="flex flex-col gap-2">
-            {rightColumn.map((item, origIndex) => {
+            {rightColumn.map((item: any, origIndex: number) => {
               const index = origIndex + leftColumn.length;
               return (
                 <FaqItem

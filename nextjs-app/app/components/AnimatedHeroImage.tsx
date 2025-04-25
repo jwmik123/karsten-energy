@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { useImageRevealAnimation } from "../utils/animations";
 
 interface AnimatedHeroImageProps {
@@ -31,19 +32,23 @@ export default function AnimatedHeroImage({
           }}
         >
           {/* The actual image that will be revealed */}
-          <img
+          <Image
             src={imageUrl}
             alt={altText}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            sizes="100vw"
           />
         </div>
 
         {/* Invisible placeholder image to maintain layout dimensions */}
-        <img
+        <Image
           src={imageUrl}
           alt=""
-          className="w-full h-full object-cover invisible"
+          fill
+          className="object-cover invisible"
           aria-hidden="true"
+          sizes="100vw"
         />
       </div>
     </div>
