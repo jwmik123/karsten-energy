@@ -65,7 +65,7 @@ const FaqItem = ({ question, answer, isOpen, onClick }: FaqItemProps) => {
         });
 
         gsap.to(faqRef.current, {
-          paddingBottom: "0",
+          paddingBottom: ".5rem",
         });
 
         // Reset plus

@@ -82,7 +82,7 @@ export default function TextImageSection({
   const bgColor = index % 2 === 0 ? "bg-white" : "bg-blue-50";
 
   return (
-    <section className={`${bgColor} py-12 md:py-20`}>
+    <section className={`${bgColor} py-12`}>
       <div
         className="container mx-auto px-4 grid md:grid-cols-2 gap-8 lg:gap-16 items-center"
         data-image-position={imagePosition}

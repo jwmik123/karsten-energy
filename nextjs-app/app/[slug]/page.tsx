@@ -128,7 +128,7 @@ export default async function Page(props: Props) {
           </div>
         </div>
       )}
-      <div className="my-12 lg:my-24">
+      <div className="">
         <Head>
           <title>{page.heading}</title>
         </Head>
