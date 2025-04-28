@@ -35,7 +35,7 @@ export async function POST(request: Request) {
     // Send the email using Resend
     const { data, error } = await resend.emails.send({
       from: "Karsten Energy Website <noreply@karstenenergy.nl>",
-      to: ["info@karstenenergy.nl"], // Replace with your actual email
+      to: ["joelmik123@gmail.com"], // Replace with your actual email
       subject: "Nieuwe offerte aanvraag via website",
       html: `
         <h1>Nieuwe offerte aanvraag</h1>

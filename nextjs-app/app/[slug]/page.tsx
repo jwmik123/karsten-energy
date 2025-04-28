@@ -84,7 +84,7 @@ export default async function Page(props: Props) {
   return (
     <div>
       {page.headerImage && (
-        <div className="relative w-full h-[50vh] md:h-screen">
+        <div className="relative w-full h-[50vh] md:h-screen bg-gray-900">
           <Image
             src={
               urlForImage(page.headerImage)?.width(1920)?.height(1080)?.url() ||
@@ -93,7 +93,7 @@ export default async function Page(props: Props) {
             alt={page.heading || "Header image"}
             fill
             priority
-            className="object-cover"
+            className="object-cover opacity-80"
           />
 
           <div className="absolute bottom-10 md:left-[9%] left-0 flex items-center w-full md:w-2/3">
