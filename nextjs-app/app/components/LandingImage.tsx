@@ -21,7 +21,7 @@ export default function LandingImage() {
         style={{
           backgroundImage: "url('/thuisbatterij-karsten.webp')",
           backgroundSize: "cover",
-          filter: "brightness(0.7)",
+          filter: "brightness(1)",
         }}
       />
 

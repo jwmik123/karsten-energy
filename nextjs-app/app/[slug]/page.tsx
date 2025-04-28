@@ -10,6 +10,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { getPageQuery, pagesSlugs } from "@/sanity/lib/queries";
 import { GetPageQueryResult } from "@/sanity.types";
 import { PageOnboarding } from "@/app/components/Onboarding";
+import ContactForm from "@/app/components/ContactForm";
 
 // Define the expected structure for headerButton and headerListItems
 interface HeaderButton {
@@ -118,7 +119,7 @@ export default async function Page(props: Props) {
                 <div className="">
                   <ResolvedLink
                     link={headerButton.link}
-                    className="inline-block bg-blue-600 text-white py-3 px-6 rounded-lg font-medium text-lg hover:bg-blue-700 transition-colors"
+                    className="inline-block bg-blue-600 text-white py-2 px-4 rounded-lg font-base text-base hover:bg-blue-700 transition-colors"
                   >
                     {headerButton.text}
                   </ResolvedLink>
@@ -146,6 +147,7 @@ export default async function Page(props: Props) {
           </div>
         )}
         <PageBuilderPage page={page as GetPageQueryResult} />
+        <ContactForm />
       </div>
     </div>
   );

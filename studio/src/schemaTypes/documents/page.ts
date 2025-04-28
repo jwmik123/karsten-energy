@@ -83,6 +83,7 @@ export const page = defineType({
         {type: 'infoSection'},
         {type: 'faqSection'},
         {type: 'textImageSection'},
+        {type: 'slogan'},
       ],
       options: {
         insertMenu: {

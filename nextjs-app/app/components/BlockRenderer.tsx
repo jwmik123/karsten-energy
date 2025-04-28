@@ -4,6 +4,7 @@ import Cta from "@/app/components/Cta";
 import Info from "@/app/components/InfoSection";
 import Faq from "@/app/components/FaqSection";
 import TextImageSection from "@/app/components/TextImageSection";
+import Slogan from "@/app/components/Slogan";
 import { dataAttr } from "@/sanity/lib/utils";
 
 type BlocksType = {
@@ -27,6 +28,7 @@ const Blocks: BlocksType = {
   infoSection: Info,
   faqSection: Faq,
   textImageSection: TextImageSection,
+  slogan: Slogan,
 };
 
 /**

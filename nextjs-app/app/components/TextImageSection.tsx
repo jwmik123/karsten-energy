@@ -38,7 +38,7 @@ export default function TextImageSection({
 
   // Create the image and content columns
   const imageColumn = (
-    <div className="relative aspect-video md:aspect-square rounded-lg overflow-hidden">
+    <div className="relative aspect-square rounded-lg overflow-hidden">
       {imageUrl ? (
         <div className="h-full w-full relative">
           <Image
@@ -60,7 +60,7 @@ export default function TextImageSection({
   const contentColumn = (
     <div className="flex flex-col justify-center">
       {block.title && (
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight tracking-tighter">
           {block.title}
         </h2>
       )}

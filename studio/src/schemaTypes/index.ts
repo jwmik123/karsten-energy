@@ -6,6 +6,7 @@ import {callToAction} from './objects/callToAction'
 import {infoSection} from './objects/infoSection'
 import {faqSection} from './objects/faqSection'
 import {textImageSection} from './objects/textImageSection'
+import {slogan} from './objects/slogan'
 import {settings} from './singletons/settings'
 import {homepageFaq} from './singletons/homepageFaq'
 import {link} from './objects/link'
@@ -31,4 +32,5 @@ export const schemaTypes = [
   heroSection,
   faqSection,
   textImageSection,
+  slogan,
 ]

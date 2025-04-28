@@ -1,6 +1,6 @@
 # Clean Next.js + Sanity app
 
-This template includes a [Next.js](https://nextjs.org/) app with a [Sanity Studio](https://www.sanity.io/) – an open-source React application that connects to your Sanity project’s hosted dataset. The Studio is configured locally and can then be deployed for content collaboration.
+This template includes a [Next.js](https://nextjs.org/) app with a [Sanity Studio](https://www.sanity.io/) – an open-source React application that connects to your Sanity project's hosted dataset. The Studio is configured locally and can then be deployed for content collaboration.
 
 ![Screenshot of Sanity Studio using Presentation Tool to do Visual Editing](https://cdn.sanity.io/images/fkfgfb3d/production/8f626d30c5c41a5d2d75f899645beada2b82826b-3248x2112.png?auto=format)
 
@@ -92,9 +92,19 @@ You have the freedom to deploy your Next.js app to your hosting provider of choi
 
 #### 3. Invite a collaborator
 
-Now that you’ve deployed your Next.js application and Sanity Studio, you can optionally invite a collaborator to your Studio. Open up [Manage](https://www.sanity.io/manage), select your project and click "Invite project members"
+Now that you've deployed your Next.js application and Sanity Studio, you can optionally invite a collaborator to your Studio. Open up [Manage](https://www.sanity.io/manage), select your project and click "Invite project members"
 
 They will be able to access the deployed Studio, where you can collaborate together on creating content.
+
+## Environment Variables
+
+To run this project, you'll need to set up the following environment variables in your `.env.local` file:
+
+### Email Functionality
+
+- `RESEND_API_KEY` - API key for Resend email service (required for contact form)
+
+### Other Environment Variables
 
 ## Resources
 

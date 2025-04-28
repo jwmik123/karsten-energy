@@ -30,6 +30,7 @@
     "@gsap/react": "^2.1.2",
     "clsx": "^2.1.1",
     "gsap": "^3.12.7",
-    "lucide-react": "^0.503.0"
+    "lucide-react": "^0.503.0",
+    "resend": "^4.4.1"
   }
 }
