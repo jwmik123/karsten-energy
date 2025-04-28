@@ -2,7 +2,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+
 export default function Header() {
+  const pathname = usePathname();
+
   const useScrollDetection = () => {
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -57,22 +61,14 @@ export default function Header() {
               className="flex items-center gap-4 md:gap-8 leading-5  text-sm md:text-lg  font-normal"
             >
               <li className="relative group">
-                <Link href="/thuis" className="flex items-center font-bold">
+                <Link
+                  href="/thuis"
+                  className={`flex items-center font-bold relative`}
+                >
                   Thuis
-                  {/* <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 ml-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg> */}
+                  <span
+                    className={`absolute -bottom-1 left-0 h-[1px] bg-current transition-all duration-300 ${pathname === "/thuis" ? "w-full" : "w-0 group-hover:w-full"}`}
+                  ></span>
                 </Link>
                 <div className="absolute text-black left-0 mt-2 w-48 rounded-md shadow-lg bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                   <div className="py-1">
@@ -98,22 +94,14 @@ export default function Header() {
                 </div>
               </li>
               <li className="relative group">
-                <Link href="/zakelijk" className="flex font-bold items-center">
+                <Link
+                  href="/zakelijk"
+                  className={`flex font-bold items-center relative`}
+                >
                   Zakelijk
-                  {/* <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 ml-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg> */}
+                  <span
+                    className={`absolute -bottom-1 left-0 h-[1px] bg-current transition-all duration-300 ${pathname === "/zakelijk" ? "w-full" : "w-0 group-hover:w-full"}`}
+                  ></span>
                 </Link>
                 <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                   <div className="py-1">
@@ -139,37 +127,35 @@ export default function Header() {
                 </div>
               </li>
               <li>
-                <Link href="/thuisbatterij" className="">
+                <Link href="/thuisbatterij" className={`relative group`}>
                   Thuisbatterij
+                  <span
+                    className={`absolute -bottom-1 left-0 h-[1px] bg-current transition-all duration-300 ${pathname === "/thuisbatterij" ? "w-full" : "w-0 group-hover:w-full"}`}
+                  ></span>
                 </Link>
               </li>
               <li>
-                <Link href="/zonnepanelen" className="">
+                <Link href="/zonnepanelen" className={`relative group`}>
                   Zonnepanelen
+                  <span
+                    className={`absolute -bottom-1 left-0 h-[1px] bg-current transition-all duration-300 ${pathname === "/zonnepanelen" ? "w-full" : "w-0 group-hover:w-full"}`}
+                  ></span>
                 </Link>
               </li>
               <li>
-                <Link href="/laadpaal" className="">
+                <Link href="/laadpaal" className={`relative group`}>
                   Laadpaal
+                  <span
+                    className={`absolute -bottom-1 left-0 h-[1px] bg-current transition-all duration-300 ${pathname === "/laadpaal" ? "w-full" : "w-0 group-hover:w-full"}`}
+                  ></span>
                 </Link>
               </li>
               <li className="relative group">
-                <Link href="/over-ons" className="flex items-center">
+                <Link href="/over-ons" className={`flex items-center relative`}>
                   Over ons
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 ml-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
+                  <span
+                    className={`absolute -bottom-1 left-0 h-[1px] bg-current transition-all duration-300 ${pathname === "/over-ons" ? "w-full" : "w-0 group-hover:w-full"}`}
+                  ></span>
                 </Link>
                 <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                   <div className="py-1">
