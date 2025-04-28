@@ -47,7 +47,7 @@ export default function Slogan({ block, index }: SloganProps) {
         <h2
           className={`font-bold ${textSizeClass} ${textAlignClass} leading-tight italic`}
         >
-          "{block.text || "Your compelling slogan here"}"
+          {block.text || "Hier komt een slogan"}
         </h2>
       </div>
     </section>
