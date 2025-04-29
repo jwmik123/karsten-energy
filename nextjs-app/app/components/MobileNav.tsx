@@ -83,7 +83,7 @@ export default function MobileNav({ onMenuStateChange }: MobileNavProps) {
           isOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="flex flex-col h-full pt-24 px-6">
+        <div className="flex flex-col h-full pt-12 px-6">
           {/* Navigation Links */}
           <nav className="flex-1">
             <ul className="space-y-8">
@@ -150,7 +150,7 @@ export default function MobileNav({ onMenuStateChange }: MobileNavProps) {
           </nav>
 
           {/* Bottom Section */}
-          <div className="py-8 border-t border-white/20">
+          <div className="py-8 pb-12 border-t border-white/20">
             <div className="flex items-center gap-2 mb-6">
               <Phone size={24} className="text-white" />
               <span className="text-lg font-semibold text-white">
