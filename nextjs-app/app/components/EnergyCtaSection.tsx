@@ -28,7 +28,7 @@ export default function EnergyCtaSection() {
 
         <Link
           href="/energiecontract"
-          className="mt-8 inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-3 px-6 rounded-md transition-colors duration-300"
+          className="mt-8 inline-block bg-transparent border border-white hover:bg-white hover:text-black text-white font-medium py-3 px-6 rounded-md transition-colors duration-300"
         >
           Meer over ons dynamische energiecontract
         </Link>

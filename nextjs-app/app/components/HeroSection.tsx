@@ -75,7 +75,7 @@ function HeroSectionItem({ data }: { data: HeroSectionData }) {
       {data.button?.text && (
         <Link
           href={data.button.link || "#"} // Default to '#' if no link provided
-          className="inline-block bg-blue-600 text-white font-semibold py-3 px-6 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out shadow-md max-w-max"
+          className="inline-block bg-transparent border border-blue-500 hover:bg-blue-500 hover:text-white text-blue-500 font-semibold py-3 px-6 rounded-md transition-colors duration-300 ease-in-out max-w-max"
         >
           {data.button.text}
         </Link>

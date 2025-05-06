@@ -96,7 +96,7 @@ export default async function Page(props: Props) {
             className="object-cover opacity-80"
           />
 
-          <div className="absolute bottom-10 md:left-[9%] left-0 flex items-center w-full md:w-1/2">
+          <div className="absolute bottom-10 md:left-[8%] left-0 flex items-center w-full md:w-1/2">
             <div className="text-left text-white p-4 rounded-lg">
               {page.subheading && (
                 <h1 className="text-3xl md:text-[7vh] md:leading-[7vh] font-bold tracking-tight">
@@ -108,8 +108,8 @@ export default async function Page(props: Props) {
                   <ul className="space-y-2">
                     {headerListItems.map((item: string, index: number) => (
                       <li key={index} className="flex items-center">
-                        <Check className="h-5 w-5 mr-2 flex-shrink-0 text-blue-400" />
-                        <span>{item}</span>
+                        <Check className="h-5 w-5 mr-2 flex-shrink-0 text-white" />
+                        <span className="text-lg">{item}</span>
                       </li>
                     ))}
                   </ul>

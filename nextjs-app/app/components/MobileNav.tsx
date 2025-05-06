@@ -32,22 +32,21 @@ export default function MobileNav({ onMenuStateChange }: MobileNavProps) {
     {
       heading: "Thuis",
       links: [
-        { href: "/thuis/zonnepanelen", label: "Zonnepanelen" },
-        { href: "/thuis/thuisbatterij", label: "Thuisbatterij" },
-        { href: "/thuis/laadpaal", label: "Laadpaal" },
+        { href: "/zonnepanelen", label: "Zonnepanelen" },
+        { href: "/thuisbatterij", label: "Thuisbatterij" },
+        { href: "/laadpaal", label: "Laadpaal" },
       ],
       viewAllHref: "/thuis",
     },
     {
       heading: "Zakelijk",
       links: [
-        { href: "/zakelijk/zonnepanelen", label: "Zonnepanelen" },
-        { href: "/zakelijk/batterijopslag", label: "Batterijopslag" },
-        { href: "/zakelijk/laadpalen", label: "Laadpalen" },
+        { href: "/zonnepanelen-zakelijk", label: "Zonnepanelen" },
+        { href: "/batterij-zakelijk", label: "Zakelijke batterij" },
+        { href: "/laadpaal-zakelijk", label: "laadpalen" },
       ],
       viewAllHref: "/zakelijk",
     },
-    { href: "/over-ons", label: "Over ons" },
   ];
 
   return (
@@ -80,7 +79,7 @@ export default function MobileNav({ onMenuStateChange }: MobileNavProps) {
       {/* Fullscreen Menu */}
       <div
         className={`fixed inset-0 z-40 bg-blue-500 transform transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-y-0" : "-translate-y-full"
+          isOpen ? "translate-y-0" : "-translate-y-[110%]"
         }`}
       >
         <div className="flex flex-col h-full pt-12 px-6">
@@ -90,7 +89,7 @@ export default function MobileNav({ onMenuStateChange }: MobileNavProps) {
               {navItems.map((item) => (
                 <li key={item.heading || item.href}>
                   {item.heading ? (
-                    <div className="space-y-4">
+                    <div className="space-y-4 mb-4">
                       <h3 className="text-sm font-medium text-white/60 uppercase">
                         {item.heading}
                       </h3>
@@ -99,7 +98,7 @@ export default function MobileNav({ onMenuStateChange }: MobileNavProps) {
                           <li key={link.href}>
                             <Link
                               href={link.href}
-                              className={`text-4xl tracking-tight font-medium text-white ${
+                              className={`text-2xl tracking-tight font-medium text-white ${
                                 pathname === link.href
                                   ? "opacity-100"
                                   : "opacity-80"
@@ -154,7 +153,7 @@ export default function MobileNav({ onMenuStateChange }: MobileNavProps) {
             <div className="flex items-center gap-2 mb-6">
               <Phone size={24} className="text-white" />
               <span className="text-lg font-semibold text-white">
-                +31 123 456 789
+                <Link href="tel:+310858000611">+31 085 8000 611</Link>
               </span>
             </div>
             <Link

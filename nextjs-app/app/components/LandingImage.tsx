@@ -139,7 +139,7 @@ export default function LandingImage({ heroSlider }: LandingImageProps) {
               className="slide-content mb-8 md:mb-0 max-w-2xl"
             >
               <span className="text-white text-lg">Karsten Energy</span>
-              <h1 className="text-4xl md:text-7xl font-bold text-white tracking-tight overflow-hidden my-4">
+              <h1 className="text-4xl md:text-7xl font-bold text-white tracking-tight overflow-hidden pb-2 my-4">
                 <StaggeredWords text={currentSlideData.title} />
               </h1>
 

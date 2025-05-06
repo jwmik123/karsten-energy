@@ -78,23 +78,23 @@ export default function Header() {
                         }`}
                       ></span>
                     </Link>
-                    <div className="absolute text-black left-0 mt-2 w-48 rounded-md shadow-lg bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                    <div className="absolute text-black left-0 mt-2 w-48 rounded-md shadow-lg bg-blue-500 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                       <div className="py-1">
                         <Link
                           href="/thuis/optie-1"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          className="block px-4 py-2 text-md text-white hover:bg-blue-600"
                         >
                           Zonnepanelen
                         </Link>
                         <Link
                           href="/thuis/optie-2"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          className="block px-4 py-2 text-md text-white hover:bg-blue-600"
                         >
                           Thuisbatterij
                         </Link>
                         <Link
                           href="/thuis/optie-3"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          className="block px-4 py-2 text-md text-white hover:bg-blue-600"
                         >
                           Laadpaal
                         </Link>
@@ -115,23 +115,23 @@ export default function Header() {
                         }`}
                       ></span>
                     </Link>
-                    <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                    <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-blue-500 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                       <div className="py-1">
                         <Link
                           href="/zakelijk/optie-1"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          className="block px-4 py-2 text-md text-white hover:bg-blue-600"
                         >
                           Zonnepanelen
                         </Link>
                         <Link
-                          href="/zakelijk/optie-2"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          href="/batterij-zakelijk"
+                          className="block px-4 py-2 text-md text-white hover:bg-blue-600"
                         >
                           Batterijopslag
                         </Link>
                         <Link
                           href="/zakelijk/optie-3"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          className="block px-4 py-2 text-md text-white hover:bg-blue-600"
                         >
                           Laadpalen
                         </Link>
