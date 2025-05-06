@@ -5,11 +5,15 @@ import ServicesSection from "./components/ServicesSection";
 import EnergyCtaSection from "./components/EnergyCtaSection";
 import HomepageFaq from "./components/HomepageFaq";
 import ReviewsSection from "./components/ReviewsSection";
+import { getSettings } from "./lib/sanity";
 
-export default function Page() {
+export default async function Page() {
+  // Fetch settings data
+  const settingsData = await getSettings();
+
   return (
     <>
-      <LandingImage />
+      <LandingImage heroSlider={settingsData?.heroSlider} />
       <StaggeringText />
       <HeroSection />
       <ServicesSection />

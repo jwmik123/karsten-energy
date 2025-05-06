@@ -150,7 +150,7 @@ export default function MobileNav({ onMenuStateChange }: MobileNavProps) {
           </nav>
 
           {/* Bottom Section */}
-          <div className="py-8 pb-12 border-t border-white/20">
+          <div className="py-8 pb-16 border-t border-white/20">
             <div className="flex items-center gap-2 mb-6">
               <Phone size={24} className="text-white" />
               <span className="text-lg font-semibold text-white">

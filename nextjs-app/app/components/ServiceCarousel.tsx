@@ -219,8 +219,8 @@ export default function ServiceCarousel({
           </Swiper>
 
           {/* Custom navigation buttons */}
-          <div className="swiper-button-prev !text-black md:!-left-8 !w-16 !h-8 rounded-full bg-white !after:text-lg"></div>
-          <div className="swiper-button-next !text-black md:!right-4 !w-16 !h-8 rounded-full bg-white !after:text-lg"></div>
+          <div className="swiper-button-prev !text-black md:!-left-8 !w-16 !h-8 rounded-full bg-white !after:text-lg cursor-pointer"></div>
+          <div className="swiper-button-next !text-black md:!right-4 !w-16 !h-8 rounded-full bg-white !after:text-lg cursor-pointer"></div>
         </div>
       </div>
 

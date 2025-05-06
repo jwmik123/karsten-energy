@@ -17,13 +17,22 @@ export default function Footer() {
               className="h-16 mb-6 w-auto"
             />
             {/* Team image */}
-            <Image
-              src="/team.jpg"
-              alt="Karsten Energy Team"
-              width={320}
-              height={240}
-              className="w-full max-w-xs rounded-md"
-            />
+            <div className="flex flex-row overflow-hidden max-h-[250px] relative -ml-10">
+              <Image
+                src="/team2.webp"
+                alt="Karsten Energy Team"
+                width={320}
+                height={240}
+                className="w-full max-w-xs rounded-md object-cover object-top relative z-10"
+              />
+              <Image
+                src="/team.webp"
+                alt="Karsten Energy Team"
+                width={320}
+                height={240}
+                className="w-full max-w-xs rounded-md object-cover object-top -ml-24"
+              />
+            </div>
           </div>
 
           {/* Contact Column */}

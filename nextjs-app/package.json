@@ -14,6 +14,7 @@
     "@gsap/react": "^2.1.2",
     "@sanity/client": "^6.27.2",
     "@sanity/image-url": "^1.1.0",
+    "@sanity/react-loader": "^1.11.8",
     "@sanity/uuid": "^3.0.2",
     "@studio-freight/lenis": "^1.0.42",
     "@tailwindcss/typography": "^0.5.16",

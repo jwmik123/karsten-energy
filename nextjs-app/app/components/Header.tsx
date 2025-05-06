@@ -48,170 +48,199 @@ export default function Header() {
       >
         <div className="py-6 sm:px-6 w-full">
           <div className="flex items-center justify-between gap-5">
-            <Link className="flex items-center gap-2" href="/">
-              <Image
-                src="/karstenenergy-logo.png"
-                alt="Karsten Energy"
-                width={150}
-                height={150}
-              />
-            </Link>
+            <div className="flex items-center gap-12">
+              <Link className="flex items-center gap-2" href="/">
+                <Image
+                  src="/karstenenergy-logo.png"
+                  alt="Karsten Energy"
+                  width={200}
+                  height={200}
+                />
+              </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:block">
-              <ul
-                role="list"
-                className="flex items-center gap-4 md:gap-8 leading-5  text-sm md:text-lg  font-normal"
-              >
-                <li className="relative group">
-                  <Link
-                    href="/thuis"
-                    className={`flex items-center font-bold relative`}
-                  >
-                    Thuis
-                    <span
-                      className={`absolute -bottom-1 left-0 h-[1px] bg-current transition-all duration-300 ${
-                        pathname === "/thuis"
-                          ? "w-full"
-                          : "w-0 group-hover:w-full"
-                      }`}
-                    ></span>
-                  </Link>
-                  <div className="absolute text-black left-0 mt-2 w-48 rounded-md shadow-lg bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                    <div className="py-1">
-                      <Link
-                        href="/thuis/optie-1"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      >
-                        Zonnepanelen
-                      </Link>
-                      <Link
-                        href="/thuis/optie-2"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      >
-                        Thuisbatterij
-                      </Link>
-                      <Link
-                        href="/thuis/optie-3"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      >
-                        Laadpaal
-                      </Link>
+              {/* Desktop Navigation */}
+              <nav className="hidden md:block">
+                <ul
+                  role="list"
+                  className="flex items-center gap-4 md:gap-8 leading-5  text-sm md:text-lg  font-normal"
+                >
+                  <li className="relative group">
+                    <Link
+                      href="/thuis"
+                      className={`flex items-center font-bold relative`}
+                    >
+                      Thuis
+                      <span
+                        className={`absolute -bottom-1 left-0 h-[1px] bg-current transition-all duration-300 ${
+                          pathname === "/thuis"
+                            ? "w-full"
+                            : "w-0 group-hover:w-full"
+                        }`}
+                      ></span>
+                    </Link>
+                    <div className="absolute text-black left-0 mt-2 w-48 rounded-md shadow-lg bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                      <div className="py-1">
+                        <Link
+                          href="/thuis/optie-1"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          Zonnepanelen
+                        </Link>
+                        <Link
+                          href="/thuis/optie-2"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          Thuisbatterij
+                        </Link>
+                        <Link
+                          href="/thuis/optie-3"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          Laadpaal
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                </li>
-                <li className="relative group">
-                  <Link
-                    href="/zakelijk"
-                    className={`flex font-bold items-center relative`}
-                  >
-                    Zakelijk
-                    <span
-                      className={`absolute -bottom-1 left-0 h-[1px] bg-current transition-all duration-300 ${
-                        pathname === "/zakelijk"
-                          ? "w-full"
-                          : "w-0 group-hover:w-full"
-                      }`}
-                    ></span>
-                  </Link>
-                  <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                    <div className="py-1">
-                      <Link
-                        href="/zakelijk/optie-1"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      >
-                        Zonnepanelen
-                      </Link>
-                      <Link
-                        href="/zakelijk/optie-2"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      >
-                        Batterijopslag
-                      </Link>
-                      <Link
-                        href="/zakelijk/optie-3"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      >
-                        Laadpalen
-                      </Link>
+                  </li>
+                  <li className="relative group">
+                    <Link
+                      href="/zakelijk"
+                      className={`flex font-bold items-center relative`}
+                    >
+                      Zakelijk
+                      <span
+                        className={`absolute -bottom-1 left-0 h-[1px] bg-current transition-all duration-300 ${
+                          pathname === "/zakelijk"
+                            ? "w-full"
+                            : "w-0 group-hover:w-full"
+                        }`}
+                      ></span>
+                    </Link>
+                    <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                      <div className="py-1">
+                        <Link
+                          href="/zakelijk/optie-1"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          Zonnepanelen
+                        </Link>
+                        <Link
+                          href="/zakelijk/optie-2"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          Batterijopslag
+                        </Link>
+                        <Link
+                          href="/zakelijk/optie-3"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          Laadpalen
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                </li>
-                <li>
-                  <Link href="/thuisbatterij" className={`relative group`}>
-                    Thuisbatterij
-                    <span
-                      className={`absolute -bottom-1 left-0 h-[1px] bg-current transition-all duration-300 ${
-                        pathname === "/thuisbatterij"
-                          ? "w-full"
-                          : "w-0 group-hover:w-full"
-                      }`}
-                    ></span>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/zonnepanelen" className={`relative group`}>
-                    Zonnepanelen
-                    <span
-                      className={`absolute -bottom-1 left-0 h-[1px] bg-current transition-all duration-300 ${
-                        pathname === "/zonnepanelen"
-                          ? "w-full"
-                          : "w-0 group-hover:w-full"
-                      }`}
-                    ></span>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/laadpaal" className={`relative group`}>
-                    Laadpaal
-                    <span
-                      className={`absolute -bottom-1 left-0 h-[1px] bg-current transition-all duration-300 ${
-                        pathname === "/laadpaal"
-                          ? "w-full"
-                          : "w-0 group-hover:w-full"
-                      }`}
-                    ></span>
-                  </Link>
-                </li>
-                <li className="relative group">
-                  <Link
-                    href="/over-ons"
-                    className={`flex items-center relative`}
-                  >
-                    Over ons
-                    <span
-                      className={`absolute -bottom-1 left-0 h-[1px] bg-current transition-all duration-300 ${
-                        pathname === "/over-ons"
-                          ? "w-full"
-                          : "w-0 group-hover:w-full"
-                      }`}
-                    ></span>
-                  </Link>
-                  <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                    <div className="py-1">
-                      <Link
-                        href="/over-ons/team"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      >
-                        Team
-                      </Link>
-                      <Link
-                        href="/over-ons/contact"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      >
-                        Contact
-                      </Link>
+                  </li>
+                  <li>
+                    <Link href="/thuisbatterij" className={`relative group`}>
+                      Thuisbatterij
+                      <span
+                        className={`absolute -bottom-1 left-0 h-[1px] bg-current transition-all duration-300 ${
+                          pathname === "/thuisbatterij"
+                            ? "w-full"
+                            : "w-0 group-hover:w-full"
+                        }`}
+                      ></span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/zonnepanelen" className={`relative group`}>
+                      Zonnepanelen
+                      <span
+                        className={`absolute -bottom-1 left-0 h-[1px] bg-current transition-all duration-300 ${
+                          pathname === "/zonnepanelen"
+                            ? "w-full"
+                            : "w-0 group-hover:w-full"
+                        }`}
+                      ></span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/laadpaal" className={`relative group`}>
+                      Laadpaal
+                      <span
+                        className={`absolute -bottom-1 left-0 h-[1px] bg-current transition-all duration-300 ${
+                          pathname === "/laadpaal"
+                            ? "w-full"
+                            : "w-0 group-hover:w-full"
+                        }`}
+                      ></span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/airco" className={`relative group`}>
+                      Airco's
+                      <span
+                        className={`absolute -bottom-1 left-0 h-[1px] bg-current transition-all duration-300 ${
+                          pathname === "/airco"
+                            ? "w-full"
+                            : "w-0 group-hover:w-full"
+                        }`}
+                      ></span>
+                    </Link>
+                  </li>
+                  {/* <li className="relative group">
+                    <Link
+                      href="/over-ons"
+                      className={`flex items-center relative`}
+                    >
+                      Over ons
+                      <span
+                        className={`absolute -bottom-1 left-0 h-[1px] bg-current transition-all duration-300 ${
+                          pathname === "/over-ons"
+                            ? "w-full"
+                            : "w-0 group-hover:w-full"
+                        }`}
+                      ></span>
+                    </Link>
+                    <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                      <div className="py-1">
+                        <Link
+                          href="/over-ons/team"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          Team
+                        </Link>
+                        <Link
+                          href="/over-ons/contact"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          Contact
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                </li>
-              </ul>
-            </nav>
+                  </li> */}
+                </ul>
+              </nav>
+            </div>
 
             {/* Desktop Contact Button */}
             <div className="hidden md:flex items-center gap-4 divide-white">
               <div className="flex items-center gap-2">
-                <div className="p-2">
-                  <Phone size={20} className="" />
+                <div className="relative group">
+                  <div className="p-2">
+                    <Phone
+                      size={24}
+                      className={isScrolled ? "text-black" : "text-white"}
+                    />
+                  </div>
+                  <div className="absolute right-0 -top-5 mt-2 bg-white rounded-lg shadow-lg p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                    <div className="flex flex-col gap-2">
+                      <span className="text-gray-800 font-medium whitespace-nowrap text-xl">
+                        085 8000 611
+                      </span>
+                      <span className="text-gray-800 whitespace-nowrap text-xs">
+                        Bereikbaar tot 17:30
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
               <Link

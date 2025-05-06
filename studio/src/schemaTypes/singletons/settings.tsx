@@ -56,6 +56,12 @@ export const settings = defineType({
       ],
     }),
     defineField({
+      name: 'heroSlider',
+      title: 'Hero Slider',
+      type: 'heroSlider',
+      description: 'Configure the hero slider on the homepage',
+    }),
+    defineField({
       name: 'ogImage',
       title: 'Open Graph Image',
       type: 'image',
