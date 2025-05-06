@@ -62,7 +62,7 @@ export default function Header() {
               <nav className="hidden md:block">
                 <ul
                   role="list"
-                  className="flex items-center gap-4 md:gap-8 leading-5  text-sm md:text-lg  font-normal"
+                  className="flex items-center gap-4 md:gap-8 leading-5 text-md md:text-2xl font-normal"
                 >
                   <li className="relative group">
                     <Link
@@ -78,23 +78,23 @@ export default function Header() {
                         }`}
                       ></span>
                     </Link>
-                    <div className="absolute text-black left-0 mt-2 w-48 rounded-md shadow-lg bg-blue-500 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                      <div className="py-1">
+                    <div className="absolute text-black w-64 left-0 mt-2 rounded-md shadow-lg bg-blue-500 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                      <div className="p-2">
                         <Link
                           href="/thuis/optie-1"
-                          className="block px-4 py-2 text-md text-white hover:bg-blue-600"
+                          className="block px-4 py-2 text-md text-white hover:font-bold transition-all duration-300"
                         >
                           Zonnepanelen
                         </Link>
                         <Link
                           href="/thuis/optie-2"
-                          className="block px-4 py-2 text-md text-white hover:bg-blue-600"
+                          className="block px-4 py-2 text-md text-white hover:font-bold transition-all duration-300"
                         >
                           Thuisbatterij
                         </Link>
                         <Link
                           href="/thuis/optie-3"
-                          className="block px-4 py-2 text-md text-white hover:bg-blue-600"
+                          className="block px-4 py-2 text-md text-white hover:font-bold transition-all duration-300"
                         >
                           Laadpaal
                         </Link>
@@ -222,12 +222,14 @@ export default function Header() {
             </div>
 
             {/* Desktop Contact Button */}
-            <div className="hidden md:flex items-center gap-4 divide-white">
+            <div className="hidden md:flex items-center gap-8 divide-white">
               <div className="flex items-center gap-2">
                 <div className="relative group">
                   <div className="p-2">
                     <Phone
                       size={24}
+                      fill="currentColor"
+                      strokeWidth={1}
                       className={isScrolled ? "text-black" : "text-white"}
                     />
                   </div>
@@ -245,7 +247,7 @@ export default function Header() {
               </div>
               <Link
                 href="/contact"
-                className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300"
+                className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium text-xl py-4 px-6 rounded-md transition duration-300"
               >
                 Advies aanvragen
               </Link>

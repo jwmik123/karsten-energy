@@ -104,12 +104,12 @@ export default async function Page(props: Props) {
                 </h1>
               )}
               {headerListItems && headerListItems.length > 0 && (
-                <div className="text-lg md:text-xl my-5 md:my-10 font-light">
+                <div className=" my-5 md:my-10 font-light">
                   <ul className="space-y-2">
                     {headerListItems.map((item: string, index: number) => (
                       <li key={index} className="flex items-center">
-                        <Check className="h-5 w-5 mr-2 flex-shrink-0 text-white" />
-                        <span className="text-lg">{item}</span>
+                        <Check className="h-8 w-8 mr-4 flex-shrink-0 text-white" />
+                        <span className="text-lg md:text-2xl">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -119,7 +119,7 @@ export default async function Page(props: Props) {
                 <div className="">
                   <ResolvedLink
                     link={headerButton.link}
-                    className="inline-block bg-blue-600 text-white py-2 px-4 rounded-lg font-base text-base hover:bg-blue-700 transition-colors"
+                    className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium text-xl py-4 px-6 rounded-md transition duration-300"
                   >
                     {headerButton.text}
                   </ResolvedLink>

@@ -14,9 +14,9 @@ export default async function Page() {
   return (
     <>
       <LandingImage heroSlider={settingsData?.heroSlider} />
-      <StaggeringText />
+      {/* <StaggeringText /> */}
       <HeroSection />
-      <ServicesSection />
+      <ServicesSection layout="grid" />
       <EnergyCtaSection />
       <ReviewsSection />
       <HomepageFaq />

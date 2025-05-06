@@ -1,6 +1,7 @@
 import { client } from "@/sanity/lib/client";
 import { allServicesQuery } from "@/sanity/lib/queries";
 import ServiceCarousel from "./ServiceCarousel";
+import ServiceGrid from "./ServiceGrid";
 
 // Fallback data in case Sanity fetch fails
 const fallbackServices = [
@@ -41,7 +42,42 @@ const fallbackServices = [
   },
 ];
 
-export default async function ServicesSection() {
+type ServicesSectionProps = {
+  layout?: "carousel" | "grid";
+};
+
+// Define the custom order for specific services
+const customOrder = [
+  "groeno-energie",
+  "zonnepanelen",
+  "laadpalen",
+  "thuisbatterij",
+  "energiemanagement-systeem",
+];
+
+// Function to sort services based on custom order
+const sortServices = (services: any[]) => {
+  return [...services].sort((a, b) => {
+    const aIndex = customOrder.indexOf(a.slug);
+    const bIndex = customOrder.indexOf(b.slug);
+
+    // If both items are in custom order, sort by their position in customOrder
+    if (aIndex !== -1 && bIndex !== -1) {
+      return aIndex - bIndex;
+    }
+
+    // If only one item is in custom order, it should come first
+    if (aIndex !== -1) return -1;
+    if (bIndex !== -1) return 1;
+
+    // If neither item is in custom order, maintain original order
+    return 0;
+  });
+};
+
+export default async function ServicesSection({
+  layout = "carousel",
+}: ServicesSectionProps) {
   let services: any[] = [];
 
   try {
@@ -54,8 +90,15 @@ export default async function ServicesSection() {
 
   // If services fetch failed or returned empty, use fallback data
   if (!services || !Array.isArray(services) || services.length === 0) {
-    return <ServiceCarousel services={fallbackServices} />;
+    services = fallbackServices;
   }
 
-  return <ServiceCarousel services={services} />;
+  // Sort services according to custom order
+  services = sortServices(services);
+
+  return layout === "carousel" ? (
+    <ServiceCarousel services={services} />
+  ) : (
+    <ServiceGrid services={services} />
+  );
 }
