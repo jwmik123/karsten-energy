@@ -60,7 +60,7 @@ function HeroSectionItem({ data }: { data: HeroSectionData }) {
   );
 
   const contentColumn = (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col justify-center text-sm">
       {data.subtitle && (
         <p className="text-sm font-medium text-blue-600 uppercase tracking-wide mb-2">
           {data.subtitle}
