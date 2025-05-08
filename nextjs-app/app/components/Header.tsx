@@ -62,7 +62,7 @@ export default function Header() {
               <nav className="hidden md:block">
                 <ul
                   role="list"
-                  className="flex items-center gap-4 md:gap-8 leading-5 text-md md:text-2xl font-normal"
+                  className="flex items-center gap-4 md:gap-8 leading-5 text-md md:text-xl font-normal"
                 >
                   <li className="relative group">
                     <Link
@@ -78,25 +78,43 @@ export default function Header() {
                         }`}
                       ></span>
                     </Link>
-                    <div className="absolute text-black w-64 left-0 mt-2 rounded-md shadow-lg bg-blue-500 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                    <div className="absolute text-black  w-64 left-0 mt-2 rounded-md shadow-lg bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                       <div className="p-2">
                         <Link
-                          href="/thuis/optie-1"
-                          className="block px-4 py-2 text-md text-white hover:font-bold transition-all duration-300"
+                          href="/zonnepanelen"
+                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
                         >
                           Zonnepanelen
                         </Link>
                         <Link
-                          href="/thuis/optie-2"
-                          className="block px-4 py-2 text-md text-white hover:font-bold transition-all duration-300"
+                          href="/thuisbatterij"
+                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
                         >
                           Thuisbatterij
                         </Link>
                         <Link
+                          href="/energie-management-systeem"
+                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
+                        >
+                          EMS
+                        </Link>
+                        <Link
                           href="/thuis/optie-3"
-                          className="block px-4 py-2 text-md text-white hover:font-bold transition-all duration-300"
+                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
                         >
                           Laadpaal
+                        </Link>
+                        <Link
+                          href="/airco"
+                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
+                        >
+                          Airco&apos;s
+                        </Link>
+                        <Link
+                          href="/airco"
+                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
+                        >
+                          Groeno energie
                         </Link>
                       </div>
                     </div>
@@ -115,25 +133,43 @@ export default function Header() {
                         }`}
                       ></span>
                     </Link>
-                    <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-blue-500 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                      <div className="py-1">
+                    <div className="absolute text-black w-64 left-0 mt-2 rounded-md shadow-lg bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                      <div className="p-2">
                         <Link
-                          href="/zakelijk/optie-1"
-                          className="block px-4 py-2 text-md text-white hover:bg-blue-600"
+                          href="/zonnepanelen-zakelijk"
+                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
                         >
                           Zonnepanelen
                         </Link>
                         <Link
-                          href="/batterij-zakelijk"
-                          className="block px-4 py-2 text-md text-white hover:bg-blue-600"
+                          href="/zakelijke-batterijopslag"
+                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
                         >
-                          Batterijopslag
+                          Zakelijke Batterijopslag
                         </Link>
                         <Link
-                          href="/zakelijk/optie-3"
-                          className="block px-4 py-2 text-md text-white hover:bg-blue-600"
+                          href="/energie-management-systeem-zakelijk"
+                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
                         >
-                          Laadpalen
+                          EMS
+                        </Link>
+                        <Link
+                          href="/laadpaal-zakelijk"
+                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
+                        >
+                          Laadpaal
+                        </Link>
+                        <Link
+                          href="/airco-zakelijk"
+                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
+                        >
+                          Airco&apos;s
+                        </Link>
+                        <Link
+                          href="/groeno-energie-zakelijk"
+                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
+                        >
+                          Groeno energie
                         </Link>
                       </div>
                     </div>
@@ -247,7 +283,7 @@ export default function Header() {
               </div>
               <Link
                 href="/contact"
-                className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium text-xl py-4 px-6 rounded-md transition duration-300"
+                className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium text-lg py-2 px-6 rounded-md transition duration-300"
               >
                 Advies aanvragen
               </Link>

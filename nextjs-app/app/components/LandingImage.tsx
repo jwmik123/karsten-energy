@@ -5,6 +5,7 @@ import { useRef, useState, useEffect } from "react";
 import { StaggeredWords } from "../utils/animations";
 import gsap from "gsap";
 import { HeroSlide, HeroSlider } from "../types/hero";
+import ReviewBadge from "./ReviewBadge";
 
 interface LandingImageProps {
   heroSlider?: HeroSlider;
@@ -158,6 +159,7 @@ export default function LandingImage({ heroSlider }: LandingImageProps) {
                 </Link>
               )}
             </div>
+            <ReviewBadge />
           </div>
         </div>
 

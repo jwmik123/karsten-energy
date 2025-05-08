@@ -1,12 +1,13 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
 import { Flip } from "gsap/dist/Flip";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 // Register GSAP plugins
-gsap.registerPlugin(Flip);
+gsap.registerPlugin(Flip, ScrollTrigger);
 
 type Service = {
   _id: string;
@@ -25,6 +26,41 @@ export default function ServiceGrid({ services = [] }: ServiceGridProps) {
   const slideRefs = useRef<Map<string, HTMLDivElement>>(new Map());
   const titleRefs = useRef<Map<string, HTMLHeadingElement>>(new Map());
   const containerRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!gridRef.current) return;
+
+    const gridItems = Array.from(gridRef.current.children);
+
+    gsap.fromTo(
+      gridItems,
+      {
+        y: 50,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: {
+          amount: 1.5,
+          from: "start",
+        },
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: gridRef.current,
+          start: "top center+=50",
+          end: "bottom center",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, [services]);
 
   // If services is undefined or empty, don't render the component
   if (!services || services.length === 0) {
@@ -127,7 +163,10 @@ export default function ServiceGrid({ services = [] }: ServiceGridProps) {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div
+          ref={gridRef}
+          className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        >
           {services.map((service) => (
             <div
               key={service._id || `service-${service.slug}`}
@@ -154,7 +193,7 @@ export default function ServiceGrid({ services = [] }: ServiceGridProps) {
                 }}
               >
                 {/* The title will be moved here on hover */}
-                <p className="text-black text-left text-sm font-light">
+                <p className="text-black text-left text-md font-light">
                   {service.description}
                 </p>
               </div>

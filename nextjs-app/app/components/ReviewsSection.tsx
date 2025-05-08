@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import ReviewSlider from "./ReviewSlider";
 import Image from "next/image";
 
@@ -148,13 +149,18 @@ export default function ReviewsSection() {
           </h2>
 
           <div className="flex items-center justify-center mt-6">
-            <Image
-              src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
-              alt="Google"
-              className="h-8 mr-3 w-auto"
-              width={92}
-              height={30}
-            />
+            <Link
+              href="https://www.google.com/search?sa=X&sca_esv=3f663a9f48f5c032&rlz=1C5CHFA_enNL1020NL1020&tbm=lcl&sxsrf=AHTn8zrqns_H6LYBZ_XPhs0mjo6cYobg9g:1746715272322&q=Karsten+Energy+BV+Reviews&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI2NDK2NDQ1NDe2NDA3tzS1NLA03sDI-IpR0juxqLgkNU_BNS-1KL1SwSlMISi1LDO1vHgRK245AKcqIdpSAAAA&rldimm=1239151739077959093&hl=nl-NL&ved=2ahUKEwj5lNK6jZSNAxUZhf0HHfm3KLYQ9fQKegQIPxAF&biw=1512&bih=823&dpr=2#lkt=LocalPoiReviews"
+              target="_blank"
+            >
+              <Image
+                src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
+                alt="Google"
+                className="h-8 mr-3 w-auto"
+                width={92}
+                height={30}
+              />
+            </Link>
           </div>
         </div>
 
