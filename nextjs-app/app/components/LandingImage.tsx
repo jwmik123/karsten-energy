@@ -6,6 +6,8 @@ import { StaggeredWords } from "../utils/animations";
 import gsap from "gsap";
 import { HeroSlide, HeroSlider } from "../types/hero";
 import ReviewBadge from "./ReviewBadge";
+import imageUrlBuilder from "@sanity/image-url"; // Import the official Sanity image URL builder
+import { client } from "../lib/sanity";
 
 interface LandingImageProps {
   heroSlider?: HeroSlider;
@@ -21,11 +23,28 @@ export default function LandingImage({ heroSlider }: LandingImageProps) {
   const nextBgRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Initialize the Sanity image URL builder
+  // You'll need to replace 'your-project-id' with your actual Sanity project ID
+  const builder = imageUrlBuilder(client);
+
+  // Function to generate image URLs with cropping applied
+  const urlForImage = (source: any) => {
+    return builder.image(source).fit("crop").crop("focalpoint");
+  };
+
   const slides = heroSlider?.slides || [];
   const slideDuration = (heroSlider?.slideDuration || 5) * 1000;
 
-  const updateBackgroundImage = (imageUrl: string) => {
-    if (!nextBgRef.current || !currentBgRef.current || !imageUrl) return;
+  const updateBackgroundImage = (imageData: any) => {
+    if (!nextBgRef.current || !currentBgRef.current || !imageData) return;
+
+    // Use Sanity's image URL builder to include cropping parameters
+    // The crop and hotspot values will be automatically applied if they exist in the imageData
+    const imageUrl = urlForImage(imageData)
+      .width(1920)
+      .auto("format")
+      .quality(80)
+      .url();
 
     nextBgRef.current.style.backgroundImage = `url('${imageUrl}')`;
 
@@ -51,9 +70,9 @@ export default function LandingImage({ heroSlider }: LandingImageProps) {
         setCurrentSlide((prevIndex) => {
           const nextIndex = (prevIndex + 1) % slides.length;
           const nextSlideData = slides[nextIndex];
-          const nextImageUrl = nextSlideData.image?.asset?.url || "";
 
-          updateBackgroundImage(nextImageUrl);
+          // Pass the entire image object instead of just the URL
+          updateBackgroundImage(nextSlideData.image);
 
           requestAnimationFrame(() => {
             gsap.to(contentRef.current, {
@@ -77,9 +96,16 @@ export default function LandingImage({ heroSlider }: LandingImageProps) {
   useEffect(() => {
     if (slides.length <= 1) return;
 
-    const firstSlideImage = slides[0]?.image?.asset?.url;
+    const firstSlideImage = slides[0]?.image;
     if (currentBgRef.current && firstSlideImage) {
-      currentBgRef.current.style.backgroundImage = `url('${firstSlideImage}')`;
+      // Use Sanity's image URL builder to include cropping parameters
+      const imageUrl = urlForImage(firstSlideImage)
+        .width(1920)
+        .auto("format")
+        .quality(80)
+        .url();
+
+      currentBgRef.current.style.backgroundImage = `url('${imageUrl}')`;
       gsap.set(currentBgRef.current, { opacity: 1 });
     }
 
@@ -137,12 +163,12 @@ export default function LandingImage({ heroSlider }: LandingImageProps) {
           <div className="flex flex-col md:flex-row justify-between items-end">
             <div
               ref={contentRef}
-              className="slide-content mb-8 md:mb-0 max-w-2xl  text-white px-10 py-2 rounded-xl"
+              className="slide-content mb-8 md:mb-0 max-w-2xl text-white px-10 py-2 rounded-xl"
             >
               <span className="bg-blue-600 text-white px-2 py-1 text-sm tracking-tight rounded-sm uppercase">
                 Karsten Energy
               </span>
-              <h1 className="text-4xl md:text-7xl font-bold  tracking-tight overflow-hidden pb-2 my-4">
+              <h1 className="text-4xl md:text-7xl font-bold tracking-tight overflow-hidden pb-2 my-4">
                 <StaggeredWords text={currentSlideData.title} />
               </h1>
 
