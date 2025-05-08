@@ -50,7 +50,7 @@ export default function ServiceGrid({ services = [] }: ServiceGridProps) {
         ease: "power3.out",
         scrollTrigger: {
           trigger: gridRef.current,
-          start: "top center+=50",
+          start: "top center",
           end: "bottom center",
           toggleActions: "play none none reverse",
         },

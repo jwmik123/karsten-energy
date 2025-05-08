@@ -14,8 +14,8 @@ const WhyKarsten = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-24">
-      <div className="flex md:flex-col lg:flex-row gap-12 flex-col-reverse">
+    <div className="py-24 bg-blue-100">
+      <div className="container mx-auto flex md:flex-col lg:flex-row gap-12 flex-col-reverse">
         {/* Right section - Scrollable */}
         <div className="lg:w-2/5">
           <div className="space-y-4 md:space-y-8">
@@ -36,10 +36,10 @@ const WhyKarsten = () => {
         </div>
         {/* Left section - Sticky */}
         <div className="lg:w-3/5 lg:sticky lg:top-44 flex flex-col justify-center h-full">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-tight tracking-tighter">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-900 mb-4 leading-tight tracking-tighter">
             Waarom Karsten Energy
           </h1>
-          <p className="text-lg text-gray-600 mt-4 mb-8">
+          <p className="text-lg text-gray-900 mt-4 mb-8">
             Karsten Energy staat voor kwaliteit, betrouwbaarheid en goede
             communicatie. Wij nemen graag de tijd om u een realistisch, helder
             advies te geven. <br /> <br /> Wij werken met onze eigen

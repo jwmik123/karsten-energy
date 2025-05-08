@@ -137,9 +137,11 @@ export default function LandingImage({ heroSlider }: LandingImageProps) {
           <div className="flex flex-col md:flex-row justify-between items-end">
             <div
               ref={contentRef}
-              className="slide-content mb-8 md:mb-0 max-w-2xl  text-white px-10 py-8 rounded-xl"
+              className="slide-content mb-8 md:mb-0 max-w-2xl  text-white px-10 py-2 rounded-xl"
             >
-              <span className=" text-md uppercase">Karsten Energy</span>
+              <span className="bg-blue-600 text-white px-2 py-1 text-sm tracking-tight rounded-sm uppercase">
+                Karsten Energy
+              </span>
               <h1 className="text-4xl md:text-7xl font-bold  tracking-tight overflow-hidden pb-2 my-4">
                 <StaggeredWords text={currentSlideData.title} />
               </h1>

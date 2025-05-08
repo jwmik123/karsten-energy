@@ -88,31 +88,31 @@ export default function Header() {
                         </Link>
                         <Link
                           href="/thuisbatterij"
-                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
+                          className="block px-4 py-2 text-md  hover:font-bold  transition-all duration-300"
                         >
                           Thuisbatterij
                         </Link>
                         <Link
                           href="/energie-management-systeem"
-                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
+                          className="block px-4 py-2 text-md  hover:font-bold  transition-all duration-300"
                         >
                           EMS
                         </Link>
                         <Link
                           href="/thuis/optie-3"
-                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
+                          className="block px-4 py-2 text-md  hover:font-bold  transition-all duration-300"
                         >
                           Laadpaal
                         </Link>
                         <Link
                           href="/airco"
-                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
+                          className="block px-4 py-2 text-md  hover:font-bold  transition-all duration-300"
                         >
                           Airco&apos;s
                         </Link>
                         <Link
                           href="/airco"
-                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
+                          className="block px-4 py-2 text-md  hover:font-bold  transition-all duration-300"
                         >
                           Groeno energie
                         </Link>
