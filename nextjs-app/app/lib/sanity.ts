@@ -33,7 +33,9 @@ export const getSettings = cache(async () => {
             asset->{
               _ref,
               url
-            }
+            },
+            crop,
+            hotspot
           },
           button {
             text,

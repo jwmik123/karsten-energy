@@ -29,7 +29,7 @@ export default function LandingImage({ heroSlider }: LandingImageProps) {
 
   // Function to generate image URLs with cropping applied
   const urlForImage = (source: any) => {
-    return builder.image(source).fit("crop").crop("focalpoint");
+    return builder.image(source);
   };
 
   const slides = heroSlider?.slides || [];
@@ -135,7 +135,7 @@ export default function LandingImage({ heroSlider }: LandingImageProps) {
   if (!currentSlideData) return null;
 
   return (
-    <div className="relative h-[100vh] w-full bg-gray-900 overflow-hidden">
+    <div className="relative h-[80vh] md:h-screen w-full bg-gray-900 overflow-hidden">
       <div ref={slidesContainerRef} className="absolute inset-0">
         <div
           ref={currentBgRef}

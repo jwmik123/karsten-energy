@@ -82,7 +82,7 @@ export default function Header() {
                       <div className="p-2">
                         <Link
                           href="/zonnepanelen"
-                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
+                          className="block px-4 py-2 text-md  hover:font-bold transition-all duration-300"
                         >
                           Zonnepanelen
                         </Link>
@@ -137,25 +137,31 @@ export default function Header() {
                       <div className="p-2">
                         <Link
                           href="/zonnepanelen-zakelijk"
-                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
+                          className="block px-4 py-2 text-md  hover:font-bold transition-all duration-300"
                         >
                           Zonnepanelen
                         </Link>
                         <Link
+                          href="/lichtgewicht-onderconstructie"
+                          className="block px-4 py-2 text-md  hover:font-bold transition-all duration-300"
+                        >
+                          Lichtgewicht onderconstructie
+                        </Link>
+                        <Link
                           href="/zakelijke-batterijopslag"
-                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
+                          className="block px-4 py-2 text-md  hover:font-bold transition-all duration-300"
                         >
                           Zakelijke Batterijopslag
                         </Link>
                         <Link
                           href="/energie-management-systeem-zakelijk"
-                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
+                          className="block px-4 py-2 text-md  hover:font-bold transition-all duration-300"
                         >
                           EMS
                         </Link>
                         <Link
                           href="/laadpaal-zakelijk"
-                          className="block px-4 py-2 text-md  hover:font-bold hover:text-blue-500 transition-all duration-300"
+                          className="block px-4 py-2 text-md  hover:font-bold transition-all duration-300"
                         >
                           Laadpaal
                         </Link>
