@@ -168,7 +168,7 @@ export default function ServiceGrid({ services = [] }: ServiceGridProps) {
   };
 
   return (
-    <div className="relative bg-blue-600 py-24 text-white">
+    <div id="services" className="relative bg-blue-600 py-24 text-white">
       <div className="container mx-auto px-4">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight tracking-tighter">
           Wat wij bieden

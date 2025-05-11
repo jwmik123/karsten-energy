@@ -115,7 +115,7 @@ export default function MobileNav({ onMenuStateChange }: MobileNavProps) {
                         {item.viewAllHref && (
                           <li>
                             <Link
-                              href={item.viewAllHref}
+                              href="https://karstenenergy.eu/#services"
                               className="flex items-center gap-1 text-lg text-white/60 hover:text-white transition-colors"
                               onClick={() => {
                                 setIsOpen(false);
