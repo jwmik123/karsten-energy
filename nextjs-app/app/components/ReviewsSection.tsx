@@ -4,138 +4,138 @@ import Link from "next/link";
 import ReviewSlider from "./ReviewSlider";
 import Image from "next/image";
 
-// Mock review data
-const mockReviews = [
+// Solar panel reviews from customers
+const solarPanelReviews = [
   {
     id: 1,
-    reviewerName: "Jan Smit",
+    reviewerName: "Jelle Ooteman",
     rating: 5,
     reviewText:
-      "Absoluut fantastische service! Het team van Karsten Energy was professioneel, stipt en leverde uitstekende waarde. Onze zonnepanelen werden snel geïnstalleerd en werken perfect. Sterk aanbevolen voor iedereen die zonne-energie wil gebruiken.",
-    date: "3 weken geleden",
+      "Zeer tevreden. Drie andere bedrijven gaven aan geen zonnepanelen te kunnen plaatsen op ons Rijksmonumentale pand, Karsten Energy kon en wilde dit wel. Ze hebben het vakkundig gedaan, goed meegedacht en top service geleverd. Wij raden dit bedrijf aan.",
+    date: "1 jaar geleden",
   },
   {
     id: 2,
-    reviewerName: "Sara Jansen",
+    reviewerName: "Jasper Van Reijsen",
     rating: 5,
     reviewText:
-      "We hebben onze energie-audit laten uitvoeren door Karsten Energy en waren onder de indruk van hun grondigheid en expertise. De aanbevelingen die ze hebben gedaan, hebben ons al geld bespaard op onze energierekeningen. Zeer tevreden!",
-    date: "1 maand geleden",
+      "Dit bedrijf levert een goede service. Ze denken met de klant mee en komen met oplossingen. Zeer tevreden over de set zonnepanelen en de wijze waarop er wordt gewerkt.",
+    date: "1 jaar geleden",
   },
   {
     id: 3,
-    reviewerName: "Michel de Vries",
-    reviewerImg: "https://i.pravatar.cc/150?img=11",
-    rating: 4,
+    reviewerName: "Danielle Rischen",
+    rating: 5,
     reviewText:
-      "Het installatieteam was professioneel en efficiënt. Ze hebben uitstekend werk geleverd met onze zonnepanelen en alles werd duidelijk uitgelegd. De enige reden voor 4 sterren in plaats van 5 is dat er een kleine vertraging was bij het plannen, maar het bedrijf communiceerde goed gedurende het hele proces.",
-    date: "2 maanden geleden",
+      "Supertevreden! Zonnepanelen zijn een maand geleden vakkundig geplaatst. Prettig contact, goed advies en erg vriendelijk.",
+    date: "1 jaar geleden",
   },
   {
     id: 4,
-    reviewerName: "Emma Willemsen",
-    reviewerImg: "https://i.pravatar.cc/150?img=5",
+    reviewerName: "Thijmen de Cock",
     rating: 5,
     reviewText:
-      "Van consultatie tot installatie, het was een genoegen om met Karsten Energy samen te werken. Hun team beantwoordde al mijn vragen en gaf waardevolle inzichten voor het optimaliseren van de energie-efficiëntie van ons huis. De zonnepanelen zien er geweldig uit en presteren zelfs beter dan verwacht!",
-    date: "3 maanden geleden",
+      "De mannen leveren geweldig werk, snel en goed. Heel duidelijk en betrouwbaar!",
+    date: "6 maanden geleden",
   },
   {
     id: 5,
-    reviewerName: "David Thomassen",
+    reviewerName: "Tom de Wit",
     rating: 5,
     reviewText:
-      "De beste beslissing die we hebben genomen was om voor Karsten Energy te kiezen voor onze thuisbatterij-installatie. Ze waren deskundig, behulpzaam, en het vakmanschap was uitstekend. De batterij is een game-changer geweest tijdens stroomuitval en voor het beheren van onze energiekosten.",
-    date: "3 maanden geleden",
+      "Snelle actie door de jongens van Karsten Energy. Snel en kundig. Alles inzichtelijk via een app. Ideaal. Nu moet de zon de rest doen. Aanrader!",
+    date: "1 jaar geleden",
   },
   {
     id: 6,
-    reviewerName: "Maria de Groot",
-    reviewerImg: "https://i.pravatar.cc/150?img=9",
+    reviewerName: "Kees Groot",
     rating: 5,
     reviewText:
-      "Karsten Energy heeft ons huis getransformeerd tot een energiezuinig meesterwerk! De zonne-installatie was snel en het systeem heeft onze verwachtingen overtroffen. Hun klantenservice is uitzonderlijk - altijd bereid om vragen te beantwoorden en advies te geven.",
-    date: "4 maanden geleden",
+      "Mede op basis van de positieve reviews voor dit bedrijf gekozen. Daar absoluut geen spijt van. Wat een prettig bedrijf zeg. Heldere communicatie, snelle levering en netjes geïnstalleerd. Een paar dagen na de installatie was, door mijn eigen toedoen, de connectie met de app van slag. Telefonisch lukte het niet om dit weer in orde te maken. Binnen een half uur waren ze bij mij thuis om het in orde te maken. Klasse!",
+    date: "7 maanden geleden",
   },
   {
     id: 7,
-    reviewerName: "Jaap Willems",
-    rating: 4,
+    reviewerName: "Kevin de Vries",
+    rating: 5,
     reviewText:
-      "Geweldige ervaring met Karsten Energy. Ze waren zeer professioneel en hun kennis over hernieuwbare energieoplossingen is indrukwekkend. De enige reden dat ik geen 5 sterren geef, is vanwege een klein communicatieprobleem dat snel werd opgelost.",
-    date: "4 maanden geleden",
+      "Zeer tevreden over deze vakmannen! Goed en leuk contact, snelle levering en perfecte service. Binnen een paar uur lagen alle zonnepanelen op het dak, er wordt meegedacht en alle mannen waren zeer vriendelijk. Een absolute aanrader!",
+    date: "10 maanden geleden",
   },
   {
     id: 8,
-    reviewerName: "Linda Martens",
-    reviewerImg: "https://i.pravatar.cc/150?img=7",
+    reviewerName: "Susan Koopman",
+    rating: 5,
+    reviewText: "Goed geholpen, goede service en vriendelijke mensen.",
+    date: "5 dagen geleden",
+  },
+  {
+    id: 9,
+    reviewerName: "Henk Zoetmeijer",
     rating: 5,
     reviewText:
-      "We hebben nu 6 maanden zonnepanelen en kunnen niet gelukkiger zijn. Het hele proces van eerste consultatie tot installatie verliep soepel en professioneel. Karsten Energy heeft alles geleverd wat ze beloofden en meer!",
-    date: "5 maanden geleden",
+      "Vandaag 2 augustus 2023 zijn er 7 zonnepanelen geplaatst door de mannen van Karsten Energy. We zijn super tevreden over alles wat de mannen hebben gedaan. Vanaf de offerte tot de plaatsing. Succes verder mannen. Jullie zijn toppers.",
+    date: "02-08-2023",
   },
 ];
 
-// Additional reviews for the second slider
-const moreReviews = [
-  {
-    id: 9,
-    reviewerName: "Robert Bruin",
-    reviewerImg: "https://i.pravatar.cc/150?img=15",
-    rating: 5,
-    reviewText:
-      "Uitstekende klantenservice van begin tot eind. Het team van Karsten Energy was professioneel, deskundig en altijd beschikbaar om onze vragen te beantwoorden. De installatie werd op tijd en binnen budget voltooid. Onze zonnepanelen werken geweldig!",
-    date: "1 maand geleden",
-  },
+// Air conditioning reviews from customers
+const aircoReviews = [
   {
     id: 10,
-    reviewerName: "Jennifer Timmermans",
+    reviewerName: "Ronald Vrijman",
     rating: 5,
     reviewText:
-      "We konden niet gelukkiger zijn met onze beslissing om voor Karsten Energy te kiezen voor de installatie van zonnepanelen in ons huis. Het hele proces verliep soepel en transparant, en het team was een plezier om mee samen te werken. Sterk aanbevolen!",
-    date: "2 maanden geleden",
+      "Sinds 5 jaar hebben wij een airco systeem (3 airco's draaiende op 1 buitenunit) van Panasonic laten plaatsen door een ander bedrijf. Karsten Energy via Facebook toevallig tegengekomen en zo contact weten te leggen. De mannen hebben het probleem vakkundig opgelost. Zijn daarna nog een keer teruggekomen om te kijken waarom de klep niet goed meer dicht ging. Ook hier werd goed de tijd voor genomen. Prima bedrijf, vakkundige en zeer vriendelijke monteurs. Zeker een aanbeveling waard.",
+    date: "5 maanden geleden",
   },
   {
     id: 11,
-    reviewerName: "Thomas Andersen",
-    rating: 4,
+    reviewerName: "Peter Taal",
+    rating: 5,
     reviewText:
-      "Zeer professioneel bedrijf met uitstekende klantenservice. Het installatieteam was efficiënt en netjes. Het systeem presteert goed en we zien al besparingen op onze energierekeningen. De enige reden voor 4 sterren is een kleine vertraging bij het opstarten.",
-    date: "2 maanden geleden",
+      "Professionele mensen uit de streek. Jan en Niels hebben vandaag keurig een airconditioning geplaatst, deze vakkundig aangesloten, uitleg van de werking, en ze namen de tijd om alles goed af te werken.",
+    date: "1 maand geleden",
   },
   {
     id: 12,
-    reviewerName: "Lisa Damen",
-    reviewerImg: "https://i.pravatar.cc/150?img=6",
+    reviewerName: "Klaas Ates",
     rating: 5,
     reviewText:
-      "Karsten Energy maakte overstappen op zonne-energie zo gemakkelijk! Hun team begeleidde ons door het hele proces, van het selecteren van het juiste systeem voor onze behoeften tot installatie en setup. We zijn erg blij met de resultaten en de doorlopende ondersteuning die ze bieden.",
-    date: "3 maanden geleden",
+      "Goede voorbereiding is het halve werk, doordacht systeem van airco's in onze woning geplaatst, we zijn zeer tevreden over de kwaliteit van het materiaal en zeker ook zeer tevreden over de vakmensen van Karsten Energy.",
+    date: "1 maand geleden",
   },
   {
     id: 13,
-    reviewerName: "Daniël de Wit",
+    reviewerName: "Nick de Wit",
     rating: 5,
     reviewText:
-      "Uitstekende service en kwaliteit. Onze zonnepanelen werden efficiënt geïnstalleerd en het systeem werkt feilloos. De energiebesparingen zijn zelfs beter dan voorspeld. Zou zeker weer gebruik maken van Karsten Energy!",
-    date: "4 maanden geleden",
+      "Zeer tevreden over het algehele traject bij Karsten. Snelle en duidelijke communicatie, kwamen hun afspraken na en ook na plaatsing zeer service gericht. De heren zelf ook erg professioneel en harde werkers. Positief allemaal.",
+    date: "1 jaar geleden",
   },
   {
     id: 14,
-    reviewerName: "Sophia Rodenburg",
-    reviewerImg: "https://i.pravatar.cc/150?img=26",
+    reviewerName: "GVE",
     rating: 5,
     reviewText:
-      "We hebben een geweldige ervaring gehad met Karsten Energy. Hun team was professioneel, beleefd en zeer deskundig. De installatie werd snel en met minimale verstoring voltooid. Ons zonnesysteem presteert uitstekend, zelfs op bewolkte dagen!",
-    date: "4 maanden geleden",
+      "Goede voorbereiding is het halve werk, doordacht systeem van airco's in onze woning geplaatst, we zijn zeer tevreden over de kwaliteit van het materiaal en zeker ook zeer tevreden over de vakmensen van Karsten Energy.",
+    date: "3 weken geleden",
   },
   {
     id: 15,
-    reviewerName: "Willem van Leeuwen",
+    reviewerName: "Wendy van den Haak",
     rating: 5,
     reviewText:
-      "Karsten Energy overtrof onze verwachtingen in alle opzichten. Van de eerste consultatie tot de uiteindelijke installatie was hun team professioneel en behulpzaam. We produceren nu meer dan genoeg energie om ons huis van stroom te voorzien en konden niet gelukkiger zijn met de investering.",
-    date: "5 maanden geleden",
+      "Top bedrijf, snelle levering en plaatsing van 2 airco units. Denken met je mee over oplossingen. Alles netjes geplaatst en niet te vergeten alles netjes achtergelaten. Leuke en vakkundige mannen. Echt een aanrader.",
+    date: "7 maanden geleden",
+  },
+  {
+    id: 16,
+    reviewerName: "Jan Koster",
+    rating: 5,
+    reviewText:
+      "Top bedrijf! Zeer positief en enthousiast personeel alles is van A tot Z geregeld! Prijs / kwaliteit verhouding meer dan prima. Ik kan Karsten Energy absoluut aanbevelen! Ga zo door!",
+    date: "1 jaar geleden",
   },
 ];
 
@@ -167,7 +167,7 @@ export default function ReviewsSection() {
         <div className="">
           {/* First slider - moving right by default */}
           <ReviewSlider
-            reviews={mockReviews}
+            reviews={solarPanelReviews}
             cardWidth={330}
             gap={20}
             speed={60}
@@ -175,7 +175,7 @@ export default function ReviewsSection() {
 
           {/* Second slider - moving left by default and when scrolling down */}
           <ReviewSlider
-            reviews={moreReviews}
+            reviews={aircoReviews}
             cardWidth={330}
             gap={20}
             speed={50}
