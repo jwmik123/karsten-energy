@@ -25,7 +25,7 @@ export default async function Page() {
       {/* Full-width Image Section */}
       <section className="py-4 bg-white">
         <div className="">
-          <div className="relative w-full overflow-hidden h-[420px]">
+          <div className="relative w-full overflow-hidden h-[300px] md:h-[420px]">
             <img
               src="/bussen.webp"
               alt="Karsten Energy Solar Installation"

@@ -23,10 +23,27 @@ type ServiceGridProps = {
 
 export default function ServiceGrid({ services = [] }: ServiceGridProps) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const slideRefs = useRef<Map<string, HTMLDivElement>>(new Map());
   const titleRefs = useRef<Map<string, HTMLHeadingElement>>(new Map());
   const containerRefs = useRef<Map<string, HTMLDivElement>>(new Map());
   const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Check if device is mobile
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+    };
+
+    // Check on initial load
+    checkMobile();
+
+    // Add resize listener
+    window.addEventListener("resize", checkMobile);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     if (!gridRef.current) return;
@@ -68,6 +85,8 @@ export default function ServiceGrid({ services = [] }: ServiceGridProps) {
   }
 
   const handleMouseEnter = (serviceId: string) => {
+    if (isMobile) return;
+
     setHoveredId(serviceId);
 
     const slide = slideRefs.current.get(serviceId);
@@ -110,6 +129,8 @@ export default function ServiceGrid({ services = [] }: ServiceGridProps) {
   };
 
   const handleMouseLeave = (serviceId: string) => {
+    if (isMobile) return;
+
     setHoveredId(null);
 
     const slide = slideRefs.current.get(serviceId);
@@ -180,6 +201,7 @@ export default function ServiceGrid({ services = [] }: ServiceGridProps) {
                 className="block absolute inset-0 z-30"
                 onMouseEnter={() => handleMouseEnter(service._id)}
                 onMouseLeave={() => handleMouseLeave(service._id)}
+                aria-label={`View details about ${service.title}`}
               >
                 <span className="sr-only">View {service.title}</span>
               </Link>

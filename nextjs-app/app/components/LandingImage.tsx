@@ -159,7 +159,7 @@ export default function LandingImage({ heroSlider }: LandingImageProps) {
       </div>
 
       <div className="absolute inset-0 flex flex-col justify-end z-10">
-        <div className="container mx-auto px-6 pb-16">
+        <div className="container mx-auto px-0 md:px-6 pb-0 md:pb-16">
           <div className="flex flex-col md:flex-row justify-between items-end">
             <div
               ref={contentRef}
@@ -187,7 +187,9 @@ export default function LandingImage({ heroSlider }: LandingImageProps) {
                 </Link>
               )}
             </div>
-            <ReviewBadge />
+            <div className="hidden md:block">
+              <ReviewBadge />
+            </div>
           </div>
         </div>
 
