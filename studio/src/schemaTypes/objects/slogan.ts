@@ -14,46 +14,46 @@ export const slogan = defineType({
   fields: [
     defineField({
       name: 'text',
-      title: 'Slogan Text',
+      title: 'Slogan Tekst',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'size',
-      title: 'Size',
+      title: 'Grootte',
       type: 'string',
       options: {
         list: [
-          {title: 'Small', value: 'small'},
-          {title: 'Medium', value: 'medium'},
-          {title: 'Large', value: 'large'},
+          {title: 'Klein', value: 'small'},
+          {title: 'Middel', value: 'medium'},
+          {title: 'Groot', value: 'large'},
         ],
       },
       initialValue: 'medium',
     }),
     defineField({
       name: 'alignment',
-      title: 'Alignment',
+      title: 'Uitlijning',
       type: 'string',
       options: {
         list: [
-          {title: 'Left', value: 'left'},
-          {title: 'Center', value: 'center'},
-          {title: 'Right', value: 'right'},
+          {title: 'Links', value: 'left'},
+          {title: 'Midden', value: 'center'},
+          {title: 'Rechts', value: 'right'},
         ],
       },
       initialValue: 'center',
     }),
     defineField({
       name: 'backgroundColor',
-      title: 'Background Color',
+      title: 'Achtergrondkleur',
       type: 'string',
       options: {
         list: [
-          {title: 'None', value: 'none'},
-          {title: 'Light', value: 'light'},
-          {title: 'Dark', value: 'dark'},
-          {title: 'Primary', value: 'primary'},
+          {title: 'Geen', value: 'none'},
+          {title: 'Licht', value: 'light'},
+          {title: 'Donker', value: 'dark'},
+          {title: 'Primair', value: 'primary'},
         ],
       },
       initialValue: 'none',
@@ -68,7 +68,7 @@ export const slogan = defineType({
       const {title, size} = selection
       return {
         title: title || 'Slogan',
-        subtitle: `Slogan (${size || 'medium'})`,
+        subtitle: `Slogan (${size || 'middel'})`,
       }
     },
   },

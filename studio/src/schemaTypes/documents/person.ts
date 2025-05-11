@@ -8,37 +8,37 @@ import {defineField, defineType} from 'sanity'
 
 export const person = defineType({
   name: 'person',
-  title: 'Person',
+  title: 'Persoon',
   icon: UserIcon,
   type: 'document',
   fields: [
     defineField({
       name: 'firstName',
-      title: 'First Name',
+      title: 'Voornaam',
       type: 'string',
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'lastName',
-      title: 'Last Name',
+      title: 'Achternaam',
       type: 'string',
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'picture',
-      title: 'Picture',
+      title: 'Foto',
       type: 'image',
       fields: [
         defineField({
           name: 'alt',
           type: 'string',
-          title: 'Alternative text',
-          description: 'Important for SEO and accessibility.',
+          title: 'Alternatieve tekst',
+          description: 'Belangrijk voor SEO en toegankelijkheid.',
           validation: (rule) => {
             // Custom validation to ensure alt text is provided if the image is present. https://www.sanity.io/docs/validation
             return rule.custom((alt, context) => {
               if ((context.document?.picture as any)?.asset?._ref && !alt) {
-                return 'Required'
+                return 'Verplicht'
               }
               return true
             })
@@ -64,7 +64,7 @@ export const person = defineType({
     prepare(selection) {
       return {
         title: `${selection.firstName} ${selection.lastName}`,
-        subtitle: 'Person',
+        subtitle: 'Persoon',
         media: selection.picture,
       }
     },

@@ -3,23 +3,23 @@ import {TextIcon} from '@sanity/icons'
 
 export const infoSection = defineType({
   name: 'infoSection',
-  title: 'Info Section',
+  title: 'Informatie Sectie',
   type: 'object',
   icon: TextIcon,
   fields: [
     defineField({
       name: 'heading',
-      title: 'Heading',
+      title: 'Kop',
       type: 'string',
     }),
     defineField({
       name: 'subheading',
-      title: 'Subheading',
+      title: 'Subkop',
       type: 'string',
     }),
     defineField({
       name: 'content',
-      title: 'Content',
+      title: 'Inhoud',
       type: 'blockContent',
     }),
   ],
@@ -30,8 +30,8 @@ export const infoSection = defineType({
     },
     prepare({title}) {
       return {
-        title: title || 'Untitled Info Section',
-        subtitle: 'Info Section',
+        title: title || 'Naamloze Informatie Sectie',
+        subtitle: 'Informatie Sectie',
       }
     },
   },

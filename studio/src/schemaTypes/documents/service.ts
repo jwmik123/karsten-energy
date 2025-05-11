@@ -2,30 +2,30 @@ import {defineField, defineType} from 'sanity'
 import {BulbOutlineIcon} from '@sanity/icons'
 
 /**
- * Service schema for energy services like solar panels, heat pumps, etc.
+ * Service schema voor energie diensten zoals zonnepanelen, warmtepompen, etc.
  */
 
 export const service = defineType({
   name: 'service',
-  title: 'Service',
+  title: 'Dienst',
   type: 'document',
   icon: BulbOutlineIcon,
   fields: [
     defineField({
       name: 'title',
-      title: 'Title',
+      title: 'Titel',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'description',
-      title: 'Description',
+      title: 'Beschrijving',
       type: 'text',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'slug',
-      title: 'Slug',
+      title: 'URL',
       type: 'slug',
       validation: (Rule) => Rule.required(),
       options: {
@@ -35,7 +35,7 @@ export const service = defineType({
     }),
     defineField({
       name: 'image',
-      title: 'Image',
+      title: 'Afbeelding',
       type: 'image',
       options: {
         hotspot: true,

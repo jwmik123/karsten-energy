@@ -8,20 +8,20 @@ import {DocumentIcon} from '@sanity/icons'
 
 export const page = defineType({
   name: 'page',
-  title: 'Page',
+  title: 'Pagina',
   type: 'document',
   icon: DocumentIcon,
   fields: [
     defineField({
       name: 'name',
-      title: 'Name',
+      title: 'Naam',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
 
     defineField({
       name: 'slug',
-      title: 'Slug',
+      title: 'URL',
       type: 'slug',
       validation: (Rule) => Rule.required(),
       options: {
@@ -31,40 +31,40 @@ export const page = defineType({
     }),
     defineField({
       name: 'headerImage',
-      title: 'Header Image',
+      title: 'Header Afbeelding',
       type: 'image',
-      description: 'A full-width header image displayed at 100% viewport height',
+      description: 'Een volledige breedte header afbeelding weergegeven op 100% viewport hoogte',
       options: {
         hotspot: true,
       },
     }),
     defineField({
       name: 'heading',
-      title: 'Heading',
+      title: 'Kop',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'subheading',
-      title: 'Subheading',
+      title: 'Subkop',
       type: 'string',
     }),
     defineField({
       name: 'headerListItems',
-      title: 'Header List Items',
+      title: 'Header Lijst Items',
       type: 'array',
-      description: 'List items to display in the header overlay',
+      description: 'Lijst items om weer te geven in de header overlay',
       of: [{type: 'string'}],
     }),
     defineField({
       name: 'headerButton',
-      title: 'Header Button',
+      title: 'Header Knop',
       type: 'object',
-      description: 'Button to display in the header overlay',
+      description: 'Knop om weer te geven in de header overlay',
       fields: [
         {
           name: 'text',
-          title: 'Text',
+          title: 'Tekst',
           type: 'string',
         },
         {
@@ -76,7 +76,7 @@ export const page = defineType({
     }),
     defineField({
       name: 'pageBuilder',
-      title: 'Page builder',
+      title: 'Pagina bouwer',
       type: 'array',
       of: [
         {type: 'callToAction'},

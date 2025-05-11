@@ -10,22 +10,23 @@ import * as demo from '../../lib/initialValues'
 
 export const settings = defineType({
   name: 'settings',
-  title: 'Settings',
+  title: 'Instellingen',
   type: 'document',
   icon: CogIcon,
   fields: [
     defineField({
       name: 'title',
-      description: 'This field is the title of your blog.',
-      title: 'Title',
+      description: 'Dit veld is de titel van je website.',
+      title: 'Titel',
       type: 'string',
       initialValue: demo.title,
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'description',
-      description: 'Used both for the <meta> description tag for SEO, and the blog subheader.',
-      title: 'Description',
+      description:
+        'Wordt gebruikt voor zowel de <meta> description tag voor SEO, als de website subheader.',
+      title: 'Beschrijving',
       type: 'array',
       initialValue: demo.description,
       of: [
@@ -59,13 +60,13 @@ export const settings = defineType({
       name: 'heroSlider',
       title: 'Hero Slider',
       type: 'heroSlider',
-      description: 'Configure the hero slider on the homepage',
+      description: 'Configureer de hero slider op de homepage',
     }),
     defineField({
       name: 'ogImage',
-      title: 'Open Graph Image',
+      title: 'Open Graph Afbeelding',
       type: 'image',
-      description: 'Displayed on social cards and search engine results.',
+      description: 'Wordt weergegeven op sociale kaarten en zoekresultaten.',
       options: {
         hotspot: true,
         aiAssist: {
@@ -75,13 +76,13 @@ export const settings = defineType({
       fields: [
         defineField({
           name: 'alt',
-          description: 'Important for accessibility and SEO.',
-          title: 'Alternative text',
+          description: 'Belangrijk voor toegankelijkheid en SEO.',
+          title: 'Alternatieve tekst',
           type: 'string',
           validation: (rule) => {
             return rule.custom((alt, context) => {
               if ((context.document?.ogImage as any)?.asset?._ref && !alt) {
-                return 'Required'
+                return 'Verplicht'
               }
               return true
             })
@@ -95,7 +96,7 @@ export const settings = defineType({
               href="https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase"
               rel="noreferrer noopener"
             >
-              More information
+              Meer informatie
             </a>
           ),
         }),
@@ -105,7 +106,7 @@ export const settings = defineType({
   preview: {
     prepare() {
       return {
-        title: 'Settings',
+        title: 'Instellingen',
       }
     },
   },

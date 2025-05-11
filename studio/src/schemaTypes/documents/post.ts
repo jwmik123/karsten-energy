@@ -9,21 +9,21 @@ import {defineField, defineType} from 'sanity'
 
 export const post = defineType({
   name: 'post',
-  title: 'Post',
+  title: 'Bericht',
   icon: DocumentTextIcon,
   type: 'document',
   fields: [
     defineField({
       name: 'title',
-      title: 'Title',
+      title: 'Titel',
       type: 'string',
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'slug',
-      title: 'Slug',
+      title: 'URL',
       type: 'slug',
-      description: 'A slug is required for the post to show up in the preview',
+      description: 'Een URL is vereist om het bericht in de preview te tonen',
       options: {
         source: 'title',
         maxLength: 96,
@@ -33,17 +33,17 @@ export const post = defineType({
     }),
     defineField({
       name: 'content',
-      title: 'Content',
+      title: 'Inhoud',
       type: 'blockContent',
     }),
     defineField({
       name: 'excerpt',
-      title: 'Excerpt',
+      title: 'Samenvatting',
       type: 'text',
     }),
     defineField({
       name: 'coverImage',
-      title: 'Cover Image',
+      title: 'Omslagafbeelding',
       type: 'image',
       options: {
         hotspot: true,
@@ -55,13 +55,13 @@ export const post = defineType({
         {
           name: 'alt',
           type: 'string',
-          title: 'Alternative text',
-          description: 'Important for SEO and accessibility.',
+          title: 'Alternatieve tekst',
+          description: 'Belangrijk voor SEO en toegankelijkheid.',
           validation: (rule) => {
             // Custom validation to ensure alt text is provided if the image is present. https://www.sanity.io/docs/validation
             return rule.custom((alt, context) => {
               if ((context.document?.coverImage as any)?.asset?._ref && !alt) {
-                return 'Required'
+                return 'Verplicht'
               }
               return true
             })
@@ -72,13 +72,13 @@ export const post = defineType({
     }),
     defineField({
       name: 'date',
-      title: 'Date',
+      title: 'Datum',
       type: 'datetime',
       initialValue: () => new Date().toISOString(),
     }),
     defineField({
       name: 'author',
-      title: 'Author',
+      title: 'Auteur',
       type: 'reference',
       to: [{type: 'person'}],
     }),
@@ -94,8 +94,8 @@ export const post = defineType({
     },
     prepare({title, media, authorFirstName, authorLastName, date}) {
       const subtitles = [
-        authorFirstName && authorLastName && `by ${authorFirstName} ${authorLastName}`,
-        date && `on ${format(parseISO(date), 'LLL d, yyyy')}`,
+        authorFirstName && authorLastName && `door ${authorFirstName} ${authorLastName}`,
+        date && `op ${format(parseISO(date), 'LLL d, yyyy')}`,
       ].filter(Boolean)
 
       return {title, media, subtitle: subtitles.join(' ')}

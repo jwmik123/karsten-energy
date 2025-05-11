@@ -3,26 +3,26 @@ import {ImageIcon} from '@sanity/icons'
 
 export const textImageSection = defineType({
   name: 'textImageSection',
-  title: 'Text & Image Section',
+  title: 'Tekst & Afbeelding Sectie',
   type: 'object',
   icon: ImageIcon,
   fields: [
     defineField({
       name: 'title',
-      title: 'Title',
+      title: 'Titel',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'text',
-      title: 'Text Content',
+      title: 'Tekst Inhoud',
       type: 'array',
       of: [{type: 'block'}],
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'image',
-      title: 'Image',
+      title: 'Afbeelding',
       type: 'image',
       options: {
         hotspot: true,
@@ -31,12 +31,12 @@ export const textImageSection = defineType({
     }),
     defineField({
       name: 'imagePosition',
-      title: 'Image Position',
+      title: 'Afbeelding Positie',
       type: 'string',
       options: {
         list: [
-          {title: 'Left', value: 'left'},
-          {title: 'Right', value: 'right'},
+          {title: 'Links', value: 'left'},
+          {title: 'Rechts', value: 'right'},
         ],
         layout: 'radio',
       },
@@ -45,18 +45,18 @@ export const textImageSection = defineType({
     }),
     defineField({
       name: 'button',
-      title: 'Button (Optional)',
+      title: 'Knop (Optioneel)',
       type: 'object',
       fields: [
         defineField({
           name: 'text',
-          title: 'Button Text',
+          title: 'Knoptekst',
           type: 'string',
           validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: 'link',
-          title: 'Button Link',
+          title: 'Knoplink',
           type: 'url',
           validation: (Rule) =>
             Rule.uri({
@@ -73,8 +73,8 @@ export const textImageSection = defineType({
     },
     prepare({title, media}) {
       return {
-        title: title || 'Untitled Text & Image Section',
-        subtitle: 'Text & Image Section',
+        title: title || 'Naamloze Tekst & Afbeelding Sectie',
+        subtitle: 'Tekst & Afbeelding Sectie',
         media: media,
       }
     },

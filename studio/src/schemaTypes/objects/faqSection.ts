@@ -3,15 +3,15 @@ import {HelpCircleIcon} from '@sanity/icons'
 
 export const faqSection = defineType({
   name: 'faqSection',
-  title: 'FAQ Section',
+  title: 'FAQ Sectie',
   type: 'object',
   icon: HelpCircleIcon,
   fields: [
     defineField({
       name: 'title',
-      title: 'Section Title',
+      title: 'Sectie Titel',
       type: 'string',
-      description: 'The title for the FAQ section',
+      description: 'De titel voor de FAQ sectie',
     }),
     defineField({
       name: 'faqItems',
@@ -24,12 +24,12 @@ export const faqSection = defineType({
           fields: [
             defineField({
               name: 'question',
-              title: 'Question',
+              title: 'Vraag',
               type: 'string',
             }),
             defineField({
               name: 'answer',
-              title: 'Answer',
+              title: 'Antwoord',
               type: 'blockContent',
             }),
           ],
@@ -43,8 +43,8 @@ export const faqSection = defineType({
     },
     prepare({title}) {
       return {
-        title: title || 'Untitled FAQ Section',
-        subtitle: 'FAQ Section',
+        title: title || 'Naamloze FAQ Sectie',
+        subtitle: 'FAQ Sectie',
       }
     },
   },

@@ -13,7 +13,7 @@ import {defineArrayMember, defineType, defineField} from 'sanity'
  * Learn more: https://www.sanity.io/docs/block-content
  */
 export const blockContent = defineType({
-  title: 'Block Content',
+  title: 'Blok Inhoud',
   name: 'blockContent',
   type: 'array',
   of: [
@@ -34,8 +34,8 @@ export const blockContent = defineType({
                 options: {
                   list: [
                     {title: 'URL', value: 'href'},
-                    {title: 'Page', value: 'page'},
-                    {title: 'Post', value: 'post'},
+                    {title: 'Pagina', value: 'page'},
+                    {title: 'Bericht', value: 'post'},
                   ],
                   layout: 'radio',
                 },
@@ -48,42 +48,42 @@ export const blockContent = defineType({
                 validation: (Rule) =>
                   Rule.custom((value, context: any) => {
                     if (context.parent?.linkType === 'href' && !value) {
-                      return 'URL is required when Link Type is URL'
+                      return 'URL is verplicht wanneer Link Type URL is'
                     }
                     return true
                   }),
               }),
               defineField({
                 name: 'page',
-                title: 'Page',
+                title: 'Pagina',
                 type: 'reference',
                 to: [{type: 'page'}],
                 hidden: ({parent}) => parent?.linkType !== 'page',
                 validation: (Rule) =>
                   Rule.custom((value, context: any) => {
                     if (context.parent?.linkType === 'page' && !value) {
-                      return 'Page reference is required when Link Type is Page'
+                      return 'Pagina referentie is verplicht wanneer Link Type Pagina is'
                     }
                     return true
                   }),
               }),
               defineField({
                 name: 'post',
-                title: 'Post',
+                title: 'Bericht',
                 type: 'reference',
                 to: [{type: 'post'}],
                 hidden: ({parent}) => parent?.linkType !== 'post',
                 validation: (Rule) =>
                   Rule.custom((value, context: any) => {
                     if (context.parent?.linkType === 'post' && !value) {
-                      return 'Post reference is required when Link Type is Post'
+                      return 'Bericht referentie is verplicht wanneer Link Type Bericht is'
                     }
                     return true
                   }),
               }),
               defineField({
                 name: 'openInNewTab',
-                title: 'Open in new tab',
+                title: 'Openen in nieuw tabblad',
                 type: 'boolean',
                 initialValue: false,
               }),

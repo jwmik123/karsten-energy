@@ -18,28 +18,28 @@ export const callToAction = defineType({
       if ((buttonText && link) || (!buttonText && !link)) {
         return true
       }
-      return 'Both Button text and Button link must be set, or both must be empty'
+      return 'Zowel knoptekst als knoplink moeten worden ingesteld, of beide moeten leeg zijn'
     }),
   fields: [
     defineField({
       name: 'heading',
-      title: 'Heading',
+      title: 'Kop',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'text',
-      title: 'Text',
+      title: 'Tekst',
       type: 'text',
     }),
     defineField({
       name: 'buttonText',
-      title: 'Button text',
+      title: 'Knoptekst',
       type: 'string',
     }),
     defineField({
       name: 'link',
-      title: 'Button link',
+      title: 'Knoplink',
       type: 'link',
     }),
   ],
