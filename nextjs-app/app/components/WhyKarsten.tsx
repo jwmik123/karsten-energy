@@ -46,8 +46,8 @@ const WhyKarsten = () => {
             gecertificeerde monteurs die er voor zorgen dat u 100 procent
             tevreden bent!
           </p>
-          <div className="flex gap-4">
-            <div className="w-2/3 h-[300px] relative">
+          <div className="flex flex-col gap-4">
+            <div className="w-full h-[450px] relative">
               <Image
                 src="/eigenaren.webp"
                 alt="Karsten Energy Logo"
@@ -56,8 +56,8 @@ const WhyKarsten = () => {
                 style={{ objectPosition: "center" }}
               />
             </div>
-            <div className="flex w-1/3 h-[300px] relative">
-              <p className="text-gray-800 text-sm  font-bold max-w-xl self-end">
+            <div className="flex w-full relative">
+              <p className="text-gray-800 text-sm font-bold italic self-end">
                 De 4 eigenaren – rechts voor Peter Karsten, links voor Pieter
                 Beerepoot, rechts achter Jan Reus, links achter Niels Koster
               </p>

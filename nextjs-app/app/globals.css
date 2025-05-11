@@ -1,3 +1,8 @@
+/* Existing CSS below */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Add Lenis smooth scroll styles */
 html.lenis {
   height: auto;
@@ -19,7 +24,12 @@ html.lenis {
   pointer-events: none;
 }
 
-/* Existing CSS below */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@layer base {
+  h4 {
+    @apply text-2xl font-bold;
+  }
+
+  h5 {
+    @apply text-xl font-bold;
+  }
+}

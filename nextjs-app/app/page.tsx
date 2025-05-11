@@ -22,6 +22,18 @@ export default async function Page() {
       <EnergyCtaSection />
       <ReviewsSection />
       <HomepageFaq />
+      {/* Full-width Image Section */}
+      <section className="py-4 bg-white">
+        <div className="">
+          <div className="relative w-full overflow-hidden h-[420px]">
+            <img
+              src="/bussen.webp"
+              alt="Karsten Energy Solar Installation"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
     </>
   );
 }

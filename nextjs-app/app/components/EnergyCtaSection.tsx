@@ -27,7 +27,7 @@ export default function EnergyCtaSection() {
         </h2>
 
         <Link
-          href="/energiecontract"
+          href="/groeno-energie"
           className="mt-8 inline-block bg-transparent border border-white hover:bg-white hover:text-black text-white font-medium py-3 px-6 rounded-md transition-colors duration-300"
         >
           Meer over ons dynamische energiecontract

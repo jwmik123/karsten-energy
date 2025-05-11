@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -113,19 +114,37 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-4">Thuis</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:underline">
-                  Thuisbatterij
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Laadpaal
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
+                <Link href="/zonnepanelen" className="hover:underline">
                   Zonnepanelen
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/thuisbatterij" className="hover:underline">
+                  Thuisbatterij
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/energie-management-systeem"
+                  className="hover:underline"
+                >
+                  EMS
+                </Link>
+              </li>
+              <li>
+                <Link href="/laadpaal" className="hover:underline">
+                  Laadpaal
+                </Link>
+              </li>
+              <li>
+                <Link href="/airco" className="hover:underline">
+                  Airco&apos;s
+                </Link>
+              </li>
+              <li>
+                <Link href="/groeno-energie" className="hover:underline">
+                  Groeno energie
+                </Link>
               </li>
             </ul>
           </div>
@@ -135,19 +154,48 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-4">Zakelijk</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:underline">
+                <Link href="/zonnepanelen-zakelijk" className="hover:underline">
                   Zonnepanelen
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline">
-                  Laadpalen
-                </a>
+                <Link
+                  href="/lichtgewicht-onderconstructie"
+                  className="hover:underline"
+                >
+                  Lichtgewicht onderconstructie
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline">
-                  Batterijopslag
-                </a>
+                <Link
+                  href="/zakelijke-batterijopslag"
+                  className="hover:underline"
+                >
+                  Zakelijke Batterijopslag
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/energie-management-systeem-zakelijk"
+                  className="hover:underline"
+                >
+                  EMS
+                </Link>
+              </li>
+              <li>
+                <Link href="/laadpaal-zakelijk" className="hover:underline">
+                  Laadpaal
+                </Link>
+              </li>
+              <li>
+                <Link href="/airco-zakelijk" className="hover:underline">
+                  Airco&apos;s
+                </Link>
+              </li>
+              <li>
+                <Link href="/groeno-energie" className="hover:underline">
+                  Groeno energie
+                </Link>
               </li>
             </ul>
           </div>
@@ -157,19 +205,19 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-4">Energie</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:underline">
+                <Link href="/groeno" className="hover:underline">
                   Groeno
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <Link href="/prijzen" className="hover:underline">
                   Prijzen
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <Link href="/advies" className="hover:underline">
                   Advies
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -181,12 +229,12 @@ export default function Footer() {
         <div className="border-t border-red-500 border-t-red-400 pt-6 mt-6 text-xs flex flex-col md:flex-row items-center justify-between">
           <div>© {currentYear} Karsten Energy B.V.</div>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <a href="#" className="hover:underline">
+            <Link href="/algemene-voorwaarden" className="hover:underline">
               Algemene voorwaarden
-            </a>
-            <a href="#" className="hover:underline">
+            </Link>
+            <Link href="/garantie" className="hover:underline">
               Garantie
-            </a>
+            </Link>
           </div>
         </div>
       </div>

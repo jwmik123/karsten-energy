@@ -60,7 +60,7 @@ export default function TextImageSection({
   const contentColumn = (
     <div className="flex flex-col justify-center">
       {block.title && (
-        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight tracking-tighter">
+        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight tracking-tighter mb-10">
           {block.title}
         </h2>
       )}
