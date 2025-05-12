@@ -79,7 +79,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="py-16 bg-blue-50">
+    <section id="contactform" className="py-16 bg-blue-50">
       <div className="container mx-auto px-4 max-w-5xl">
         <h2 className="text-3xl md:text-5xl font-bold text-center mb-10 tracking-tighter">
           Vraag een offerte aan

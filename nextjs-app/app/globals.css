@@ -24,6 +24,10 @@ html.lenis {
   pointer-events: none;
 }
 
+:root {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   h4 {
     @apply text-2xl font-bold;

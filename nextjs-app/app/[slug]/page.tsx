@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { urlForImage } from "@/sanity/lib/utils";
 import ResolvedLink from "@/app/components/ResolvedLink";
 import { Check } from "lucide-react";
@@ -11,6 +12,7 @@ import { getPageQuery, pagesSlugs } from "@/sanity/lib/queries";
 import { GetPageQueryResult } from "@/sanity.types";
 import { PageOnboarding } from "@/app/components/Onboarding";
 import ContactForm from "@/app/components/ContactForm";
+import ReviewsSection from "@/app/components/ReviewsSection";
 
 // Define the expected structure for headerButton and headerListItems
 interface HeaderButton {
@@ -117,12 +119,12 @@ export default async function Page(props: Props) {
               )}
               {headerButton && headerButton.text && (
                 <div className="">
-                  <ResolvedLink
-                    link={headerButton.link}
+                  <Link
+                    href="#contactform"
                     className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium text-xl py-4 px-6 rounded-md transition duration-300"
                   >
                     {headerButton.text}
-                  </ResolvedLink>
+                  </Link>
                 </div>
               )}
             </div>
@@ -147,6 +149,7 @@ export default async function Page(props: Props) {
           </div>
         )}
         <PageBuilderPage page={page as GetPageQueryResult} />
+        <ReviewsSection />
         <ContactForm />
       </div>
     </div>

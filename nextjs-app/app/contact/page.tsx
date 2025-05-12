@@ -8,7 +8,7 @@ export default function ContactPage() {
       <section className="relative text-white py-20 md:pt-44">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/mannen.jpeg"
+            src="/mannen.webp"
             alt="Contact background"
             fill
             className="object-cover"
