@@ -146,7 +146,7 @@ export default function Header() {
                           Lichtgewicht onderconstructie
                         </Link>
                         <Link
-                          href="/zakelijke-batterijopslag"
+                          href="/batterij-zakelijk"
                           className="block px-4 py-2 text-md  hover:font-bold transition-all duration-300"
                         >
                           Zakelijke Batterijopslag
