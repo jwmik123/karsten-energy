@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function AlgemeneVoorwaardenPage() {
@@ -461,9 +462,9 @@ export default function AlgemeneVoorwaardenPage() {
       <p className="mb-4">
         De volledige algemene voorwaarden kunt u opvragen door contact op te
         nemen met Karsten Energy BV via onze{" "}
-        <a href="/contact" className="text-blue-600 hover:underline">
+        <Link href="/contact" className="text-blue-600 hover:underline">
           contactpagina
-        </a>
+        </Link>
         .
       </p>
     </main>

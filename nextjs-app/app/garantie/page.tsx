@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function GarantiePage() {
@@ -138,9 +139,9 @@ export default function GarantiePage() {
         <p className="mt-8">
           Voor meer informatie over onze garantievoorwaarden of bij vragen over
           garantie, neem contact op via onze{" "}
-          <a href="/contact" className="text-blue-600 hover:underline">
+          <Link href="/contact" className="text-blue-600 hover:underline">
             contactpagina
-          </a>
+          </Link>
           .
         </p>
       </div>
