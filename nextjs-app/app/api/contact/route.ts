@@ -109,7 +109,7 @@ ${message}
     // Send the email using Resend
     const { data, error } = await resend.emails.send({
       from: "noreply@noreply.karstenenergy.eu",
-      to: ["joelmik123@gmail.com"],
+      to: ["info@karstenenergy.nl"],
       replyTo: email,
       subject: "Nieuwe offerte aanvraag via website",
       html: emailContent.html,
