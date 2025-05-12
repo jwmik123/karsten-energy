@@ -114,8 +114,8 @@ export default function GarantiePage() {
           </li>
           <li>
             De communicatie met het internet valt, vanwege de afhankelijkheid
-            van derde partijen zoals de 'Internet Service Provider' (ISP),
-            expliciet buiten de garantie.
+            van derde partijen zoals de &apos;Internet Service Provider&apos;
+            (ISP), expliciet buiten de garantie.
           </li>
         </ul>
 

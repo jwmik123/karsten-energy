@@ -194,9 +194,9 @@ export default function AlgemeneVoorwaardenPage() {
         </h2>
         <ol className="list-decimal pl-6 my-4 space-y-2">
           <li>
-            De door Karsten Energy BV vermelde prijzen zijn in euro's inclusief
-            het voor het betreffende product geldende BTW percentage en
-            exclusief alle overige kosten, heffingen of belastingen.
+            De door Karsten Energy BV vermelde prijzen zijn in euro&apos;s
+            inclusief het voor het betreffende product geldende BTW percentage
+            en exclusief alle overige kosten, heffingen of belastingen.
           </li>
           <li>
             Prijsopgaven worden steeds gedaan op basis van de op het tijdstip
@@ -238,8 +238,9 @@ export default function AlgemeneVoorwaardenPage() {
             Betaling dient, tenzij schriftelijk anders overeengekomen, zonder
             enige korting, opschorting of verrekening te geschieden, door middel
             van storting door overmaking op een door Karsten Energy BV
-            aangewezen bankrekening. Betaling dient te geschieden in euro's,
-            tenzij uitdrukkelijk schriftelijk anders overeengekomen.
+            aangewezen bankrekening. Betaling dient te geschieden in
+            euro&apos;s, tenzij uitdrukkelijk schriftelijk anders
+            overeengekomen.
           </li>
           <li>
             Wederpartij is over de bedragen die niet uiterlijk op de laatste dag
@@ -270,8 +271,8 @@ export default function AlgemeneVoorwaardenPage() {
           <li>
             Indien de Wederpartij een aanvraag wil doen voor een Stimulering
             Duurzame Energieproductie Subsidie (hierna te noemen: ISDE
-            Subsidie'), kan de Wederpartij Karsten Energy BV hiertoe machtigen
-            door middel van een door Karsten Energy BV verstrekt
+            Subsidie&apos;), kan de Wederpartij Karsten Energy BV hiertoe
+            machtigen door middel van een door Karsten Energy BV verstrekt
             machtigingsformulier. De aanvraag van de Subsidie wordt in dat geval
             zelfstandig door Karsten Energy BV ten behoeve van de Wederpartij
             behandeld.
@@ -309,10 +310,10 @@ export default function AlgemeneVoorwaardenPage() {
             De Wederpartij is zelfstandig verantwoordelijk voor de
             draagconstructie van de ondergrond waarop het Zonnestroomsysteem of
             andere Zaken door Karsten Energy BV (hierna te noemen: de
-            'Installatie') worden bevestigd en is zich er van bewust dat door de
-            installatie van het Zonnestroomsysteem en/of andere Zaken de
-            bestaande bebouw- belasting (bijvoorbeeld wind en/of sneeuw) wordt
-            veranderd.
+            &apos;Installatie&apos;) worden bevestigd en is zich er van bewust
+            dat door de installatie van het Zonnestroomsysteem en/of andere
+            Zaken de bestaande bebouw- belasting (bijvoorbeeld wind en/of
+            sneeuw) wordt veranderd.
           </li>
           <li>
             Ter voorkoming van enige schade is het voor de Wederpartij
@@ -359,7 +360,7 @@ export default function AlgemeneVoorwaardenPage() {
           </li>
           <li>
             Karsten Energy BV is bevoegd om bij de uitvoering van de
-            Overeenkomst derden (bijvoorbeeld zzp'ers) in te schakelen.
+            Overeenkomst derden (bijvoorbeeld zzp&apos;ers) in te schakelen.
           </li>
           <li>
             Alle opgaven door Karsten Energy BV van getallen, maten, gewichten
