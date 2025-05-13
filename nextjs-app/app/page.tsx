@@ -7,7 +7,7 @@ import HomepageFaq from "./components/HomepageFaq";
 import ReviewsSection from "./components/ReviewsSection";
 import { getSettings } from "./lib/sanity";
 import WhyKarsten from "./components/WhyKarsten";
-
+import Image from "next/image";
 export default async function Page() {
   // Fetch settings data
   const settingsData = await getSettings();
@@ -15,7 +15,7 @@ export default async function Page() {
   return (
     <>
       <LandingImage heroSlider={settingsData?.heroSlider} />
-      {/* <StaggeringText /> */}
+      <StaggeringText />
       <HeroSection />
       <WhyKarsten />
       <ServicesSection layout="grid" />
@@ -26,10 +26,12 @@ export default async function Page() {
       <section className="py-4 bg-white">
         <div className="">
           <div className="relative w-full overflow-hidden h-[300px] md:h-[420px]">
-            <img
+            <Image
               src="/bussen.webp"
               alt="Karsten Energy Solar Installation"
               className="w-full h-full object-cover"
+              width={1920}
+              height={1080}
             />
           </div>
         </div>

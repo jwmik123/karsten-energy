@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ContactFormClient from "./ContactFormClient";
+import Link from "next/link";
 
 export default function ContactPage() {
   return (
@@ -62,7 +63,9 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-gray-600">+31 (0) 123 456 789</p>
+                    <Link href="tel:0858000611" className="text-gray-600">
+                      085-8000 611
+                    </Link>
                   </div>
                 </div>
 

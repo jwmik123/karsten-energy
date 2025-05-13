@@ -232,8 +232,20 @@ export default function ReviewSlider({
       <div ref={sliderContentRef} className="flex absolute left-0 top-0">
         {reviewCards}
       </div>
-      <div className="absolute top-0 bottom-0 left-0 w-28 bg-gradient-to-r from-blue-100 to-transparent z-10"></div>
-      <div className="absolute top-0 bottom-0 right-0 w-28 bg-gradient-to-l from-blue-100 to-transparent z-10"></div>
+      <div
+        className="absolute top-0 bottom-0 left-0 w-40 z-10 blur-xl"
+        style={{
+          background: "rgba(255, 255, 255, 0.1)",
+          maskImage: "linear-gradient(90deg, #000, rgba(0, 0, 0, 0) 100%)",
+        }}
+      ></div>
+      <div
+        className="absolute top-0 bottom-0 right-0 w-40 z-10 blur-xl"
+        style={{
+          background: "rgba(255, 255, 255, 0.1)",
+          maskImage: "linear-gradient(-90deg, #000, rgba(0, 0, 0, 0) 100%)",
+        }}
+      ></div>
     </div>
   );
 }

@@ -163,26 +163,25 @@ export default function ReviewsSection() {
             </Link>
           </div>
         </div>
+      </div>
+      <div className="">
+        {/* First slider - moving right by default */}
+        <ReviewSlider
+          reviews={solarPanelReviews}
+          cardWidth={330}
+          gap={20}
+          speed={60}
+        />
 
-        <div className="">
-          {/* First slider - moving right by default */}
-          <ReviewSlider
-            reviews={solarPanelReviews}
-            cardWidth={330}
-            gap={20}
-            speed={60}
-          />
-
-          {/* Second slider - moving left by default and when scrolling down */}
-          <ReviewSlider
-            reviews={aircoReviews}
-            cardWidth={330}
-            gap={20}
-            speed={50}
-            reverse={true}
-            reverseScroll={true}
-          />
-        </div>
+        {/* Second slider - moving left by default and when scrolling down */}
+        <ReviewSlider
+          reviews={aircoReviews}
+          cardWidth={330}
+          gap={20}
+          speed={50}
+          reverse={true}
+          reverseScroll={true}
+        />
       </div>
     </section>
   );
