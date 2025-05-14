@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Phone, ChevronRight } from "lucide-react";
@@ -20,12 +20,18 @@ export default function MobileNav({ onMenuStateChange }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
+  // Handle overflow state whenever isOpen changes
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   const toggleMenu = () => {
     const newState = !isOpen;
     setIsOpen(newState);
     onMenuStateChange(newState);
-    // Prevent body scroll when menu is open
-    document.body.style.overflow = newState ? "hidden" : "auto";
   };
 
   const navItems: NavItem[] = [

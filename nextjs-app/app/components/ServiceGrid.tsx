@@ -191,7 +191,7 @@ export default function ServiceGrid({ services = [] }: ServiceGridProps) {
           {services.map((service) => (
             <div
               key={service._id || `service-${service.slug}`}
-              className="relative group rounded-xl overflow-hidden aspect-[4/3] md:aspect-[3/4] bg-white/10"
+              className="relative group rounded-xl overflow-hidden aspect-[3/4] bg-white/10"
               ref={(el) => {
                 if (el) slideRefs.current.set(service._id, el);
               }}

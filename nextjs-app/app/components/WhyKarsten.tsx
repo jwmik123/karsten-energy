@@ -24,10 +24,10 @@ const WhyKarsten = () => {
                 key={index}
                 className="bg-red-500 rounded-lg p-5 md:p-10 text-left shadow-lg flex items-center gap-12"
               >
-                <span className="text-6xl font-bold text-red-100/40 select-none min-w-[70px] text-right">
+                <span className="text-3xl md:text-6xl font-bold text-red-100/40 select-none md:min-w-[70px] text-right">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <p className="text-white text-xl md:text-2xl font-bold max-w-xl">
+                <p className="text-white text-xl md:text-2xl md:font-bold md:max-w-xl">
                   {point}
                 </p>
               </div>

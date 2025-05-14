@@ -197,7 +197,7 @@ export default function LandingImage({ heroSlider }: LandingImageProps) {
           <div className="absolute bottom-0 left-0 w-full h-1 bg-gray-700">
             <div
               ref={progressRef}
-              className="h-full bg-blue-500"
+              className="h-full bg-red-500"
               style={{ width: "0%" }}
             />
           </div>
