@@ -1,9 +1,21 @@
 "use client";
 
-import { ReactNode, useEffect, useRef } from "react";
+import {
+  ReactNode,
+  useEffect,
+  useRef,
+  createContext,
+  useContext,
+  useState,
+} from "react";
 import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Create context for scroll initialization
+export const ScrollContext = createContext<{ isInitialized: boolean }>({
+  isInitialized: false,
+});
 
 // Extend Window interface to include lenis
 declare global {
@@ -18,6 +30,7 @@ interface SmoothScrollProps {
 
 export default function SmoothScroll({ children }: SmoothScrollProps) {
   const lenisRef = useRef<Lenis | null>(null);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
     // Register ScrollTrigger plugin
@@ -52,6 +65,11 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
 
     requestAnimationFrame(raf);
 
+    // Set initialized state after a small delay to ensure everything is ready
+    setTimeout(() => {
+      setIsInitialized(true);
+    }, 100);
+
     // Clean up on component unmount
     return () => {
       lenis.destroy();
@@ -60,5 +78,9 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
     };
   }, []);
 
-  return <>{children}</>;
+  return (
+    <ScrollContext.Provider value={{ isInitialized }}>
+      {children}
+    </ScrollContext.Provider>
+  );
 }

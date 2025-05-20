@@ -1,10 +1,11 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
 import { Flip } from "gsap/dist/Flip";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ScrollContext } from "./SmoothScroll";
 
 // Register GSAP plugins
 gsap.registerPlugin(Flip, ScrollTrigger);
@@ -28,6 +29,7 @@ export default function ServiceGrid({ services = [] }: ServiceGridProps) {
   const titleRefs = useRef<Map<string, HTMLHeadingElement>>(new Map());
   const containerRefs = useRef<Map<string, HTMLDivElement>>(new Map());
   const gridRef = useRef<HTMLDivElement>(null);
+  const { isInitialized } = useContext(ScrollContext);
 
   useEffect(() => {
     // Check if device is mobile
@@ -46,7 +48,7 @@ export default function ServiceGrid({ services = [] }: ServiceGridProps) {
   }, []);
 
   useEffect(() => {
-    if (!gridRef.current) return;
+    if (!gridRef.current || !isInitialized) return;
 
     const gridItems = Array.from(gridRef.current.children);
 
@@ -77,7 +79,7 @@ export default function ServiceGrid({ services = [] }: ServiceGridProps) {
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, [services]);
+  }, [services, isInitialized]);
 
   // If services is undefined or empty, don't render the component
   if (!services || services.length === 0) {
