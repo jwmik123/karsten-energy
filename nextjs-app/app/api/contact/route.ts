@@ -37,12 +37,68 @@ function validateEmail(email: string): boolean {
   return emailRegex.test(email);
 }
 
+async function submitTo2Solar(formData: any) {
+  console.log("[2Solar] Preparing to submit lead:", { email: formData.email });
+
+  const solarLeadData = {
+    firstName: formData.firstName,
+    lastName: formData.lastName,
+    email: formData.email,
+    phone: formData.phone || "",
+    postalCode: formData.postalCode || "",
+    city: formData.city || "",
+    address: formData.address || "",
+    message: formData.message || "",
+    leadSource: "Website Contact Form",
+  };
+
+  const apiKey = process.env.SOLAR_API_KEY;
+
+  if (!apiKey) {
+    console.error("[2Solar] API key is not defined in environment variables");
+    throw new Error("2Solar API configuration error");
+  }
+
+  try {
+    const response = await fetch("https://app.2solar.nl/api/person", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify(solarLeadData),
+    });
+
+    const responseData = await response.json();
+
+    if (!response.ok) {
+      console.error("[2Solar] API error:", responseData);
+      throw new Error(
+        responseData.message || "Failed to submit lead to 2Solar"
+      );
+    }
+
+    console.log("[2Solar] Lead successfully submitted:", {
+      email: formData.email,
+    });
+    return responseData;
+  } catch (error) {
+    console.error("[2Solar] Error submitting lead:", error);
+    throw error;
+  }
+}
+
 export async function POST(request: Request) {
+  const startTime = Date.now();
+  console.log("[Contact] Starting contact form submission");
+
   try {
     // Get client IP for rate limiting
     const ip = request.headers.get("x-forwarded-for") || "unknown";
+    console.log("[Contact] Request from IP:", ip);
 
     if (isRateLimited(ip)) {
+      console.log("[Contact] Rate limit exceeded for IP:", ip);
       return NextResponse.json(
         { error: "Te veel aanvragen. Probeer het later opnieuw." },
         { status: 429 }
@@ -63,8 +119,15 @@ export async function POST(request: Request) {
       message,
     } = body;
 
+    console.log("[Contact] Received form data:", {
+      email,
+      firstName,
+      lastName,
+    });
+
     // Validate required fields
     if (!firstName || !lastName || !email || !phone || !message) {
+      console.log("[Contact] Missing required fields");
       return NextResponse.json(
         { error: "Vul alle verplichte velden in" },
         { status: 400 }
@@ -73,6 +136,7 @@ export async function POST(request: Request) {
 
     // Validate email format
     if (!validateEmail(email)) {
+      console.log("[Contact] Invalid email format:", email);
       return NextResponse.json(
         { error: "Ongeldig e-mailadres" },
         { status: 400 }
@@ -107,7 +171,8 @@ ${message}
     };
 
     // Send the email using Resend
-    const { data, error } = await resend.emails.send({
+    console.log("[Contact] Sending email via Resend");
+    const { data: emailData, error: emailError } = await resend.emails.send({
       from: "noreply@noreply.karstenenergy.eu",
       to: ["info@karstenenergy.nl"],
       replyTo: email,
@@ -116,13 +181,30 @@ ${message}
       text: emailContent.text,
     });
 
-    if (error) {
-      console.error("Resend API error:", error);
+    if (emailError) {
+      console.error("[Contact] Resend API error:", emailError);
       return NextResponse.json(
         { error: "Er is een fout opgetreden bij het verzenden van de e-mail" },
         { status: 500 }
       );
     }
+
+    console.log("[Contact] Email sent successfully");
+
+    // Submit to 2Solar
+    console.log("[Contact] Submitting lead to 2Solar");
+    try {
+      await submitTo2Solar(body);
+    } catch (solarError) {
+      console.error("[Contact] 2Solar submission failed:", solarError);
+      // We don't return an error here because the email was sent successfully
+      // We just log the error and continue
+    }
+
+    const endTime = Date.now();
+    console.log(
+      `[Contact] Form submission completed in ${endTime - startTime}ms`
+    );
 
     return NextResponse.json(
       {
@@ -133,7 +215,7 @@ ${message}
       { status: 200 }
     );
   } catch (error) {
-    console.error("Error in contact form submission:", error);
+    console.error("[Contact] Error in contact form submission:", error);
     return NextResponse.json(
       { error: "Er is een fout opgetreden" },
       { status: 500 }
