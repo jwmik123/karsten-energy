@@ -32,7 +32,7 @@ export async function POST(request) {
     };
 
     // Get your 2Solar API key from environment variables
-    const apiKey = process.env.NEXT_PUBLIC_2SOLAR_API_KEY;
+    const apiKey = process.env.SOLAR_API_KEY;
 
     if (!apiKey) {
       console.error("2Solar API key is not defined in environment variables");
