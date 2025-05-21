@@ -38,7 +38,11 @@ function validateEmail(email: string): boolean {
 }
 
 async function submitTo2Solar(formData: any) {
-  console.log("[2Solar] Preparing to submit lead:", { email: formData.email });
+  const requestId = Math.random().toString(36).substring(7); // Generate unique request ID
+  console.log(
+    `[2Solar] [${requestId}] Starting lead submission for email:`,
+    formData.email
+  );
 
   // Format address components for 2Solar
   const address = formData.address || "";
@@ -47,16 +51,21 @@ async function submitTo2Solar(formData: any) {
   const city = formData.city || "";
 
   // Log the raw address components for debugging
-  console.log("[2Solar] Raw address components:", {
+  console.log(`[2Solar] [${requestId}] Raw form data:`, {
+    firstName: formData.firstName,
+    lastName: formData.lastName,
+    email: formData.email,
+    phone: formData.phone,
     address,
     houseNumber,
     postcode,
     city,
+    message: formData.message,
   });
 
   // Validate required fields
   if (!postcode || !houseNumber) {
-    console.error("[2Solar] Missing required fields:", {
+    console.error(`[2Solar] [${requestId}] Missing required fields:`, {
       postcode,
       houseNumber,
     });
@@ -71,7 +80,7 @@ async function submitTo2Solar(formData: any) {
 
   // Validate formatted values
   if (!formattedPostcode || !formattedHouseNumber) {
-    console.error("[2Solar] Invalid formatted values:", {
+    console.error(`[2Solar] [${requestId}] Invalid formatted values:`, {
       formattedPostcode,
       formattedHouseNumber,
     });
@@ -93,13 +102,12 @@ async function submitTo2Solar(formData: any) {
     number: formattedHouseNumber,
     message: formData.message ? formData.message.trim() : "",
     leadSource: "Website Contact Form",
-    // Add any additional required fields
-    type: "person", // Specify that this is a person record
-    status: "new", // Set initial status
+    type: "person",
+    status: "new",
   };
 
   // Log the formatted data being sent to 2Solar
-  console.log("[2Solar] Formatted data being sent:", {
+  console.log(`[2Solar] [${requestId}] Formatted data being sent:`, {
     ...solarLeadData,
     email: solarLeadData.email, // Only log email for privacy
   });
@@ -107,14 +115,16 @@ async function submitTo2Solar(formData: any) {
   const apiKey = process.env.SOLAR_API_KEY;
 
   if (!apiKey) {
-    console.error("[2Solar] API key is not defined in environment variables");
+    console.error(
+      `[2Solar] [${requestId}] API key is not defined in environment variables`
+    );
     throw new Error("2Solar API configuration error");
   }
 
   try {
     // Log the exact request being made
     console.log(
-      "[2Solar] Making API request to:",
+      `[2Solar] [${requestId}] Making API request to:`,
       "https://app.2solar.nl/api/person"
     );
 
@@ -131,10 +141,13 @@ async function submitTo2Solar(formData: any) {
     const responseData = await response.json();
 
     if (!response.ok) {
-      console.error("[2Solar] API error:", responseData);
-      console.error("[2Solar] Response status:", response.status);
+      console.error(`[2Solar] [${requestId}] API error:`, responseData);
       console.error(
-        "[2Solar] Response headers:",
+        `[2Solar] [${requestId}] Response status:`,
+        response.status
+      );
+      console.error(
+        `[2Solar] [${requestId}] Response headers:`,
         Object.fromEntries(response.headers.entries())
       );
       throw new Error(
@@ -142,27 +155,28 @@ async function submitTo2Solar(formData: any) {
       );
     }
 
-    console.log("[2Solar] Lead successfully submitted:", {
+    console.log(`[2Solar] [${requestId}] Lead successfully submitted:`, {
       email: formData.email,
     });
     return responseData;
   } catch (error) {
-    console.error("[2Solar] Error submitting lead:", error);
+    console.error(`[2Solar] [${requestId}] Error submitting lead:`, error);
     throw error;
   }
 }
 
 export async function POST(request: Request) {
   const startTime = Date.now();
-  console.log("[Contact] Starting contact form submission");
+  const requestId = Math.random().toString(36).substring(7); // Generate unique request ID
+  console.log(`[Contact] [${requestId}] Starting contact form submission`);
 
   try {
     // Get client IP for rate limiting
     const ip = request.headers.get("x-forwarded-for") || "unknown";
-    console.log("[Contact] Request from IP:", ip);
+    console.log(`[Contact] [${requestId}] Request from IP:`, ip);
 
     if (isRateLimited(ip)) {
-      console.log("[Contact] Rate limit exceeded for IP:", ip);
+      console.log(`[Contact] [${requestId}] Rate limit exceeded for IP:`, ip);
       return NextResponse.json(
         { error: "Te veel aanvragen. Probeer het later opnieuw." },
         { status: 429 }
@@ -183,10 +197,15 @@ export async function POST(request: Request) {
       message,
     } = body;
 
-    console.log("[Contact] Received form data:", {
+    console.log(`[Contact] [${requestId}] Received form data:`, {
       email,
       firstName,
       lastName,
+      phone,
+      address,
+      houseNumber,
+      postalCode,
+      city,
     });
 
     // Validate required fields
@@ -238,7 +257,7 @@ ${message}
     console.log("[Contact] Sending email via Resend");
     const { data: emailData, error: emailError } = await resend.emails.send({
       from: "noreply@noreply.karstenenergy.eu",
-      to: ["info@karstenenergy.nl"], // info@karstenenergy.nl
+      to: ["joelmik123@gmail.com"], // info@karstenenergy.nl
       replyTo: email,
       subject: "Nieuwe offerte aanvraag via website",
       html: emailContent.html,
@@ -256,18 +275,21 @@ ${message}
     console.log("[Contact] Email sent successfully");
 
     // Submit to 2Solar
-    console.log("[Contact] Submitting lead to 2Solar");
+    console.log(`[Contact] [${requestId}] Submitting lead to 2Solar`);
     try {
       await submitTo2Solar(body);
     } catch (solarError) {
-      console.error("[Contact] 2Solar submission failed:", solarError);
+      console.error(
+        `[Contact] [${requestId}] 2Solar submission failed:`,
+        solarError
+      );
       // We don't return an error here because the email was sent successfully
       // We just log the error and continue
     }
 
     const endTime = Date.now();
     console.log(
-      `[Contact] Form submission completed in ${endTime - startTime}ms`
+      `[Contact] [${requestId}] Form submission completed in ${endTime - startTime}ms`
     );
 
     return NextResponse.json(
@@ -279,7 +301,10 @@ ${message}
       { status: 200 }
     );
   } catch (error) {
-    console.error("[Contact] Error in contact form submission:", error);
+    console.error(
+      `[Contact] [${requestId}] Error in contact form submission:`,
+      error
+    );
     return NextResponse.json(
       { error: "Er is een fout opgetreden" },
       { status: 500 }
