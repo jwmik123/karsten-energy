@@ -21,10 +21,48 @@ export default function ContactForm() {
     message?: string;
   }>({});
 
+  const validateForm = () => {
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      return "Ongeldig e-mailadres";
+    }
+
+    // Basic phone validation (allow common formats)
+    const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+    if (!phoneRegex.test(formData.phone.replace(/\s+/g, ""))) {
+      return "Ongeldig telefoonnummer";
+    }
+
+    // Basic postal code validation (Dutch format)
+    const postalCodeRegex = /^[1-9][0-9]{3}\s?[a-zA-Z]{2}$/;
+    if (!postalCodeRegex.test(formData.postalCode)) {
+      return "Ongeldige postcode (gebruik formaat: 1234 AB)";
+    }
+
+    // Check if house number is numeric
+    if (!/^\d+[a-zA-Z]*$/.test(formData.houseNumber)) {
+      return "Ongeldig huisnummer";
+    }
+
+    return null;
+  };
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
+
+    // Format postal code as user types (add space after 4 digits)
+    if (name === "postalCode") {
+      const formattedValue = value
+        .replace(/\s/g, "")
+        .replace(/(\d{4})([a-zA-Z]{2})/, "$1 $2")
+        .toUpperCase();
+      setFormData((prev) => ({ ...prev, [name]: formattedValue }));
+      return;
+    }
+
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -32,6 +70,17 @@ export default function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus({});
+
+    // Validate form
+    const validationError = validateForm();
+    if (validationError) {
+      setSubmitStatus({
+        success: false,
+        message: validationError,
+      });
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       const response = await fetch("/api/contact", {
@@ -169,9 +218,10 @@ export default function ContactForm() {
                 name="postalCode"
                 value={formData.postalCode}
                 onChange={handleChange}
-                placeholder="Postcode"
+                placeholder="Postcode (1234 AB)"
                 className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
+                maxLength={7}
               />
             </div>
             <div>

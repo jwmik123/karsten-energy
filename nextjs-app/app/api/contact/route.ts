@@ -40,17 +40,62 @@ function validateEmail(email: string): boolean {
 async function submitTo2Solar(formData: any) {
   console.log("[2Solar] Preparing to submit lead:", { email: formData.email });
 
+  // Format address components for 2Solar
+  const address = formData.address || "";
+  const houseNumber = formData.houseNumber || "";
+  const postcode = formData.postalCode || ""; // Keep postalCode from form, but use postcode for 2Solar
+  const city = formData.city || "";
+
+  // Log the raw address components for debugging
+  console.log("[2Solar] Raw address components:", {
+    address,
+    houseNumber,
+    postcode,
+    city,
+  });
+
+  // Validate required fields
+  if (!postcode || !houseNumber) {
+    console.error("[2Solar] Missing required fields:", {
+      postcode,
+      houseNumber,
+    });
+    throw new Error("Postcode and house number are required");
+  }
+
+  // Format postcode (remove spaces and ensure uppercase)
+  const formattedPostcode = postcode.replace(/\s+/g, "").toUpperCase();
+
+  // Format house number (ensure it's a string and remove any spaces)
+  const formattedHouseNumber = houseNumber.toString().trim();
+
+  // Validate formatted values
+  if (!formattedPostcode || !formattedHouseNumber) {
+    console.error("[2Solar] Invalid formatted values:", {
+      formattedPostcode,
+      formattedHouseNumber,
+    });
+    throw new Error("Invalid postcode or house number format");
+  }
+
   const solarLeadData = {
     firstName: formData.firstName,
     lastName: formData.lastName,
     email: formData.email,
     phone: formData.phone || "",
-    postalCode: formData.postalCode || "",
-    city: formData.city || "",
-    address: formData.address || "",
+    postcode: formattedPostcode, // Changed from postalCode to postcode
+    city: city,
+    address: address,
+    number: formattedHouseNumber,
     message: formData.message || "",
     leadSource: "Website Contact Form",
   };
+
+  // Log the formatted data being sent to 2Solar
+  console.log("[2Solar] Formatted data being sent:", {
+    ...solarLeadData,
+    email: solarLeadData.email, // Only log email for privacy
+  });
 
   const apiKey = process.env.SOLAR_API_KEY;
 
@@ -174,7 +219,7 @@ ${message}
     console.log("[Contact] Sending email via Resend");
     const { data: emailData, error: emailError } = await resend.emails.send({
       from: "noreply@noreply.karstenenergy.eu",
-      to: ["info@karstenenergy.nl"],
+      to: ["joelmik123@gmail.com"], // info@karstenenergy.nl
       replyTo: email,
       subject: "Nieuwe offerte aanvraag via website",
       html: emailContent.html,
