@@ -43,7 +43,7 @@ async function submitTo2Solar(formData: any) {
   // Format address components for 2Solar
   const address = formData.address || "";
   const houseNumber = formData.houseNumber || "";
-  const postcode = formData.postalCode || ""; // Keep postalCode from form, but use postcode for 2Solar
+  const postcode = formData.postalCode || "";
   const city = formData.city || "";
 
   // Log the raw address components for debugging
@@ -78,14 +78,17 @@ async function submitTo2Solar(formData: any) {
     throw new Error("Invalid postcode or house number format");
   }
 
+  // Format the full address for 2Solar
+  const fullAddress = `${address} ${formattedHouseNumber}`.trim();
+
   const solarLeadData = {
-    firstName: formData.firstName,
-    lastName: formData.lastName,
+    firstname: formData.firstName, // Changed from firstName to firstname
+    lastname: formData.lastName, // Changed from lastName to lastname
     email: formData.email,
     phone: formData.phone || "",
-    postcode: formattedPostcode, // Changed from postalCode to postcode
+    postcode: formattedPostcode,
     city: city,
-    address: address,
+    address: fullAddress, // Using the combined address
     number: formattedHouseNumber,
     message: formData.message || "",
     leadSource: "Website Contact Form",
