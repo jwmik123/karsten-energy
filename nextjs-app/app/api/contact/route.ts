@@ -81,17 +81,21 @@ async function submitTo2Solar(formData: any) {
   // Format the full address for 2Solar
   const fullAddress = `${address} ${formattedHouseNumber}`.trim();
 
+  // Prepare the data exactly as 2Solar expects it
   const solarLeadData = {
-    firstname: formData.firstName, // Changed from firstName to firstname
-    lastname: formData.lastName, // Changed from lastName to lastname
-    email: formData.email,
-    phone: formData.phone || "",
+    firstname: formData.firstName.trim(),
+    lastname: formData.lastName.trim(),
+    email: formData.email.trim(),
+    phone: formData.phone ? formData.phone.trim() : "",
     postcode: formattedPostcode,
-    city: city,
-    address: fullAddress, // Using the combined address
+    city: city.trim(),
+    address: fullAddress,
     number: formattedHouseNumber,
-    message: formData.message || "",
+    message: formData.message ? formData.message.trim() : "",
     leadSource: "Website Contact Form",
+    // Add any additional required fields
+    type: "person", // Specify that this is a person record
+    status: "new", // Set initial status
   };
 
   // Log the formatted data being sent to 2Solar
@@ -108,11 +112,18 @@ async function submitTo2Solar(formData: any) {
   }
 
   try {
+    // Log the exact request being made
+    console.log(
+      "[2Solar] Making API request to:",
+      "https://app.2solar.nl/api/person"
+    );
+
     const response = await fetch("https://app.2solar.nl/api/person", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${apiKey}`,
+        Accept: "application/json",
       },
       body: JSON.stringify(solarLeadData),
     });
@@ -121,6 +132,11 @@ async function submitTo2Solar(formData: any) {
 
     if (!response.ok) {
       console.error("[2Solar] API error:", responseData);
+      console.error("[2Solar] Response status:", response.status);
+      console.error(
+        "[2Solar] Response headers:",
+        Object.fromEntries(response.headers.entries())
+      );
       throw new Error(
         responseData.message || "Failed to submit lead to 2Solar"
       );
