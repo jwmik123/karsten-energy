@@ -101,7 +101,7 @@ async function submitTo2Solar(formData: any) {
     phone: formattedPhone,
     postcode: formattedPostcode,
     city: city.trim(),
-    address: fullAddress,
+    address: address.trim(),
     number: formattedHouseNumber,
     message: formData.message ? formData.message.trim() : "",
     leadSource: "Website Contact Form",
