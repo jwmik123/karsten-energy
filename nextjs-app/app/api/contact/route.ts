@@ -90,12 +90,15 @@ async function submitTo2Solar(formData: any) {
   // Format the full address for 2Solar
   const fullAddress = `${address} ${formattedHouseNumber}`.trim();
 
+  // Format phone number (remove all non-numeric characters)
+  const formattedPhone = formData.phone.replace(/\D/g, "");
+
   // Prepare the data exactly as 2Solar expects it
   const solarLeadData = {
     firstname: formData.firstName.trim(),
     lastname: formData.lastName.trim(),
     email: formData.email.trim(),
-    phone: formData.phone ? formData.phone.trim() : "",
+    phone: formattedPhone,
     postcode: formattedPostcode,
     city: city.trim(),
     address: fullAddress,

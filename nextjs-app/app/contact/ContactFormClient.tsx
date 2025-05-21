@@ -21,17 +21,82 @@ export default function ContactFormClient() {
     message?: string;
   }>({});
 
+  // Format postal code as user types (add space after 4 digits)
+  const formatPostalCode = (value: string) => {
+    const cleaned = value.replace(/\s/g, "").toUpperCase();
+    if (cleaned.length > 4) {
+      return `${cleaned.slice(0, 4)} ${cleaned.slice(4, 6)}`;
+    }
+    return cleaned;
+  };
+
+  // Format phone number
+  const formatPhoneNumber = (value: string) => {
+    const cleaned = value.replace(/\D/g, "");
+    if (cleaned.length > 0) {
+      return cleaned.replace(/(\d{3})(\d{3})(\d{4})/, "$1 $2 $3");
+    }
+    return cleaned;
+  };
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    // Apply specific formatting based on field type
+    let formattedValue = value;
+    if (name === "postalCode") {
+      formattedValue = formatPostalCode(value);
+    } else if (name === "phone") {
+      formattedValue = formatPhoneNumber(value);
+    }
+
+    setFormData((prev) => ({ ...prev, [name]: formattedValue }));
+  };
+
+  const validateForm = () => {
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      return "Ongeldig e-mailadres";
+    }
+
+    // Basic phone validation (allow common formats)
+    const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+    if (!phoneRegex.test(formData.phone.replace(/\s+/g, ""))) {
+      return "Ongeldig telefoonnummer";
+    }
+
+    // Basic postal code validation (Dutch format)
+    const postalCodeRegex = /^[1-9][0-9]{3}\s?[a-zA-Z]{2}$/;
+    if (!postalCodeRegex.test(formData.postalCode)) {
+      return "Ongeldige postcode (gebruik formaat: 1234 AB)";
+    }
+
+    // Check if house number is numeric with optional letter
+    if (!/^\d+[a-zA-Z]*$/.test(formData.houseNumber)) {
+      return "Ongeldig huisnummer";
+    }
+
+    return null;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus({});
+
+    // Validate form
+    const validationError = validateForm();
+    if (validationError) {
+      setSubmitStatus({
+        success: false,
+        message: validationError,
+      });
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       const response = await fetch("/api/contact", {
@@ -176,9 +241,10 @@ export default function ContactFormClient() {
               name="postalCode"
               value={formData.postalCode}
               onChange={handleChange}
-              placeholder="Postcode"
+              placeholder="Postcode (1234 AB)"
               className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
+              maxLength={7}
             />
           </div>
           <div>
