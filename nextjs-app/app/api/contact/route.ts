@@ -105,7 +105,7 @@ async function submitTo2Solar(formData: any) {
     number: formattedHouseNumber,
     message: formData.message ? formData.message.trim() : "",
     leadSource: "Website Contact Form",
-    type: "person",
+    product_type: "solar_panel",
     status: "new",
   };
 
