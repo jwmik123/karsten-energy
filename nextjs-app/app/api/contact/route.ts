@@ -104,6 +104,7 @@ async function submitTo2Solar(formData: any) {
     leadSource: "Website Contact Form",
     product_type: "solar_panel",
     status: "new",
+    comments: formData.message ? formData.message.trim() : "",
   };
 
   // Log the formatted data being sent to 2Solar
@@ -276,7 +277,7 @@ ${message}
     console.log("[Contact] Sending email via Resend");
     const { data: emailData, error: emailError } = await resend.emails.send({
       from: "noreply@noreply.karstenenergy.eu",
-      to: ["joelmik123@gmail.com"], // info@karstenenergy.nl
+      to: ["info@karstenenergy.nl"], // info@karstenenergy.nl
       replyTo: email,
       subject: "Nieuwe offerte aanvraag via website",
       html: emailContent.html,
