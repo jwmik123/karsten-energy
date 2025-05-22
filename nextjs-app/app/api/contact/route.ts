@@ -37,73 +37,6 @@ function validateEmail(email: string): boolean {
   return emailRegex.test(email);
 }
 
-// Simple function to test if the 2Solar API key is valid
-async function test2SolarAPIKey() {
-  const requestId = Math.random().toString(36).substring(7);
-  console.log(`[2Solar] [${requestId}] Testing API key validity`);
-
-  const apiKey = process.env.SOLAR_API_KEY;
-  if (!apiKey) {
-    console.error(
-      `[2Solar] [${requestId}] API key is not defined in environment variables`
-    );
-    return { valid: false, error: "API key not configured" };
-  }
-
-  try {
-    // Attempt a simple status check (adjust endpoint if needed)
-    const response = await fetch("https://app.2solar.nl/api/status", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        Accept: "application/json",
-      },
-    });
-
-    // Get the raw response text
-    const responseText = await response.text();
-    console.log(
-      `[2Solar] [${requestId}] Status check raw response:`,
-      responseText
-    );
-
-    // Try to parse as JSON if possible
-    let responseData;
-    try {
-      responseData = JSON.parse(responseText);
-    } catch (e) {
-      // If not valid JSON, just use the text
-      responseData = { text: responseText };
-    }
-
-    if (!response.ok) {
-      console.error(
-        `[2Solar] [${requestId}] API key test failed:`,
-        responseData
-      );
-      return {
-        valid: false,
-        status: response.status,
-        error: responseData?.message || "API key test failed",
-        data: responseData,
-      };
-    }
-
-    console.log(`[2Solar] [${requestId}] API key test successful`);
-    return {
-      valid: true,
-      status: response.status,
-      data: responseData,
-    };
-  } catch (error) {
-    console.error(`[2Solar] [${requestId}] Error testing API key:`, error);
-    return {
-      valid: false,
-      error: String(error),
-    };
-  }
-}
-
 async function submitTo2Solar(formData: any) {
   const requestId = Math.random().toString(36).substring(7); // Generate unique request ID
   console.log(
@@ -360,19 +293,6 @@ ${message}
 
     console.log("[Contact] Email sent successfully");
 
-    // Test the 2Solar API key before attempting to submit
-    console.log(`[Contact] [${requestId}] Testing 2Solar API key`);
-    const apiKeyTest = await test2SolarAPIKey();
-    if (!apiKeyTest.valid) {
-      console.error(
-        `[Contact] [${requestId}] 2Solar API key test failed:`,
-        apiKeyTest
-      );
-      // We log the error but continue since we've already sent the email
-    } else {
-      console.log(`[Contact] [${requestId}] 2Solar API key test successful`);
-    }
-
     // Submit to 2Solar
     console.log(`[Contact] [${requestId}] Submitting lead to 2Solar`);
     let solarResponse = null;
@@ -424,12 +344,8 @@ export async function GET(request: Request) {
   console.log(`[2SolarDebug] [${requestId}] Starting API debug check`);
 
   try {
-    // Test the API key
-    const apiKeyTest = await test2SolarAPIKey();
-
     // Return detailed information for debugging
     return NextResponse.json({
-      apiKeyTest,
       solarApiKeyConfigured: !!process.env.SOLAR_API_KEY,
       environment: process.env.NODE_ENV,
       timestamp: new Date().toISOString(),
