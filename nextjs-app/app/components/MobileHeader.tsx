@@ -16,10 +16,16 @@ export default function MobileHeader() {
           <Image
             src="/karstenenergy-logo.png"
             alt="Karsten Energy"
-            width={150}
-            height={150}
+            width={100}
+            height={100}
             className={isMenuOpen ? "invert brightness-0" : ""}
           />
+        </Link>
+        <Link
+          href="/contact"
+          className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium text-md py-2 px-4 rounded-md transition duration-300"
+        >
+          Advies aanvragen
         </Link>
         <MobileNav onMenuStateChange={setIsMenuOpen} />
       </div>
