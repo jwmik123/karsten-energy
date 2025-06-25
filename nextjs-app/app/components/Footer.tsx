@@ -105,16 +105,16 @@ export default function Footer() {
               </a> */}
             </div>
             <div className="flex space-x-4 mt-12 items-center">
-              {/* STEK Logo Placeholder */}
-              <div className="">
+      
+              {/* <div className="">
                 <Image src="/stek.png" alt="STEK" width={60} height={30} />
               </div>
 
-              {/* KIWA Logo Placeholder */}
+           
               <div className="">
                 <Image src="/kiwa.png" alt="KIWA" width={60} height={30} />
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Thuis Column */}
