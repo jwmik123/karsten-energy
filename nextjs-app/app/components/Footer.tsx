@@ -105,7 +105,6 @@ export default function Footer() {
               </a> */}
             </div>
             <div className="flex space-x-4 mt-12 items-center">
-      
               {/* <div className="">
                 <Image src="/stek.png" alt="STEK" width={60} height={30} />
               </div>
@@ -115,6 +114,7 @@ export default function Footer() {
                 <Image src="/kiwa.png" alt="KIWA" width={60} height={30} />
               </div>
             </div> */}
+            </div>
           </div>
 
           {/* Thuis Column */}
