@@ -1,6 +1,8 @@
 import "./globals.css";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { draftMode } from "next/headers";
@@ -11,7 +13,6 @@ import DraftModeToast from "@/app/components/DraftModeToast";
 import Footer from "@/app/components/Footer";
 import Header from "./components/Header";
 import MobileHeader from "./components/MobileHeader";
-import TopBar from "@/app/components/TopBar";
 import * as demo from "@/sanity/lib/demo";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { settingsQuery } from "@/sanity/lib/queries";
@@ -20,14 +21,9 @@ import { handleError } from "./client-utils";
 
 import SmoothScroll from "./components/SmoothScroll";
 
-/**
- * Generate metadata for the page.
- * Learn more: https://nextjs.org/docs/app/api-reference/functions/generate-metadata#generatemetadata-function
- */
 export async function generateMetadata(): Promise<Metadata> {
   const { data: settings } = await sanityFetch({
     query: settingsQuery,
-    // Metadata should never contain stega
     stega: false,
   });
   const title = settings?.title || demo.title;
@@ -84,7 +80,6 @@ export default async function RootLayout({
             )}
             {/* The <SanityLive> component is responsible for making all sanityFetch calls in your application live, so should always be rendered. */}
             <SanityLive onError={handleError} />
-            {/* <TopBar /> */}
             <Header />
             <MobileHeader />
             <main className="">{children}</main>
@@ -93,6 +88,7 @@ export default async function RootLayout({
           <SpeedInsights />
         </SmoothScroll>
       </body>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || ""} />
     </html>
   );
 }
