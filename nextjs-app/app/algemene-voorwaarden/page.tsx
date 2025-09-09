@@ -458,15 +458,461 @@ export default function AlgemeneVoorwaardenPage() {
         </p>
       </div>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-4">Artikel 7 t/m 16</h2>
-      <p className="mb-4">
-        De volledige algemene voorwaarden kunt u opvragen door contact op te
-        nemen met Karsten Energy BV via onze{" "}
-        <Link href="/contact" className="text-blue-600 hover:underline">
-          contactpagina
-        </Link>
-        .
-      </p>
+      <h2 className="text-2xl font-semibold mt-8 mb-4">Artikel 7. Oplevering</h2>
+      <ol className="list-decimal pl-6 my-4 space-y-2">
+        <li>
+          Oplevering houdt uitdrukkelijk niet in de juridische eigendomsoverdracht.
+        </li>
+        <li>
+          De opgegeven oplevertijden worden steeds geacht bij benadering te zijn vastgesteld en zullen
+          nimmer te beschouwen zijn als een fatale termijn, tenzij uitdrukkelijk schriftelijk anders is
+          overeengekomen.
+        </li>
+        <li>
+          Het Werk is opgeleverd wanneer Wederpartij een daartoe door Karsten Energy BV verstrekt
+          Opleveringsdocument heeft ondertekend.
+        </li>
+        <li>
+          Het Werk wordt eveneens als opgeleverd beschouwd:
+          <ol className="list-lower-alpha pl-6 my-2">
+            <li>
+              Hetzij wanneer 14 dagen zijn verstreken nadat Wederpartij van Karsten Energy BV de
+              mededeling heeft ontvangen dat het Zonnestroomsysteem en/of andere Zaken is voltooid
+              en Wederpartij heeft nagelaten het Opgeleverde binnen die termijn te aanvaarden via
+              ondertekening van het Opleverdocument of te protesteren;
+            </li>
+            <li>
+              Hetzij wanneer Wederpartij het Zonnestroomsysteem en/of andere Zaken (opnieuw) in
+              gebruik neemt, met dien verstande dat door ingebruikneming van een gedeelte van het
+              Zonnestroomsysteem en/of andere Zaken, dat gedeelte als opgeleverd wordt beschouwd,
+              tenzij het aan ingebruikneming verbonden gevolg (oplevering) niet gerechtvaardigd is;
+            </li>
+            <li>
+              Hetzij, in geval van levering van losse systemen en/of materialen, wanneer de Zaken zijn
+              afgeleverd op het in de Overeenkomst overeengekomen adres.
+            </li>
+          </ol>
+        </li>
+        <li>
+          In het geval de Wederpartij na de in dit artikel bedoelde oplevering of onderhoudstermijn nog
+          gebreken, onvolkomenheden e.d. constateert, zijn de bepalingen omtrent reclamering en
+          aansprakelijkheid uit deze Algemene Leveringsvoorwaarden van toepassing.
+        </li>
+        <li>
+          Karsten Energy BV zal niet in verzuim zijn dan nadat zij schriftelijk in gebreke is gesteld na afloop
+          van de overeengekomen termijn en Karsten Energy BV alsnog een redelijke termijn voor
+          nakoming is gesteld.
+        </li>
+        <li>
+          Wederpartij inspecteert en/of test het Zonnestroomsysteem en/of andere Zaken en de correcte
+          verlening van de Diensten direct na aankomst op de plaats van bestemming respectievelijk na
+          oplevering van het Werk. Eventuele reclames over zichtbare gebreken, worden op verval van
+          recht daartoe uiterlijk binnen 14 dagen na constatering van het gebrek schriftelijk aan Karsten
+          Energy BV meegedeeld.
+        </li>
+      </ol>
+      <h2 className="text-2xl font-semibold mt-8 mb-4">Artikel 8. Garantie</h2>
+      <ol className="list-decimal pl-6 my-4 space-y-2">
+        <li>
+          Indien er garantie wordt gegeven op een Zaak, worden de exacte voorwaarden en termijnen per
+          Zaak vastgelegd in de garantieverklaring welke Wederpartij na Oplevering van Karsten Energy BV
+          ontvangt.
+        </li>
+        <li>
+          Zolang Wederpartij niet aan alle op hem rustende financiële verplichtingen voortvloeiend uit
+          de Overeenkomst heeft voldaan kan hij geen aanspraak maken op garantie.
+        </li>
+        <li>
+          De garantie zoals bedoeld in dit artikel en in de garantieverklaring vervalt indien:
+          <ol className="list-lower-alpha pl-6 my-2">
+            <li>
+              Wederpartij het Zonnestroomsysteem en/of een van de onderdelen daarvan – zelf
+              demonteert en/of monteert c.q. verplaatst;
+            </li>
+            <li>
+              Door anderen dan Karsten Energy BV het Zonnestroomsysteem en/of een van haar
+              onderdelen is gewijzigd, gedemonteerd en/of gemonteerd c.q. verplaatst en/of
+              wijzigingen zijn aangebracht;
+            </li>
+            <li>
+              De op de Zaken aangebrachte, individuele herkenningstekens zijn verwijderd of
+              verwijderd zijn geweest;
+            </li>
+            <li>
+              De Producten op een ondeskundige wijze en/of zonder inachtneming van de daarvoor
+              geldende (wettelijke) regels en gebruiksvoorschriften zijn geïnstalleerd of gebruikt, tenzij
+              de installatie door Karsten Energy BV zelf werd verricht.
+            </li>
+            <li>
+              Gedurende de garantietermijn geen periodiek onderhoud is verricht aan Zaken die
+              onderhoud behoeven.
+            </li>
+            <li>
+              Producten voor andere doeleinden werden gebruikt dan waarvoor die volgens de
+              productinformatie en/of Overeenkomst zijn bestemd.
+            </li>
+            <li>
+              Indien de originele factuur niet kan worden overgelegd, de originele factuur is gewijzigd
+              of onleesbaar is gemaakt;
+            </li>
+            <li>
+              Indien gebreken het gevolg zijn van niet met de bestemming corresponderend of
+              onoordeelkundig gebruik;
+            </li>
+            <li>
+              Indien beschadiging is ontstaan door externe oorzaken of invloeden;
+            </li>
+            <li>
+              Indien beschadiging is ontstaan door opzet, grove onachtzaamheid of nalatig
+              onderhoud.
+            </li>
+          </ol>
+        </li>
+        <li>
+          Karsten Energy BV garandeert dat eventuele gebreken in de installatie van het Product voor de
+          afgesproken installatiegarantietermijn na oplevering worden verholpen, tenzij het gebrek geen
+          direct gevolg is van het geleverde werk.
+        </li>
+        <li>
+          Zodra de installatiegarantie op het Zonnestroomsysteem en/of andere Zaken is verstreken,
+          behoudt Karsten Energy BV zich het recht voor om arbeidsloon en materialen in rekening te
+          brengen bij eventuele storingen (internet/uitval omvormer/optimizer).
+        </li>
+        <li>
+          Sporen van microcracks, snailtrails en kleurverschil vallen buiten de vrijwaring van verborgen
+          gebreken en garantie.
+        </li>
+        <li>
+          Op kleurverschil in de Zonnepanelen wordt geen garantie gegeven, daarmee valt kleurverschil in
+          geen enkel geval onder de te geven of gegeven garantie.
+        </li>
+        <li>
+          De communicatie met het internet valt, vanwege de afhankelijkheid van derde partijen zoals de
+          'Internet Service Provider' (ISP), expliciet buiten de garantie.
+        </li>
+        <li>
+          In geval Wederpartij het systeem in eigendom overdraagt aan een derde partij, vervalt de
+          garantie zoals gegeven aan Wederpartij niet.
+        </li>
+        <li>
+          In het geval Wederpartij alleen de Zaken bij Karsten Energy BV heeft aangeschaft en Karsten
+          Energy BV de materialen niet heeft geïnstalleerd, dan geeft Karsten Energy geen garantie op de
+          werking van de Zaken en het Zonnestroomsysteem.
+        </li>
+      </ol>
+      <h2 className="text-2xl font-semibold mt-8 mb-4">Artikel 9. Aansprakelijkheid en vrijwaring</h2>
+      <ol className="list-decimal pl-6 my-4 space-y-2">
+        <li>
+          De aansprakelijkheid van Karsten Energy BV wegens toerekenbare tekortkoming in de uitvoering
+          van de overeenkomst ontstaat slechts indien de Wederpartij deugdelijk en tijdig reclameert bij
+          Karsten Energy BV, waarbij een redelijke termijn ter zuivering van de tekortkoming wordt
+          geboden en Karsten Energy BV ook na die termijn toerekenbaar tekort blijft schieten in de
+          nakoming van haar verplichtingen.
+        </li>
+        <li>
+          De aansprakelijkheid van Karsten Energy BV is in ieder geval beperkt zijn tot het bedrag dat op
+          grond van de aansprakelijkheidsverzekering van Karsten Energy BV. zal uitkeren.
+        </li>
+        <li>
+          Karsten Energy BV is alleen aansprakelijk voor tekortkomingen als de gegeven garantie van
+          toepassing is. In die situatie is de aansprakelijkheid van Karsten Energy BV beperkt tot de
+          verplichtingen die in de garantievoorwaarden staan.
+        </li>
+        <li>
+          De aansprakelijkheid van Karsten Energy BV wegens toerekenbare tekortkoming in de nakoming
+          van de overeenkomst of anderszins is beperkt tot vergoeding van directe schade tot maximaal
+          het bedrag van de onder de overeenkomst geldende prijs (exclusief btw).
+        </li>
+        <li>
+          Karsten Energy BV is niet aansprakelijk voor enige directe of gevolgschade van Wederpartij of
+          door Wederpartij ingeschakelde derden of aan Wederpartij gerelateerde derden, daaronder
+          begrepen:
+          <ol className="list-lower-alpha pl-6 my-2">
+            <li>Gederfde winst;</li>
+            <li>
+              Een lagere opbrengst van de Zaken als gevolg van bouwwerken, schaduw, vuil en/of
+              uitschakeling van de Zaken;
+            </li>
+            <li>Schade door eventuele fouten in aangeleverde opbrengstberekeningen;</li>
+            <li>Gemiste besparingen;</li>
+            <li>
+              Schade aan de Zaken door brand, natuurrampen (zware storm, overstromingen,
+              aardbeving) en atmosferische ontladingen (blikseminslag);
+            </li>
+            <li>
+              Waterschade in of aan het pand en de daarin aanwezige zaken als gevolg van lekkages;
+            </li>
+            <li>Schade door bedrijfs- of andersoortige stagnatie;</li>
+            <li>
+              Klimatologische omstandigheden in enig jaar (bijv. hoeveelheid zonneschijn,
+              wintertemperaturen);
+            </li>
+            <li>Eventuele wijzigingen in gas- en/of stroomafnamegedrag;</li>
+            <li>Eventuele wijzigingen in gas- en/of stroomprijzen;</li>
+            <li>Eventuele wijzigingen in belasting- en regelgeving.</li>
+          </ol>
+        </li>
+        <li>
+          Karsten Energy BV is nimmer aansprakelijk indien de schade is ontstaan door aan Wederpartij
+          toerekenbare omstandigheden zoals (maar niet beperkt tot) het verstrekken van onjuiste en/of
+          onvolledige informatie aan Karsten Energy BV.
+        </li>
+        <li>
+          Wederpartij vrijwaart Karsten Energy BV tegen gerechtvaardigde aanspraken van derden tot
+          vergoeding van schade voor zover deze door de uitvoering van haar Werk is toegebracht en te
+          wijten is aan de nalatigheid, onvoorzichtigheid of verkeerde handelingen van Karsten Energy BV
+          zelf of van haar ondergeschikten of van door haar ingeschakelde hulppersonen, zoals zzp-ers.
+        </li>
+        <li>
+          In het geval Wederpartij alleen de materialen bij Karsten Energy BVheeft aangeschaft, is
+          Wederpartij te allen tijde zelf verantwoordelijk voor de Installatie van het systeem. Voor het niet
+          werken van het Product, of eventuele andere schade die ontstaat door onjuiste Installatie (die in
+          strijd is met de bijgevoegde instructie) van het Product kan Karsten Energy BV nimmer worden
+          aangesproken. Karsten Energy BV aanvaardt ten aanzien van de Installatie, dan wel de gevolgen
+          van foutieve Installatie geen enkele aansprakelijkheid.
+        </li>
+        <li>
+          Karsten Energy BV is niet aansprakelijk voor schade door geschatte terugverdientijd,
+          verwachtingen van fiscale regelingen of subsidies. Ook eventuele extra kosten die in de toekomst
+          kunnen ontstaan, zoals verhoogde (energie)belasting of netbeheerskosten, zijn voor risico van
+          Wederpartij.
+        </li>
+        <li>
+          Karsten Energy BV is niet verantwoordelijk en niet aansprakelijk voor door Wederpartij zelf extra
+          aangesloten Zonnepanelen op het door Karsten Energy BV geleverde systeem.
+        </li>
+        <li>
+          Het uitstellen of nalaten door Karsten Energy BV om strikte nakoming te vorderen van
+          Wederpartij of om een andere aan haar toekomend recht uit te oefenen, brengt geen afstand
+          van recht met zich mee.
+        </li>
+      </ol>
+      <h2 className="text-2xl font-semibold mt-8 mb-4">Artikel 10. Overmacht</h2>
+      <ol className="list-decimal pl-6 my-4 space-y-2">
+        <li>
+          Onder overmacht wordt ten deze verstaan: elke omstandigheid die aan Karsten Energy BV
+          redelijkerwijs niet kan worden toegerekend en niet heeft kunnen verhinderen of vermijden en
+          waardoor er sprake is van een tekortkoming in de nakoming van de Overeenkomst tussen
+          Partijen. Hieronder zijn mede begrepen werkstaking, slechte weersomstandigheden, ziekte van
+          personeel, in- en uitvoer en transportverboden, overheidsmaatregelen, niet c.q. niet tijdig
+          leveren door toeleveranciers van Karsten Energy BV en beschadiging van de voor de opdracht
+          benodigde productiemiddelen. In het geval er sprake is van overmacht is Karsten Energy BV niet
+          aansprakelijk voor directe en/of indirecte schade geleden door Wederpartij en/of derden.
+        </li>
+        <li>
+          Indien Karsten Energy BV door overmacht niet aan haar verplichtingen tegenover Wederpartij
+          kan voldoen, worden die verplichtingen opgeschort tot het moment dat Karsten Energy BV
+          alsnog in staat is om aan deze verplichtingen te voldoen, zonder dat Karsten Energy BV in
+          verzuim raakt ten aanzien van de nakoming van die verplichtingen en zonder dat Karsten Energy
+          BV tot enige schadevergoeding kan worden gehouden.
+        </li>
+        <li>
+          Indien de overmacht toestand langer dan twee maanden van de overeengekomen
+          lever/prestatietermijn heeft geduurd, zijn beide partijen gerechtigd de Overeenkomst schriftelijk
+          geheel of gedeeltelijk te ontbinden zonder voor de gevolgen van die ontbinding tegenover de
+          andere partij aansprakelijk te worden gesteld. In dat geval behoudt Karsten Energy BV aanspraak
+          op betaling van de tot dan toe verrichte werkzaamheden c.q. gedane leveringen.
+        </li>
+        <li>
+          Indien overmacht te maken heeft met het niet kunnen aanbieden van het geoffreerde Product,
+          zal Karsten Energy BV een gelijkwaardig of beter alternatief bieden.
+        </li>
+      </ol>
+      <h2 className="text-2xl font-semibold mt-8 mb-4">Artikel 11. Risico-overgang en eigendomsvoorbehoud</h2>
+      <ol className="list-decimal pl-6 my-4 space-y-2">
+        <li>
+          Onverminderd het bepaalde in deze Algemene Leveringsvoorwaarden draagt de Wederpartij
+          direct na aflevering het risico voor alle directe en indirecte schade, die aan of door het product
+          mocht ontstaan, behoudens voor zover de schade aan grove schuld van Karsten Energy BV is te
+          wijten.
+        </li>
+        <li>
+          De eigendom van de Zaken gaat, ongeacht de feitelijke (Op)levering, pas over op Wederpartij
+          nadat deze al wat hij op grond van de Overeenkomst aan Karsten Energy BV verschuldigd is
+          volledig heeft voldaan.
+        </li>
+        <li>
+          Na Oplevering blijft Karsten Energy BV eigenaar van de Zaken zolang Wederpartij:
+          <ol className="list-lower-alpha pl-6 my-2">
+            <li>
+              Tekortschiet of tekort zal schieten in de nakoming van zijn verplichtingen uit deze
+              Overeenkomst of andere gelijksoortige Overeenkomsten;
+            </li>
+            <li>
+              Voor verrichte of nog te verrichten werkzaamheden uit zodanige Overeenkomsten niet
+              betaalt of zal betalen;
+            </li>
+            <li>
+              Vorderingen die voortvloeien uit het niet nakomen van bovengenoemde
+              Overeenkomsten, zoals schade, boete, rente en kosten, niet heeft voldaan.
+            </li>
+          </ol>
+        </li>
+        <li>
+          Zolang er op geleverde Zaken een eigendomsvoorbehoud rust, mag Wederpartij deze niet
+          bezwaren, niet aan derden in pand geven of als zekerheid in de ruimste zin des woord aan
+          derden doen dienen, noch in eigendom overdragen aan een derde.
+        </li>
+        <li>
+          Nadat Karsten Energy BV zijn eigendomsvoorbehoud heeft ingeroepen, mag hij de geleverde
+          Zaken (laten doen) terug halen van de plaats waar zij zich bevinden. Wederpartij verleent
+          Karsten Energy BV reeds nu voor alsdan onherroepelijk machtiging om daartoe de bij of voor
+          Wederpartij in gebruik zijnde ruimten/plaats te (doen) betreden en stelt Karsten Energy BVin de
+          gelegenheid de Zaken te verwijderen.
+        </li>
+        <li>
+          Als Karsten Energy BV geen beroep kan doen op zijn eigendomsvoorbehoud omdat de geleverde
+          Zaken zijn vermengd, vervormd of nagetrokken, is Wederpartij verplicht de nieuwgevormde
+          zaken binnen 4 weken na Oplevering aan Karsten Energy BV te verpanden of ten behoeve van
+          Karsten Energy een hypotheekrecht te vestigen, op straffe van een boete van 50% van de
+          aankoopsom van de geleverde Zaken en onverminderd de verplichting om de aankoopsom aan
+          Karsten Energy BV terstond te voldoen.
+        </li>
+        <li>
+          Wederpartij is gehouden de onder eigendomsvoorbehoud geleverde Zaken zorgvuldig en als
+          herkenbaar eigendom van Karsten Energy BV te bewaren.
+        </li>
+      </ol>
+      <h2 className="text-2xl font-semibold mt-8 mb-4">Artikel 12. Recht van opstal</h2>
+      <ol className="list-decimal pl-6 my-4 space-y-2">
+        <li>
+          Op eerste verzoek van Karsten Energy BV zal Wederpartij zijn volledige medewerking verschaffen
+          ten behoeve van het vestigen van een recht van opstal zoals bedoeld in artikel 5:101 e.v. BW, op
+          de onroerende zaak waarop en/of waarin het Zonnestroomsysteem wordt bevestigd.
+        </li>
+        <li>
+          Karsten Energy BV zal worden aangemerkt als Opstaller.
+        </li>
+        <li>
+          De eigena(a)r(en) van de onroerende zaak worden aangemerkt als Opstalgever.
+        </li>
+        <li>
+          Wederpartij zal al het mogelijke dat in haar macht ligt doen om eventueel bij het recht van
+          opstal betrokken derden partijen tot meewerken te bewegen.
+        </li>
+        <li>
+          Totdat het recht van opstal gevestigd is worden de werkzaamheden met betrekking tot het
+          aanleggen van het Zonnestroomsysteem opgeschort.
+        </li>
+        <li>
+          Indien het vestigen van een recht van opstal waarbij Karsten Energy BV als Opstaller wordt
+          aangemerkt binnen 8 weken na het verzoek van Karsten Energy BV aan Wederpartij om het
+          recht van opstal te vestigen niet is geschiedt, heeft Karsten Energy BV het recht de
+          Overeenkomst per direct en zonder dat Karsten Energy BV enige directe of indirecte schade
+          hoeft te vergoeden te ontbinden.
+        </li>
+        <li>
+          Partijen vrijwaren elkaar van de eventuele ten gevolge van de opschorting zoals bedoeld in dit
+          artikel voortvloeiende (vertraging)schade en overige aansprakelijkheden.
+        </li>
+        <li>
+          Het recht van opstal gaat teniet zodra Wederpartij de al hetgeen hij op grond van de
+          Overeenkomst aan Karsten Energy BV verschuldigd is heeft voldaan.
+        </li>
+        <li>
+          Partijen zullen de kosten van het vestigen van het recht van opstal delen.
+        </li>
+      </ol>
+      <h2 className="text-2xl font-semibold mt-8 mb-4">Artikel 13. Opschorting, ontbinding en opzegging</h2>
+      <ol className="list-decimal pl-6 my-4 space-y-2">
+        <li>
+          Indien een van de volgende situaties zich voordoet is Karsten Energy BV gerechtigd de
+          Overeenkomst te ontbinden of op te schorten:
+          <ol className="list-lower-alpha pl-6 my-2">
+            <li>Zodra Wederpartij in staat van faillissement wordt verklaard</li>
+            <li>
+              Voor of door Wederpartij een verzoek tot surseance van betaling in is gediend, dan wel
+              de Wet Schuldsanering Natuurlijke Personen van toepassing wordt verklaard,
+            </li>
+            <li>Wederpartij komt te overlijden of onder curatele wordt gesteld,</li>
+            <li>
+              Wederpartij overgaat tot staking of overdracht van zijn bedrijf of een belangrijk gedeelte
+              daarvan, daaronder begrepen de inbreng van zijn bedrijf in een op te richten of een
+              reeds bestaande vennootschap, dan wel overgaat tot wijziging van de doelstellingen van
+              zijn bedrijf;
+            </li>
+            <li>
+              Wederpartij in verzuim is met verplichtingen welke voortvloeien uit een met Karsten
+              Energy BV afgesloten Overeenkomst.
+            </li>
+          </ol>
+        </li>
+        <li>
+          In het geval een van de in lid 1 genoemde situaties zich voordoet zijn alle vorderingen van
+          Karsten Energy BV onmiddellijk opeisbaar.
+        </li>
+        <li>
+          Indien Wederpartij niet behoorlijk of niet binnen een gestelde termijn of anderszins tijdig
+          voldoet aan enige verplichting die uit enige Overeenkomst voortvloeit, is Wederpartij direct in
+          verzuim en is Karsten Energy BV gerechtigd zonder ingebrekestelling of rechterlijke
+          tussenkomst:
+          <ol className="list-lower-alpha pl-6 my-2">
+            <li>
+              De uitvoering van die Overeenkomst en direct daarmee samenhangende
+              Overeenkomsten op te schorten totdat betaling voldoende zeker is gesteld; en/of
+            </li>
+            <li>
+              Die Overeenkomst en direct daarmee samenhangende Overeenkomsten geheel of
+              gedeeltelijk te ontbinden; een en ander onverminderd Karsten Energy BV 's recht op
+              schadevergoeding.
+            </li>
+          </ol>
+        </li>
+        <li>
+          In geval Karsten Energy BV van oordeel is dat een recht van opstal dient te worden gevestigd, is
+          Karsten Energy BV gerechtigd de uitvoering van de Overeenkomst op te schorten totdat het
+          recht van opstal is gevestigd.
+        </li>
+        <li>
+          Ingeval een overeenkomst voor (on)bepaalde tijd tot stand zou zijn gekomen is Karsten Energy
+          BV steeds gerechtigd, om welke reden dan ook, met inachtneming van een opzegtermijn van 14
+          kalenderdagen, tenzij anders schriftelijk overeengekomen, op te zeggen. In geen geval is Karsten
+          Energy BV tot enige schadevergoeding gehouden.
+        </li>
+      </ol>
+      <h2 className="text-2xl font-semibold mt-8 mb-4">Artikel 14. Overdracht van rechten</h2>
+      <ol className="list-decimal pl-6 my-4 space-y-2">
+        <li>
+          Het is Karsten Energy BV toegestaan de in enige Overeenkomst omschreven rechten en
+          verplichtingen aan derden over te dragen. In dat geval zal Karsten Energy BV Wederpartij hiervan
+          tevoren op de hoogte brengen. Deze overdacht zal echter slechts met instemming van
+          Wederpartij kunnen geschieden zo voor hem de garanties geringer kunnen worden.
+        </li>
+        <li>
+          Indien Wederpartij voornemens is te verhuizen verplicht hij zich om Karsten Energy hierover te
+          informeren. In dat geval zullen partijen er voor zorgen dat de nieuwe eigenaar als zodanig
+          geregistreerd wordt bij Karsten Energy.
+        </li>
+      </ol>
+      <h2 className="text-2xl font-semibold mt-8 mb-4">Artikel 15. Toepasselijk recht</h2>
+      <ol className="list-decimal pl-6 my-4 space-y-2">
+        <li>
+          Op deze leveringsvoorwaarden en op de Overeenkomst is uitsluitend het Nederlands recht van
+          toepassing.
+        </li>
+        <li>
+          Alle geschillen tussen partijen zullen worden beslecht door de daartoe bevoegde Nederlandse
+          rechter.
+        </li>
+        <li>
+          Partijen streven ernaar om geschillen onderling, al dan niet met behulp van Mediation op te
+          lossen, alvorens gerechtelijke stappen te ondernemen.
+        </li>
+      </ol>
+      <h2 className="text-2xl font-semibold mt-8 mb-4">Artikel 16. Slotbepalingen</h2>
+      <ol className="list-decimal pl-6 my-4 space-y-2">
+        <li>
+          Indien enige bepaling van deze Algemene Leveringsvoorwaarden nietig of anderszins niet
+          verbindend mocht zijn, blijven alle overige bepalingen toepasselijk en wordt de betrokken
+          bepaling zodanig toegepast als het meest overeenkomt met haar strekking zonder strijdigheid
+          met de wet.
+        </li>
+        <li>
+          Karsten Energy BV heeft het recht deze Algemene Leveringsvoorwaarden te wijzigen. De
+          nieuwste versie van de Algemene Leveringsvoorwaarden zal steeds van toepassing zijn op
+          bestaande en overeen te komen overeenkomsten.
+        </li>
+      </ol>
     </main>
   );
 }
