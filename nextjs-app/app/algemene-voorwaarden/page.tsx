@@ -588,7 +588,7 @@ export default function AlgemeneVoorwaardenPage() {
         </li>
         <li>
           De communicatie met het internet valt, vanwege de afhankelijkheid van derde partijen zoals de
-          'Internet Service Provider' (ISP), expliciet buiten de garantie.
+          &apos;Internet Service Provider&apos; (ISP), expliciet buiten de garantie.
         </li>
         <li>
           In geval Wederpartij het systeem in eigendom overdraagt aan een derde partij, vervalt de
@@ -853,7 +853,7 @@ export default function AlgemeneVoorwaardenPage() {
             </li>
             <li>
               Die Overeenkomst en direct daarmee samenhangende Overeenkomsten geheel of
-              gedeeltelijk te ontbinden; een en ander onverminderd Karsten Energy BV 's recht op
+              gedeeltelijk te ontbinden; een en ander onverminderd Karsten Energy BV &apos;s recht op
               schadevergoeding.
             </li>
           </ol>
