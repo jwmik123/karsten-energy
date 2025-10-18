@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 declare global {
   interface Window {
@@ -13,6 +14,10 @@ interface MetaPixelProps {
 }
 
 export default function MetaPixel({ pixelId }: MetaPixelProps) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  // Initialize Meta Pixel
   useEffect(() => {
     if (typeof window !== 'undefined' && !window.fbq && pixelId) {
       // Create script element
@@ -45,5 +50,24 @@ export default function MetaPixel({ pixelId }: MetaPixelProps) {
     }
   }, [pixelId]);
 
+  // Track page views on route change
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.fbq) {
+      const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '');
+      console.log('[MetaPixel] Tracking PageView:', url);
+      window.fbq('track', 'PageView');
+    }
+  }, [pathname, searchParams]);
+
   return null;
+}
+
+// Helper function to track custom events (can be called from anywhere)
+export function trackEvent(eventName: string, data?: Record<string, any>) {
+  if (typeof window !== 'undefined' && window.fbq) {
+    console.log('[MetaPixel] Tracking custom event:', eventName, data);
+    window.fbq('track', eventName, data);
+  } else {
+    console.warn('[MetaPixel] fbq not initialized, unable to track event:', eventName);
+  }
 } 

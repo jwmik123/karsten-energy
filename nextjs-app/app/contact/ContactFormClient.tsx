@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackEvent } from "../components/MetaPixel";
 
 export default function ContactFormClient() {
   const [formData, setFormData] = useState({
@@ -110,6 +111,14 @@ export default function ContactFormClient() {
       const data = await response.json();
 
       if (response.ok) {
+        // Track successful form submission with Meta Pixel
+        trackEvent('Lead', {
+          content_name: 'Contact Form Submission',
+          content_category: 'Contact',
+          page_url: window.location.href,
+          page_path: window.location.pathname,
+        });
+
         setSubmitStatus({
           success: true,
           message: data.message || "Bedankt! Uw aanvraag is verzonden.",
