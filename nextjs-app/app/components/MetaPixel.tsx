@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 declare global {
@@ -13,7 +13,8 @@ interface MetaPixelProps {
   pixelId: string;
 }
 
-export default function MetaPixel({ pixelId }: MetaPixelProps) {
+// Inner component that uses useSearchParams
+function MetaPixelTracking({ pixelId }: MetaPixelProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -60,6 +61,15 @@ export default function MetaPixel({ pixelId }: MetaPixelProps) {
   }, [pathname, searchParams]);
 
   return null;
+}
+
+// Wrapper component with Suspense boundary
+export default function MetaPixel({ pixelId }: MetaPixelProps) {
+  return (
+    <Suspense fallback={null}>
+      <MetaPixelTracking pixelId={pixelId} />
+    </Suspense>
+  );
 }
 
 // Helper function to track custom events (can be called from anywhere)
