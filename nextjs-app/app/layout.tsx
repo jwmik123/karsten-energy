@@ -14,7 +14,7 @@ import DraftModeToast from "@/app/components/DraftModeToast";
 import Footer from "@/app/components/Footer";
 import Header from "./components/Header";
 import MobileHeader from "./components/MobileHeader";
-import MetaPixel from "./components/MetaPixel";
+import GoogleTagManager from "./components/GoogleTagManager";
 import * as demo from "@/sanity/lib/demo";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { settingsQuery } from "@/sanity/lib/queries";
@@ -91,7 +91,7 @@ export default async function RootLayout({
         </SmoothScroll>
       </body>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || ""} />
-      <MetaPixel pixelId="664983649007604" />
+      <GoogleTagManager gtmId="GTM-K52T96K2" />
     </html>
   );
 }
