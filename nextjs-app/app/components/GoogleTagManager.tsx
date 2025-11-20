@@ -2,12 +2,6 @@
 
 import { useEffect } from 'react';
 
-declare global {
-  interface Window {
-    dataLayer: any[];
-  }
-}
-
 interface GoogleTagManagerProps {
   gtmId: string;
 }
@@ -15,9 +9,6 @@ interface GoogleTagManagerProps {
 export default function GoogleTagManager({ gtmId }: GoogleTagManagerProps) {
   useEffect(() => {
     if (typeof window !== 'undefined' && gtmId) {
-      // Initialize dataLayer
-      window.dataLayer = window.dataLayer || [];
-
       // Add GTM script to head
       const script = document.createElement('script');
       script.innerHTML = `
