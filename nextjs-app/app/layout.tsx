@@ -69,6 +69,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} bg-white text-black`}>
       <body>
+        <GoogleTagManager gtmId="GTM-K52T96K2" />
         <SmoothScroll>
           <section className="min-h-screen">
             {/* The <Toaster> component is responsible for rendering toast notifications used in /app/client-utils.ts and /app/components/DraftModeToast.tsx */}
@@ -89,9 +90,8 @@ export default async function RootLayout({
           </section>
           <SpeedInsights />
         </SmoothScroll>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || ""} />
       </body>
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || ""} />
-      <GoogleTagManager gtmId="GTM-K52T96K2" />
     </html>
   );
 }
