@@ -1,3 +1,4 @@
+// components/GoogleTagManager.tsx
 import Script from 'next/script';
 
 interface GoogleTagManagerProps {
@@ -7,10 +8,9 @@ interface GoogleTagManagerProps {
 export default function GoogleTagManager({ gtmId }: GoogleTagManagerProps) {
   return (
     <>
-      {/* Google Tag Manager Script */}
       <Script
         id="google-tag-manager"
-        strategy="afterInteractive"
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -21,8 +21,6 @@ export default function GoogleTagManager({ gtmId }: GoogleTagManagerProps) {
           `,
         }}
       />
-
-      {/* Google Tag Manager (noscript) */}
       <noscript>
         <iframe
           src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
