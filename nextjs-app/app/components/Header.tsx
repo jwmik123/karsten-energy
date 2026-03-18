@@ -109,12 +109,12 @@ export default function Header() {
                         >
                           Airco&apos;s
                         </Link>
-                        <Link
+                        {/* <Link
                           href="/groeno-energie"
                           className="block px-4 py-2 text-md  hover:font-bold  transition-all duration-300"
                         >
                           Groeno energie
-                        </Link>
+                        </Link> */}
                       </div>
                     </div>
                   </li>
@@ -169,12 +169,12 @@ export default function Header() {
                         >
                           Airco&apos;s
                         </Link>
-                        <Link
+                        {/* <Link
                           href="/groeno-energie-zakelijk"
                           className="block px-4 py-2 text-md  hover:font-bold transition-all duration-300"
                         >
                           Groeno energie
-                        </Link>
+                        </Link> */}
                       </div>
                     </div>
                   </li>
