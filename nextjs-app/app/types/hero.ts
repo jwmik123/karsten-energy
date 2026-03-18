@@ -1,17 +1,20 @@
 export interface HeroSlide {
   _key: string;
   image: {
-    asset: {
+    asset?: {
       _ref: string;
-      url: string;
+      _type?: string;
     };
+    hotspot?: object;
+    crop?: object;
+    _type?: string;
   };
   title: string;
-  description?: string;
+  description?: string | null;
   button?: {
-    text: string;
-    link: string;
-  };
+    text: string | null;
+    link: string | null;
+  } | null;
 }
 
 export interface HeroSlider {

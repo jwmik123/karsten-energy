@@ -1,25 +1,13 @@
 import { sanityFetch } from "@/sanity/lib/live";
 import { heroSectionQuery } from "@/sanity/lib/queries";
 import { urlForImage } from "@/sanity/lib/utils";
-import { PortableText, PortableTextBlock } from "@portabletext/react";
+import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import AnimatedHeroImage from "./AnimatedHeroImage";
 
-// Define the type for the fetched data (consider generating this with sanity-typegen)
-interface HeroSectionData {
-  _id: string;
-  enabled: boolean;
-  imagePosition: "left" | "right";
-  image: any; // Replace 'any' with a more specific type if available from sanity-typegen
-  subtitle?: string;
-  title: string;
-  text: PortableTextBlock[]; // Replace 'any' with PortableTextBlock[] or similar
-  button: {
-    text: string;
-    link?: string;
-    // internalLink?: any; // Add if using internal links
-  };
-}
+import { HeroSectionQueryResult } from "@/sanity.types";
+
+type HeroSectionData = HeroSectionQueryResult[number];
 
 // Component to render a single hero section
 function HeroSectionItem({ data }: { data: HeroSectionData }) {
@@ -103,7 +91,7 @@ export default async function HeroSection() {
 
   // Filter out disabled hero sections
   const enabledHeroSections = heroSections.filter(
-    (section: HeroSectionData) => section.enabled !== false
+    (section) => section.enabled !== false
   );
 
   if (enabledHeroSections.length === 0) {
@@ -114,7 +102,7 @@ export default async function HeroSection() {
 
   return (
     <>
-      {enabledHeroSections.map((section: HeroSectionData) => (
+      {enabledHeroSections.map((section) => (
         <HeroSectionItem key={section._id} data={section} />
       ))}
     </>

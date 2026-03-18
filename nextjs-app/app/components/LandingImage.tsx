@@ -172,7 +172,7 @@ export default function LandingImage({ heroSlider }: LandingImageProps) {
 
               {currentSlideData.button && (
                 <Link
-                  href={currentSlideData.button.link}
+                  href={currentSlideData.button.link ?? "#"}
                   className="inline-block bg-transparent border border-white hover:bg-white hover:text-black text-white font-semibold py-3 px-8 rounded-md transition duration-300"
                 >
                   {currentSlideData.button.text}

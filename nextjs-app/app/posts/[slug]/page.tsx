@@ -47,10 +47,11 @@ export async function generateMetadata(
   const previousImages = (await parent).openGraph?.images || [];
   const ogImage = resolveOpenGraphImage(post?.coverImage);
 
+  const author = post?.author as { firstName?: string; lastName?: string } | null;
   return {
     authors:
-      post?.author?.firstName && post?.author?.lastName
-        ? [{ name: `${post.author.firstName} ${post.author.lastName}` }]
+      author?.firstName && author?.lastName
+        ? [{ name: `${author.firstName} ${author.lastName}` }]
         : [],
     title: post?.title,
     description: post?.excerpt,
@@ -82,11 +83,12 @@ export default async function PostPage(props: Props) {
                 </h2>
               </div>
               <div className="max-w-3xl flex gap-4 items-center">
-                {post.author &&
-                  post.author.firstName &&
-                  post.author.lastName && (
-                    <Avatar person={post.author} date={post.date} />
-                  )}
+                {(() => {
+                  const postAuthor = post.author as { firstName?: string; lastName?: string; picture?: any } | null;
+                  return postAuthor?.firstName && postAuthor?.lastName && (
+                    <Avatar person={postAuthor as any} date={post.date} />
+                  );
+                })()}
               </div>
             </div>
             <article className="gap-6 grid max-w-4xl">

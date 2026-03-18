@@ -14,7 +14,7 @@ export default async function Page() {
 
   return (
     <>
-      <LandingImage heroSlider={settingsData?.heroSlider} />
+      <LandingImage heroSlider={settingsData?.heroSlider ?? undefined} />
       <StaggeringText />
       <HeroSection />
       <WhyKarsten />

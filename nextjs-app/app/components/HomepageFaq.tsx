@@ -15,7 +15,7 @@ async function HomepageFaqContent() {
   // Transform the data to match the format expected by FaqSection
   const transformedData = {
     _type: "faqSection" as const,
-    title: faqData.title,
+    title: faqData.title ?? undefined,
     faqItems: faqData.faqItems,
   };
 

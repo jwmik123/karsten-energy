@@ -9,11 +9,11 @@ import PortableText from "@/app/components/PortableText";
 // Define inline type instead of importing from sanity.types
 type FaqSectionSchema = {
   _type: "faqSection";
-  title?: string;
+  title?: string | null;
   faqItems?: Array<{
-    question: string;
-    answer: Array<PortableTextBlock>;
-  }>;
+    question: string | null;
+    answer: any;
+  }> | null;
 };
 
 type FaqProps = {
