@@ -105,6 +105,50 @@ export const pagesSlugs = defineQuery(`
   {"slug": slug.current}
 `);
 
+export const homepageSettingsQuery = defineQuery(`
+  *[_type == "settings"][0]{
+    title,
+    description,
+    heroSlider {
+      slides[] {
+        _key,
+        title,
+        description,
+        image,
+        button {
+          text,
+          link
+        }
+      },
+      slideDuration
+    },
+    ogImage
+  }
+`);
+
+export const heroSectionQuery = defineQuery(`
+  *[_type == "heroSection"] {
+    _id,
+    enabled,
+    imagePosition,
+    image,
+    subtitle,
+    title,
+    text,
+    button
+  }
+`);
+
+export const homepageFaqQuery = defineQuery(`
+  *[_type == "homepageFaq"][0] {
+    title,
+    faqItems[] {
+      question,
+      answer
+    }
+  }
+`);
+
 export const allServicesQuery = defineQuery(`
   *[_type == "service" && defined(slug.current)] | order(_id desc) {
     _id,

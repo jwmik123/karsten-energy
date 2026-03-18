@@ -6,8 +6,7 @@ import { StaggeredWords } from "../utils/animations";
 import gsap from "gsap";
 import { HeroSlide, HeroSlider } from "../types/hero";
 import ReviewBadge from "./ReviewBadge";
-import imageUrlBuilder from "@sanity/image-url"; // Import the official Sanity image URL builder
-import { client } from "../lib/sanity";
+import { urlForImage } from "@/sanity/lib/utils";
 
 interface LandingImageProps {
   heroSlider?: HeroSlider;
@@ -23,15 +22,6 @@ export default function LandingImage({ heroSlider }: LandingImageProps) {
   const nextBgRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Initialize the Sanity image URL builder
-  // You'll need to replace 'your-project-id' with your actual Sanity project ID
-  const builder = imageUrlBuilder(client);
-
-  // Function to generate image URLs with cropping applied
-  const urlForImage = (source: any) => {
-    return builder.image(source);
-  };
-
   const slides = heroSlider?.slides || [];
   const slideDuration = (heroSlider?.slideDuration || 5) * 1000;
 
@@ -41,10 +31,11 @@ export default function LandingImage({ heroSlider }: LandingImageProps) {
     // Use Sanity's image URL builder to include cropping parameters
     // The crop and hotspot values will be automatically applied if they exist in the imageData
     const imageUrl = urlForImage(imageData)
-      .width(1920)
+      ?.width(1920)
       .auto("format")
       .quality(80)
       .url();
+    if (!imageUrl) return;
 
     nextBgRef.current.style.backgroundImage = `url('${imageUrl}')`;
 
@@ -100,10 +91,11 @@ export default function LandingImage({ heroSlider }: LandingImageProps) {
     if (currentBgRef.current && firstSlideImage) {
       // Use Sanity's image URL builder to include cropping parameters
       const imageUrl = urlForImage(firstSlideImage)
-        .width(1920)
+        ?.width(1920)
         .auto("format")
         .quality(80)
         .url();
+      if (!imageUrl) return;
 
       currentBgRef.current.style.backgroundImage = `url('${imageUrl}')`;
       gsap.set(currentBgRef.current, { opacity: 1 });

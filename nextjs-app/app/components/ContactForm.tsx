@@ -145,7 +145,7 @@ export default function ContactForm() {
 
         {submitStatus.success ? (
           <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-            {submitStatus.message}
+            Bedankt voor uw aanvraag, we zullen zo snel mogelijk contact met u opnemen!
           </div>
         ) : submitStatus.message ? (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
@@ -156,6 +156,9 @@ export default function ContactForm() {
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Voornaam <span className="text-red-600">*</span>
+              </label>
               <input
                 type="text"
                 name="firstName"
@@ -167,6 +170,9 @@ export default function ContactForm() {
               />
             </div>
             <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Achternaam <span className="text-red-600">*</span>
+              </label>
               <input
                 type="text"
                 name="lastName"
@@ -178,6 +184,9 @@ export default function ContactForm() {
               />
             </div>
             <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                E-mail <span className="text-red-600">*</span>
+              </label>
               <input
                 type="email"
                 name="email"
@@ -189,6 +198,9 @@ export default function ContactForm() {
               />
             </div>
             <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Telefoonnummer <span className="text-red-600">*</span>
+              </label>
               <input
                 type="tel"
                 name="phone"

@@ -1,21 +1,9 @@
-import { client } from "@/sanity/lib/client";
+import { sanityFetch } from "@/sanity/lib/live";
+import { heroSectionQuery } from "@/sanity/lib/queries";
 import { urlForImage } from "@/sanity/lib/utils";
 import { PortableText, PortableTextBlock } from "@portabletext/react";
 import Link from "next/link";
-import { groq } from "next-sanity";
 import AnimatedHeroImage from "./AnimatedHeroImage";
-
-// Define the GROQ query to fetch all hero section data
-const HERO_SECTION_QUERY = groq`*[_type == "heroSection"] {
-  _id,
-  enabled,
-  imagePosition,
-  image,
-  subtitle,
-  title,
-  text,
-  button
-}`;
 
 // Define the type for the fetched data (consider generating this with sanity-typegen)
 interface HeroSectionData {
@@ -105,9 +93,7 @@ function HeroSectionItem({ data }: { data: HeroSectionData }) {
 }
 
 export default async function HeroSection() {
-  // Fetch all hero sections data in a server component
-  const heroSections =
-    await client.fetch<HeroSectionData[]>(HERO_SECTION_QUERY);
+  const { data: heroSections } = await sanityFetch({ query: heroSectionQuery });
 
   if (!heroSections || heroSections.length === 0) {
     // Handle the case where no hero section data is found
@@ -117,7 +103,7 @@ export default async function HeroSection() {
 
   // Filter out disabled hero sections
   const enabledHeroSections = heroSections.filter(
-    (section) => section.enabled !== false
+    (section: HeroSectionData) => section.enabled !== false
   );
 
   if (enabledHeroSections.length === 0) {
@@ -128,7 +114,7 @@ export default async function HeroSection() {
 
   return (
     <>
-      {enabledHeroSections.map((section) => (
+      {enabledHeroSections.map((section: HeroSectionData) => (
         <HeroSectionItem key={section._id} data={section} />
       ))}
     </>

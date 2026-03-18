@@ -1,4 +1,4 @@
-import { client } from "@/sanity/lib/client";
+import { sanityFetch } from "@/sanity/lib/live";
 import { allServicesQuery } from "@/sanity/lib/queries";
 import ServiceCarousel from "./ServiceCarousel";
 import ServiceGrid from "./ServiceGrid";
@@ -81,9 +81,8 @@ export default async function ServicesSection({
   let services: any[] = [];
 
   try {
-    if (client) {
-      services = await client.fetch(allServicesQuery);
-    }
+    const { data } = await sanityFetch({ query: allServicesQuery });
+    services = data;
   } catch (error) {
     console.error("Error fetching services from Sanity:", error);
   }

@@ -1,4 +1,3 @@
-import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/utils";
 import { PortableText, PortableTextBlock } from "@portabletext/react";
 import Link from "next/link";

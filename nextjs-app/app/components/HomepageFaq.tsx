@@ -1,20 +1,11 @@
 import { Suspense } from "react";
 
 import FaqSection from "@/app/components/FaqSection";
-import { client } from "@/sanity/lib/client";
-
-// Query to fetch the homepage FAQ data
-const homepageFaqQuery = `*[_type == "homepageFaq"][0] {
-  title,
-  faqItems[] {
-    question,
-    answer
-  }
-}`;
+import { sanityFetch } from "@/sanity/lib/live";
+import { homepageFaqQuery } from "@/sanity/lib/queries";
 
 async function HomepageFaqContent() {
-  // Fetch the homepage FAQ data
-  const faqData = await client.fetch(homepageFaqQuery);
+  const { data: faqData } = await sanityFetch({ query: homepageFaqQuery });
 
   // If there's no FAQ data or no FAQ items, don't render anything
   if (!faqData || !faqData.faqItems || faqData.faqItems.length === 0) {

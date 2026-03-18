@@ -5,12 +5,12 @@ import ServicesSection from "./components/ServicesSection";
 import EnergyCtaSection from "./components/EnergyCtaSection";
 import HomepageFaq from "./components/HomepageFaq";
 import ReviewsSection from "./components/ReviewsSection";
-import { getSettings } from "./lib/sanity";
+import { sanityFetch } from "@/sanity/lib/live";
+import { homepageSettingsQuery } from "@/sanity/lib/queries";
 import WhyKarsten from "./components/WhyKarsten";
 import Image from "next/image";
 export default async function Page() {
-  // Fetch settings data
-  const settingsData = await getSettings();
+  const { data: settingsData } = await sanityFetch({ query: homepageSettingsQuery });
 
   return (
     <>
