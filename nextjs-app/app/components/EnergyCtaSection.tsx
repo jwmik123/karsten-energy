@@ -34,7 +34,7 @@ export default function EnergyCtaSection() {
         </Link>
 
         {/* Groeno Logo - using Karsten logo as fallback */}
-        <div className="absolute bottom-8 right-8">
+        {/* <div className="absolute bottom-8 right-8">
           <Image
             src="/groeno-logo.png"
             alt="Groeno Energy Partner"
@@ -42,7 +42,7 @@ export default function EnergyCtaSection() {
             height={50}
             className="object-contain p-2 rounded-md"
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );
