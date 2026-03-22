@@ -35,14 +35,16 @@ export default function ContactForm() {
       return "Ongeldig telefoonnummer";
     }
 
-    // Basic postal code validation (Dutch format)
-    const postalCodeRegex = /^[1-9][0-9]{3}\s?[a-zA-Z]{2}$/;
-    if (!postalCodeRegex.test(formData.postalCode)) {
-      return "Ongeldige postcode (gebruik formaat: 1234 AB)";
+    // Basic postal code validation (Dutch format) - only if provided
+    if (formData.postalCode) {
+      const postalCodeRegex = /^[1-9][0-9]{3}\s?[a-zA-Z]{2}$/;
+      if (!postalCodeRegex.test(formData.postalCode)) {
+        return "Ongeldige postcode (gebruik formaat: 1234 AB)";
+      }
     }
 
-    // Check if house number is numeric
-    if (!/^\d+[a-zA-Z]*$/.test(formData.houseNumber)) {
+    // Check if house number is numeric - only if provided
+    if (formData.houseNumber && !/^\d+[a-zA-Z]*$/.test(formData.houseNumber)) {
       return "Ongeldig huisnummer";
     }
 
@@ -219,7 +221,6 @@ export default function ContactForm() {
                 onChange={handleChange}
                 placeholder="Adres"
                 className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
               />
             </div>
             <div className="md:col-span-1">
@@ -230,7 +231,6 @@ export default function ContactForm() {
                 onChange={handleChange}
                 placeholder="Huisnummer"
                 className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
               />
             </div>
             <div>
@@ -241,7 +241,6 @@ export default function ContactForm() {
                 onChange={handleChange}
                 placeholder="Postcode (1234 AB)"
                 className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
                 maxLength={7}
               />
             </div>
@@ -253,7 +252,6 @@ export default function ContactForm() {
                 onChange={handleChange}
                 placeholder="Plaats"
                 className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
               />
             </div>
           </div>
@@ -266,7 +264,6 @@ export default function ContactForm() {
               placeholder="Opmerking / vraag"
               rows={5}
               className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
             ></textarea>
           </div>
 
