@@ -149,11 +149,7 @@ export default function Footer() {
                   Airco&apos;s
                 </Link>
               </li>
-              <li>
-                <Link href="/groeno-energie" className="hover:underline">
-                  Groeno energie
-                </Link>
-              </li>
+           
             </ul>
           </div>
 
@@ -200,11 +196,7 @@ export default function Footer() {
                   Airco&apos;s
                 </Link>
               </li>
-              <li>
-                <Link href="/groeno-energie" className="hover:underline">
-                  Groeno energie
-                </Link>
-              </li>
+            
             </ul>
           </div>
 
