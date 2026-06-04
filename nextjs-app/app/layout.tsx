@@ -22,6 +22,7 @@ import { resolveOpenGraphImage } from "@/sanity/lib/utils";
 import { handleError } from "./client-utils";
 
 import SmoothScroll from "./components/SmoothScroll";
+import LayoutChrome from "./components/LayoutChrome";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { data: settings } = await sanityFetch({
@@ -86,10 +87,17 @@ export default async function RootLayout({
             )}
             {/* The <SanityLive> component is responsible for making all sanityFetch calls in your application live, so should always be rendered. */}
             <SanityLive onError={handleError} />
-            <Header />
-            <MobileHeader />
-            <main className="">{children}</main>
-            <Footer />
+            <LayoutChrome
+              header={
+                <>
+                  <Header />
+                  <MobileHeader />
+                </>
+              }
+              footer={<Footer />}
+            >
+              {children}
+            </LayoutChrome>
           </section>
           <SpeedInsights />
         </SmoothScroll>
