@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ContactFormClient from "./ContactFormClient";
 import Link from "next/link";
+import Breadcrumbs from "@/app/components/Breadcrumbs";
 
 export default function ContactPage() {
   return (
@@ -27,6 +28,8 @@ export default function ContactPage() {
           </p>
         </div>
       </section>
+
+      <Breadcrumbs />
 
       {/* Contact Section with Form and Info */}
       <section className="py-16 bg-white">

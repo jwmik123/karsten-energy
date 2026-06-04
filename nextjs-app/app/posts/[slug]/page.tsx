@@ -7,6 +7,7 @@ import Avatar from "@/app/components/Avatar";
 import CoverImage from "@/app/components/CoverImage";
 import { MorePosts } from "@/app/components/Posts";
 import PortableText from "@/app/components/PortableText";
+import Breadcrumbs from "@/app/components/Breadcrumbs";
 import { sanityFetch } from "@/sanity/lib/live";
 import { postPagesSlugs, postQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
@@ -73,7 +74,8 @@ export default async function PostPage(props: Props) {
 
   return (
     <>
-      <div className="">
+      <div className="pt-24 md:pt-32">
+        <Breadcrumbs />
         <div className="container my-12 lg:my-24 grid gap-12">
           <div>
             <div className="pb-6 grid gap-6 mb-6 border-b border-gray-100">

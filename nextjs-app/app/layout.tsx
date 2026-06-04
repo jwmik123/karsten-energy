@@ -1,7 +1,6 @@
 import "./globals.css";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { GoogleAnalytics } from "@next/third-parties/google";
 
 
 import type { Metadata } from "next";
@@ -15,6 +14,7 @@ import Footer from "@/app/components/Footer";
 import Header from "./components/Header";
 import MobileHeader from "./components/MobileHeader";
 import GoogleTagManager from "./components/GoogleTagManager";
+import CookieConsent from "./components/CookieConsent";
 import * as demo from "@/sanity/lib/demo";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { settingsQuery } from "@/sanity/lib/queries";
@@ -71,8 +71,9 @@ export default async function RootLayout({
   const { isEnabled: isDraftMode } = await draftMode();
 
   return (
-    <html lang="en" className={`${inter.variable} bg-white text-black`}>
+    <html lang="nl" className={`${inter.variable} bg-white text-black`}>
       <body>
+        <CookieConsent cbid={process.env.NEXT_PUBLIC_COOKIEBOT_CBID || ""} />
         <GoogleTagManager gtmId="GTM-K52T96K2" />
         <SmoothScroll>
           <section className="min-h-screen">
@@ -101,7 +102,6 @@ export default async function RootLayout({
           </section>
           <SpeedInsights />
         </SmoothScroll>
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || ""} />
       </body>
     </html>
   );

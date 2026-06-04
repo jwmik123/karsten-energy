@@ -95,7 +95,7 @@ async function submitTo2Solar(formData: any) {
     first_name: formData.firstName.trim(),
     last_name: formData.lastName.trim(),
     email: formData.email.trim(),
-    phone: formattedPhone,
+    mobile: formattedPhone,
     postcode: formattedPostcode,
     city: city.trim(),
     address: address.trim(),

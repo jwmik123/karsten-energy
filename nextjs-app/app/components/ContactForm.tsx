@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { trackEvent } from "./MetaPixel";
 
 export default function ContactForm() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -105,21 +107,9 @@ export default function ContactForm() {
           page_path: window.location.pathname,
         });
 
-        setSubmitStatus({
-          success: true,
-          message: "Bedankt! Uw aanvraag is verzonden.",
-        });
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          address: "",
-          houseNumber: "",
-          postalCode: "",
-          city: "",
-          message: "",
-        });
+        // Redirect to thank-you page on success
+        router.push("/bedankt");
+        return;
       } else {
         setSubmitStatus({
           success: false,
@@ -145,11 +135,7 @@ export default function ContactForm() {
           Vraag een offerte aan
         </h2>
 
-        {submitStatus.success ? (
-          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-            Bedankt voor uw aanvraag, we zullen zo snel mogelijk contact met u opnemen!
-          </div>
-        ) : submitStatus.message ? (
+        {submitStatus.message ? (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
             {submitStatus.message}
           </div>

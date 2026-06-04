@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import Breadcrumbs from "@/app/components/Breadcrumbs";
 
 export default function AlgemeneVoorwaardenPage() {
   return (
@@ -14,6 +15,8 @@ export default function AlgemeneVoorwaardenPage() {
           </h1>
         </div>
       </section>
+
+      <Breadcrumbs />
 
       <div className="container mx-auto px-4 prose max-w-none mt-12">
         <p className="mb-6">
