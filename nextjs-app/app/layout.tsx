@@ -14,7 +14,6 @@ import Footer from "@/app/components/Footer";
 import Header from "./components/Header";
 import MobileHeader from "./components/MobileHeader";
 import GoogleTagManager from "./components/GoogleTagManager";
-import CookieConsent from "./components/CookieConsent";
 import * as demo from "@/sanity/lib/demo";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { settingsQuery } from "@/sanity/lib/queries";
@@ -73,7 +72,6 @@ export default async function RootLayout({
   return (
     <html lang="nl" className={`${inter.variable} bg-white text-black`}>
       <body>
-        <CookieConsent cbid={process.env.NEXT_PUBLIC_COOKIEBOT_CBID || ""} />
         <GoogleTagManager gtmId="GTM-K52T96K2" />
         <SmoothScroll>
           <section className="min-h-screen">
