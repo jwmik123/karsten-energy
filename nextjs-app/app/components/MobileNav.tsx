@@ -159,7 +159,7 @@ export default function MobileNav({ onMenuStateChange }: MobileNavProps) {
             <div className="flex items-center gap-2 mb-6">
               <Phone size={24} className="text-white" />
               <span className="text-lg font-semibold text-white">
-                <Link href="tel:+310858000611">+31 085 8000 611</Link>
+                <Link href="tel:0858000611">085 8000 611</Link>
               </span>
             </div>
             <Link
