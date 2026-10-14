@@ -67,7 +67,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <Link href="tel:0858000611" className="text-gray-600">
-                      085-8000 611
+                      085 8000 611
                     </Link>
                   </div>
                 </div>
