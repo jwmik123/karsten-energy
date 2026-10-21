@@ -2,7 +2,6 @@ import LandingImage from "./components/LandingImage";
 import HeroSection from "./components/HeroSection";
 import StaggeringText from "./components/StaggeringText";
 import ServicesSection from "./components/ServicesSection";
-import EnergyCtaSection from "./components/EnergyCtaSection";
 import HomepageFaq from "./components/HomepageFaq";
 import ReviewsSection from "./components/ReviewsSection";
 import { sanityFetch } from "@/sanity/lib/live";
@@ -19,7 +18,6 @@ export default async function Page() {
       <HeroSection />
       <WhyKarsten />
       <ServicesSection layout="grid" />
-      <EnergyCtaSection />
       <ReviewsSection />
       <HomepageFaq />
       {/* Full-width Image Section */}
